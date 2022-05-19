@@ -1,0 +1,105 @@
+{% assign title = section.settings.title %}
+{% assign text = section.settings.text %}
+{% assign wave_shape = section.settings.wave_shape %}
+{% assign image_left = section.settings.image_left %}
+{% assign image_right = section.settings.image_right %}
+
+
+<div class="instagram-feed text-center {% if wave_shape == true %}has-wave{% endif %}" data-section-id="{{ section.id }}" data-aos="fade-up">
+  {% if wave_shape == true %}
+    {% include 'wave' %}
+  {% endif %}
+  
+  <div class="container-fluid-max">
+
+    <div class="instagram-images-container row justify-content-center align-items-start">
+
+      {% if image_left != blank %}
+        <div class="instagram-image instagram-image--left col-md-4">
+          <div class="frame frame--1x1">
+            {% include 'image_tag'
+              image: image_left,
+              object_fit: 'cover' 
+            %}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if image_right %}
+        <div class="instagram-image instagram-image--right col-md-4 offset-md-1">
+          <div class="frame frame--1x1">
+            {% include 'image_tag'
+              image: image_right,
+              object_fit: 'cover'  
+            %}
+          </div>
+        </div>
+      {% endif %}
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-10">
+        
+        {% if title != blank %}
+          <h2 class="instagram-feed__title">{{ title }}</h2>
+        {% endif %}
+
+        {% if text != blank%}
+          <div class="instagram-feed__text p1">{{ text }}</div>
+        {% endif %}
+      </div>
+
+      <div class="col-md-12">
+        <div id="insta-feed"></div>
+      </div>   
+
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Instagram Feed",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Content"
+      },
+      {
+        "id": "title",
+        "type": "text",
+        "label": "Title"
+      },
+      {
+        "id": "text",
+        "type": "textarea",
+        "label": "Text"
+      },
+      {
+        "type": "checkbox",
+        "id": "wave_shape",
+        "label": "Show Wave Shape",
+        "default": false
+      },
+      {
+        "type": "header",
+        "content": "Images"
+      },
+      {
+        "id": "image_left",
+        "type": "image_picker",
+        "label": "Image - Left"
+      },
+      {
+        "id": "image_right",
+        "type": "image_picker",
+        "label": "Image - Rigt"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Instagram Feed",
+        "category": "Misc"
+      }
+    ]   
+  }
+{% endschema %}

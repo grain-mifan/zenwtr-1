@@ -1,0 +1,41 @@
+{% assign title = section.settings.title %}
+{% assign text = section.settings.text %}
+
+<div class="three-up-icons-text three-up-icons-text--our-water" data-aos="fade-up">
+  <div class="container-fluid-max">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6">
+        {% if title != blank %}
+          <h3 class="three-up__title">{{ title }}</h3>
+        {% endif %}
+
+        {% if text != blank %}
+          <div class="three-up__text p2">{{ text }}</div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Text Banner",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Text Banner"
+      },
+      {
+        "type": "richtext",
+        "id": "title",
+        "label": "Title",
+        "info": "Bold text appears blue."
+      },
+      {
+        "type": "richtext",
+        "id": "text",
+        "label": "Text"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,115 @@
+{% assign title = section.settings.title %}
+{% assign text = section.settings.text %}
+{% assign background = section.settings.background %}
+
+{% if section.settings.background_mobile != blank %}
+  {% assign background_mobile = section.settings.background_mobile %}
+{% else %}
+  {% assign background_mobile = section.settings.background %}
+{% endif %}
+
+<div class="sign-up-footer" data-below-process>
+  <div class="container-fluid-max">
+    <div class="row justify-content-center">
+      <div class="col-md-10 col-lg-6">
+        {% if title != blank %}
+          <h3 class="sign-up__title">{{ title}}</h3>
+        {% endif %}
+
+        {% if text != blank %}
+          <div class="sign-up__content p1">{{ text}}</div>
+        {% endif %}
+
+        
+        
+        
+        
+        <div class="sign-up__content p1">
+        <ul class="footer-social-list">
+          <li>
+            <a href="https://instagram.com/drinkzenwtr" title="ZENWTR on Instagram" target="_blank">
+              <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-instagram" viewBox="0 0 20 20"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.996 1.72c2.67 0 2.984.01 4.04.056.976.042 1.504.197 1.857.33.468.174.801.379 1.15.712.35.333.568.651.747 1.098.135.337.301.841.345 1.773.047 1.007.06 1.306.06 3.855 0 2.55-.012 2.848-.06 3.856-.044.932-.206 1.435-.345 1.772a2.952 2.952 0 0 1-.746 1.099c-.35.333-.683.541-1.151.712-.353.129-.881.288-1.857.33-1.056.045-1.37.056-4.04.056s-2.984-.011-4.04-.057c-.976-.041-1.504-.197-1.857-.33a3.12 3.12 0 0 1-1.15-.711 2.905 2.905 0 0 1-.747-1.099c-.135-.337-.301-.84-.345-1.772-.047-1.008-.06-1.307-.06-3.856s.013-2.848.06-3.855c.044-.932.206-1.436.345-1.773.183-.447.397-.765.746-1.098.35-.333.683-.542 1.151-.712.353-.129.881-.288 1.857-.33 1.056-.049 1.373-.056 4.04-.056zm0-1.72C7.282 0 6.94.011 5.873.057 4.81.102 4.083.265 3.448.5a4.902 4.902 0 0 0-1.77 1.102 4.717 4.717 0 0 0-1.154 1.69C.278 3.896.107 4.59.06 5.608.012 6.624 0 6.95 0 9.541c0 2.59.012 2.916.06 3.935.047 1.015.218 1.708.464 2.318.254.628.599 1.159 1.155 1.689.555.53 1.115.856 1.77 1.102.634.235 1.36.398 2.428.443 1.067.046 1.405.057 4.123.057s3.056-.011 4.123-.057c1.064-.045 1.79-.208 2.429-.443a4.902 4.902 0 0 0 1.77-1.102 4.717 4.717 0 0 0 1.154-1.69c.246-.605.417-1.298.465-2.317.047-1.02.059-1.341.059-3.935 0-2.595-.012-2.917-.06-3.936-.047-1.015-.218-1.708-.464-2.317a4.635 4.635 0 0 0-1.155-1.69 4.987 4.987 0 0 0-1.77-1.102c-.634-.235-1.36-.398-2.428-.443C13.052.011 12.71 0 9.996 0zm0 4.642c-2.833 0-5.135 2.194-5.135 4.902 0 2.709 2.298 4.902 5.135 4.902 2.837 0 5.135-2.193 5.135-4.902 0-2.708-2.298-4.902-5.135-4.902zm0 8.08c-1.841 0-3.333-1.424-3.333-3.182 0-1.757 1.492-3.182 3.333-3.182 1.841 0 3.333 1.425 3.333 3.182 0 1.758-1.492 3.183-3.333 3.183zm6.536-8.277c0 .632-.537 1.144-1.199 1.144s-1.198-.512-1.198-1.144c0-.632.536-1.144 1.198-1.144.662 0 1.199.512 1.199 1.144z" fill="#000"/></svg>
+              <span class="icon-fallback-text">Instagram</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://facebook.com/drinkzenwtr" title="ZENWTR on Facebook" target="_blank">
+              <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-facebook" viewBox="0 0 20 20"><path fill-rule="evenodd" clip-rule="evenodd" d="M10 0c5.523 0 10 4.331 10 9.676 0 4.83-3.656 8.832-8.438 9.558v-6.762h2.33l.444-2.796h-2.774V7.862c0-.766.387-1.512 1.63-1.512h1.261V3.969s-1.144-.19-2.238-.19c-2.285 0-3.777 1.34-3.777 3.765v2.132h-2.54v2.796h2.54v6.762C3.655 18.508 0 14.506 0 9.676 0 4.33 4.477 0 10 0z" fill="#000"/></svg>
+              <span class="icon-fallback-text">Facebook</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://twitter.com/drinkzenwtr" title="ZENWTR on Twitter" target="_blank">
+              <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-twitter" viewBox="0 0 20 20"><path fill-rule="evenodd" clip-rule="evenodd" d="M20 9.675c0 5.344-4.477 9.676-10 9.676S0 15.019 0 9.675C0 4.332 4.477 0 10 0s10 4.332 10 9.675zm-4.97-1.533c0 3.081-2.425 6.637-6.86 6.637a6.88 6.88 0 0 1-3.685-1.055 4.95 4.95 0 0 0 3.57-.963c-1.055-.019-1.945-.691-2.25-1.62a2.48 2.48 0 0 0 1.09-.039C5.79 10.885 4.96 9.946 4.96 8.814v-.029c.325.174.695.28 1.09.29a2.304 2.304 0 0 1-1.075-1.94c0-.425.12-.827.325-1.17a6.918 6.918 0 0 0 4.97 2.438 2.072 2.072 0 0 1-.065-.532c0-1.287 1.08-2.332 2.41-2.332.695 0 1.32.28 1.76.735.55-.106 1.065-.3 1.53-.566A2.347 2.347 0 0 1 14.845 7c.49-.058.955-.184 1.385-.368-.325.47-.735.88-1.205 1.21.005.096.005.198.005.3z" fill="#000"/></svg>
+              <span class="icon-fallback-text">Twitter</span>
+            </a>
+          </li>
+        </ul>
+        </div>
+        
+        
+        
+        
+        {% if settings.klaviyo_form == blank %}
+          <div class="alert alert-danger small">A valid form class is required for this section. Please go to <strong>General Settings -> Klaviyo</strong> in the theme editor to add this information</div>
+        {% else %}
+          <div class="sign-up__form">
+            <div class="{{ settings.klaviyo_form }}"></div>
+          </div>
+        {% endif %}  
+        
+      </div>
+    </div>
+  </div>
+  
+  {% if background != blank %}
+    <div class="sign-up__background">
+      {% include 'image_tag'
+        image: background,
+        object_fit: 'cover'
+        image_class: 'desktop'   
+      %}  
+      
+      {% if background_mobile != blank %}
+        {% include 'image_tag'
+          image: background_mobile,
+          object_fit: 'cover'
+          image_class: 'mobile'  
+        %}
+      {% endif %}
+    </div>
+  {% endif %}
+</div>
+
+
+{% schema %}
+  {
+    "name": "Sign Up Footer",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Sign Up Footer"
+      },
+      {
+        "type": "richtext",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "textarea",
+        "id": "text",
+        "label": "Text"
+      },
+      {
+        "type": "image_picker",
+        "id": "background",
+        "label": "Background - Desktop"
+      },
+      {
+        "type": "image_picker",
+        "id": "background_mobile",
+        "label": "Background - Mobile"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,111 @@
+{% if template.name contains 'article' %}
+  {% assign invert_header = article.metafields.custom_fields["invert_header_color"] %}
+{% elsif template.name contains 'blog' %}
+  {% assign invert_header = blog.metafields.custom_fields["invert_header_color"]%}
+{% elsif template.name contains 'collection' %}
+  {% assign invert_header = 1 %}
+{% elsif template contains 'customers' %}
+  {% assign invert_header = 1 %}
+{% elsif template.name contains 'product' %}
+  {% assign invert_header = 1 %}
+{% elsif template.name contains 'cart' %}
+  {% assign invert_header = 1 %}
+{% elsif template == blank %}
+  {% assign invert_header = 1 %}
+{% else %}
+  {% assign invert_header = page.metafields.custom_fields['invert_header_color'] %}
+{% endif %}
+
+<div data-section-id="{{ section.id }}" data-section-type="header">
+
+  <header class="header {% if invert_header == 1 %}header--dark{% endif %}" role="banner" data-header>
+    <div class="header-container">
+      <div class="row">
+        {% comment %} Logo {% endcomment %}
+        <div class="header-nav header-nav--left header-nav--logo col-md-2">
+          <div class="logo-container">
+            <a href="/">
+              {% include 'icon-logo-white--full-color' %}
+            </a>
+          </div>
+        </div>
+
+        {% comment %} Main Menu {% endcomment %}
+        <div class="header-nav header-nav--center header-nav--hide-on-mobile col-lg-10 col-xl-8 offset-xl-2">
+          <ul class="header-nav__menu ">
+            {% for block in section.blocks %}
+              {% if block.settings.url != blank and block.settings.title != blank %}
+                <li class="header-nav__menu-item h5 {% if page.url == block.settings.url %}is-active{% endif %}" {{ block.shopify_attributes }}>
+                  <a href="{{ block.settings.url }}" {% if has_dropdown %}data-block="{{ block.id }}" data-dropdown-trigger="#{{ dropdown_id }}"{% endif %}>
+                    {{ block.settings.title }}          
+                  </a>
+                </li>
+              {% endif %}
+            {% endfor %}
+            {% if template.name contains 'collection' or template.name contains 'product' %}
+            	<li class="header-nav__menu-item h5">
+                  <a href="/checkout">
+                    Checkout          
+                  </a>
+                </li>
+            {% endif %}
+            <li class="header-nav__menu-item h5 {% if template contains "customers" %}is-active{%endif %}">
+              {% if customer %}
+              <a href="/account">Account</a>
+              {% else %}
+              <a href="/account/login">Login</a>
+              {% endif %}
+            </li>
+          </ul>
+        </div>
+
+        {% comment %} Header nav on mobile size screens - search, account, hamburger {% endcomment %}
+        <div class="header-nav header-nav--right header-nav--hide-on-desktop">
+          
+          {% include 'header-menu-mobile' %}
+
+        </div>
+      </div>
+    </div>
+
+    {{ dropdowns_html }}
+    
+  </header>
+</div>
+
+{% schema %}
+  {
+    "name": "Header",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "cart",
+        "label": "Show Cart",
+        "default": true
+      }
+    ],
+    "blocks": [
+      {
+        "type": "nav_item",
+        "name": "Navigation Item",
+        "settings": [
+          {
+             "type": "header",
+             "content": "Info",
+             "info": "A title and a link are required for each navigation item."
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "url",
+            "id": "url",
+            "label": "Link"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

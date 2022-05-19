@@ -1,0 +1,103 @@
+{% assign title = section.settings.title %}
+{% assign cta_url = section.settings.cta_url %}
+{% assign cta_text = section.settings.cta_text %}
+
+<div data-section-id="{{ section.id }}" class="logo-carousel" data-section-type="logo-carousel" data-aos="fade-up" data-below-process>
+  <div class="container-fluid-max">
+
+    {% if title != blank %}
+      <div class="row logo-carousel__row justify-content-center">
+        <div class="col-12">
+          <div class="logo-carousel__title h3 text-center">{{ title }}</div>
+        </div>  
+      </div>
+    {% endif %}  
+
+    {% if section.blocks.size > 0 %}
+      <div class="row logo-carousel__row justify-content-center">
+        <div class="col-md-8 carousel-container {% if section.blocks.size > 4 %}carousel-container--not-carousel{% endif %}">
+          <div class="{% if section.blocks.size > 4 %}swiper-container{% endif %}" data-slideshow>
+            <div class="{% if section.blocks.size > 4 %}swiper-wrapper{% else %}not-carousel{% endif %}">
+              {% for block in section.blocks %}
+                {% assign logo = block.settings.logo %}
+                
+                {% if logo != blank %}
+                  <div class="logo-container {% if section.blocks.size > 4 %}swiper-slide{% endif %}">
+                    <div class="logo-carousel__logo frame frame--4x3">
+                      {% include 'image_tag'
+                        image: logo,
+                        object_fit: 'contain' 
+                      %}
+                    </div>
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        
+        {% if section.blocks.size > 4 %}
+          <span class="swiper-arrow swiper-arrow--left">
+            <span class="arrow arrow--left">
+              {% include 'icon-arrow' %}
+            </span>
+          </span>
+          <span class="swiper-arrow swiper-arrow--right">
+            <span class="arrow arrow--right">
+              {% include 'icon-arrow' %}
+            </span>
+          </span>
+        {% endif %}
+      </div>
+    {% endif %}  
+
+    {% if cta_text != blank and cta_url != blank %}
+      <div class="row logo-carousel__row justify-content-center">
+        <div class="logo-carousel__cta-container text-center col-12">
+          <a href="{{ cta_url }}" class="btn btn-primary">{{ cta_text }}</a>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Logo Carousel",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Content"
+      },
+      {
+        "type": "richtext",
+        "id": "title",
+        "label": "Title",
+        "info": "Bold texts appears as blue."
+      },
+      {
+        "type": "text",
+        "id": "cta_text",
+        "label": "CTA Text"
+      },
+      {
+        "type": "url",
+        "id": "cta_url",
+        "label": "CTA Link"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "store_logo",
+        "name": "Store Logo",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "logo",
+            "label": "Store Logo"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

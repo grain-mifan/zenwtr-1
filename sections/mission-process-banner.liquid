@@ -1,0 +1,116 @@
+{% assign title = section.settings.title %}
+{% assign text = section.settings.text %}
+{% assign cta_url = section.settings.cta_url %}
+{% assign cta_text = section.settings.cta_text %}
+{% assign white_background = section.settings.white_background %}
+
+{% if title != blank and section.blocks.size > 1 %}
+  <div class="process-banner {% if white_background == true %}process-banner--white-bg{% endif %}" data-section-type="process-banner">
+    <div class="container-fluid-max">
+      <div class="row row--our-process">
+        <div class="process-content col-md-5">   
+          {% if title != blank %}
+            <h2 class="process-banner__title">{{ title }}</h2>
+          {% endif %}
+
+          {% if text != blank %}
+            <div class="process-banner__text p2">{{ text }}</div>
+          {% endif %}
+
+          {% if cta_url != blank and cta_text != blank %}
+            <div class="process-banner__cta-container">
+              <a href="{{ cta_url }}" class="btn btn-primary btn-small">{{ cta_text }}</a>
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="process-carousel col-md-6 col-11 offset-md-1">
+          <div class="{% if section.blocks.size > 1 %}swiper-container{% endif %}" data-slideshow>
+            <div class="{% if section.blocks.size > 1 %}swiper-wrapper{% else %}not-carousel{% endif %}">
+              {% for block in section.blocks %}
+                {% assign icon = block.settings.icon %}
+                {% assign icon_text = block.settings.icon_text %}
+                
+                {% if icon != blank %}
+                  <div class="process-step {% if section.blocks.size > 1 %}swiper-slide{% endif %}">
+
+                    <div class="process-step__image frame frame--1x1">
+                      {% include 'image_tag'
+                        image: icon,
+                        object_fit: 'contain' 
+                      %}
+                    </div>
+                    
+                    {% if icon_text != blank %}
+                      <h3 class="process-step__copy text-center">{{ icon_text }}</h3>
+                    {% endif %}
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+          
+            <div class="swiper-arrows-wrapper">
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
+            </div>
+            
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Process Banner",
+    "settings": [
+      {
+        "type": "richtext",
+        "id": "title",
+        "label": "Title",
+        "info": "Bold text appears blue."
+      },
+      {
+        "type": "textarea",
+        "id": "text",
+        "label": "Text"
+      },
+      {
+        "type": "text",
+        "id": "cta_text",
+        "label": "CTA Text"
+      },
+      {
+        "type": "url",
+        "id": "cta_url",
+        "label": "CTA URL"
+      },
+      {
+        "type": "checkbox",
+        "id": "white_background",
+        "label": "Use white background on the content."
+      }
+    ],
+    "blocks": [
+      {
+        "type": "process_step",
+        "name": "Process Step",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "icon",
+            "label": "Icon"
+          },
+          {
+            "type": "richtext",
+            "id": "icon_text",
+            "label": "Icon Text",
+            "info": "Bold text appears blue."
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

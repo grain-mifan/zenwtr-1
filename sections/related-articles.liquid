@@ -1,0 +1,46 @@
+{% assign counter = 0 %}
+
+{% for tag in article.tags %}
+  {% if category_tag == blank %}
+    {% assign category_tag = tag %}
+  {% endif %}
+{% endfor %}
+
+{% capture article_list %}
+  {% for loop_article in blog.articles %}
+    {% if loop_article.tags contains category_tag and loop_article.handle != article.handle and counter <= 3 %}
+      <div class="content-grid__item">
+        {% include 'article-card', 
+                    article: loop_article, 
+                    show_tags: true,
+                    show_author: false, 
+                    show_date: false,
+                    show_excerpt: false 
+        %}
+        {% assign counter = counter | plus: 1 %}
+      </div>
+    {% endif %}
+  {% endfor %}
+{% endcapture %}
+
+{% if article_list != blank %}
+  <div class="related-articles">
+    <div class="container-fluid-max">
+      <div class="row">
+        <div class="col-sm-12">
+          <h3 class="article-grid__title text-center">More Stories</h3>
+          <div class="article-grid content-grid ">
+            {{ article_list }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Related Articles",
+    "settings": []
+  }
+{% endschema %}

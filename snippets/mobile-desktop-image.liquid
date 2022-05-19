@@ -1,0 +1,24 @@
+{%- comment -%}
+	Used for sections where mobile and desktop images can be different. 
+	If there is no mobile image, the desktop image will be used for both.
+
+	Accepts:
+	- image: {Object} Desktop image - Required
+	- mobile_image: {Object} Desktop image - Optional
+
+	Usage:
+	In your liquid template file, subheader the following line
+- {%- render 'mobile-desktop-image' 
+    image: section.settings.image, 
+    mobile_image: section.settings.mobile_image 
+  -%}
+{%- endcomment -%}
+
+<div class="img-wrapper{% if mobile_image != blank %} d-none d-lg-block{% endif %}">
+  {%- render 'image_tag' image: image, image_class: 'img-fluid' -%}
+</div>
+{%- if mobile_image != blank -%}
+  <div class="img-wrapper d-lg-none">  
+    {%- render 'image_tag' image: mobile_image, image_class: 'img-fluid' -%}
+  </div>
+{%- endif -%}

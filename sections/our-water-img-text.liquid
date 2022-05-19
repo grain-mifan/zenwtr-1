@@ -1,0 +1,67 @@
+{% assign header_text = section.settings.header_text %}
+{% assign text_content = section.settings.text_content %}
+{% assign image = section.settings.image %}
+{% assign mobile_image = section.settings.mobile_image %}
+
+<div class="water-img-text counter-banner py-md-5">
+  {% if wave_shape == true  and image == blank %}
+    {% include 'wave' %}
+  {% endif %}
+  <div class="container-fluid-max">
+    <div class="row justify-content-center">
+      <div class="counter-content {% if section.settings.img_mobile != blank %}col-12 col-md-6 {% else %} col-md-6{% endif %} align-self-center text-md-center">
+        <div class="header-text">{{header_text}}</div>
+        {% if text_content != blank %}
+          <div class="counter-banner__subtext p2">{{ text_content }}</div>
+        {% endif %}
+      </div>
+      {%- if section.settings.img_dt != blank -%}
+        <div class="col-6 {% if section.settings.img_mobile != blank %}d-none d-md-block{% endif %}">
+          <div class="image-container__image">
+            {% include 'image_tag'
+              image: section.settings.img_dt,
+              object_fit: 'contain'
+            %}
+          </div>
+        </div>
+        {%- if section.settings.img_mobile != blank -%}
+          <div class="col-12 d-md-none">
+            <div class="img-wrap">
+              {% include 'image_tag'
+                image: section.settings.img_mobile,
+                object_fit: 'contain'
+              %}
+            </div>
+          </div>
+        {%- endif -%}
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Image + Text",
+    "settings": [
+      {
+        "id": "header_text",
+        "type": "richtext",
+        "label": "Header Text"
+      },
+      {
+        "id": "text_content",
+        "type": "richtext",
+        "label": "Text Content"
+      },
+      {
+        "id": "img_dt",
+        "type": "image_picker",
+        "label": "Desktop Image"
+      },
+      {
+        "id": "img_mobile",
+        "type": "image_picker",
+        "label": "Mobile Image (optional)"
+      }
+    ]  
+  }
+{% endschema %}

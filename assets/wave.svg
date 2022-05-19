@@ -1,0 +1,7 @@
+<svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+  <defs>
+    <clipPath id="wave">
+      <path d="M0.00,95.22 C183.41,-174.17 297.40,229.44 500.00,49.98 L500.00,0.00 L0.00,0.00 Z" style="stroke: none; fill: #08f;"></path>
+    </clipPath>
+  </defs>
+</svg>

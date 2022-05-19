@@ -1,0 +1,167 @@
+{% assign title = section.settings.title %}
+{% assign text = section.settings.text %}
+{% assign content_image = section.settings.content_image %}
+{% assign cta_url = section.settings.cta_url %}
+{% assign cta_text = section.settings.cta_text %}
+
+{% assign overlap_image = section.settings.overlap_image %}
+{% assign background_image = section.settings.background_base %}
+
+{% if section.settings.background_small != blank %}
+  {% assign background_image_small = section.settings.background_small %}
+{% else %}
+  {% assign background_image_small = section.settings.background_base %}
+{% endif %}
+
+{% if section.settings.content_image_mobile != blank %}
+  {% assign content_image_mobile = section.settings.content_image_mobile %}
+{% else %}
+  {% assign content_image_mobile = section.settings.content_image %}
+{% endif %}
+
+
+<div data-section-id="{{ section.id }}" data-section-type="banner" class="banner banner--zw {% if overlap_image == true %}overlap{% endif %} {% if content_image != blank %} has-content-image{% endif %}" data-aos="fade-up">
+  
+  {% if background_image != blank %}
+    <div class="banner__background-image banner__background-image--mobile d-block d-md-none frame frame--16x9">
+      {% include 'image_tag'
+        image: background_image_small,
+        object_fit: 'cover'
+      %}
+    </div>
+  {% endif %}
+
+  <div class="container-fluid-max">
+    <div class="row justify-content-center align-items-center d-none d-md-flex">
+      <div class="col-md-6 text-left banner-content">
+        {% if title != blank %}
+          <div class="banner__title h2">{{ title }}</div>
+        {% endif %}
+        
+        {% if text != blank %}
+          <div class="banner__text p1">{{ text }}</div>
+        {% endif %}
+
+        {% if cta_url != blank and cta_text != blank %}
+          <a href="{{ cta_url }}" class="btn btn-primary">{{ cta_text }}</a>
+        {% endif %}
+      </div>
+      
+      {% if content_image != blank %}
+        <div class="banner-image-content {% if overlap_image == true %}col-md-7 col-lg-6{% else %}col-md-6{% endif %}">
+          {% include 'image_tag'
+            image: content_image,
+            object_fit: 'contain'
+
+          %}
+        </div>
+      {% endif %}
+    </div>
+
+    {% if background_image != blank %}
+      <div class="banner__background-image banner__background-image--desktop d-none d-md-block">
+        {% include 'image_tag'
+            image: background_image,
+            object_fit: 'cover'
+        %}
+      </div>
+    {% endif %}
+    
+    <div class="row justify-content-center align-items-center d-block d-md-none">
+      <div class="col-md-6 text-left banner-content text-center">
+
+        {% if content_image != blank %}
+          <div class="banner-image-content frame frame--16x9">
+            {% include 'image_tag'
+              image: content_image_mobile,
+              object_fit: 'cover'
+            %}
+          </div>
+        {% endif %}
+
+        {% if title != blank %}
+          <div class="banner__title h2">{{ title }}</div>
+        {% endif %}
+        
+        {% if text != blank %}
+          <div class="banner__text p1">{{ text }}</div>
+        {% endif %}
+
+        {% if cta_url != blank and cta_text != blank %}
+          <a href="{{ cta_url }}" class="btn btn-primary">{{ cta_text }}</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Banner",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Content"
+      },
+      {
+        "type": "richtext",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "textarea",
+        "id": "text",
+        "label": "Text",
+        "info": "Bold texts appears black."
+      },
+      {
+        "type": "text",
+        "id": "cta_text",
+        "label": "CTA Text"
+      },
+      {
+        "type": "url",
+        "id": "cta_url",
+        "label": "CTA Link"
+      },
+      {
+        "type": "image_picker",
+        "id": "content_image",
+        "label": "Content Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "content_image_mobile",
+        "label": "Content Image - Mobile"
+      },
+      {
+        "type": "checkbox",
+        "id": "overlap_image",
+        "label": "Overlap Conten Image",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Background - Desktop",
+        "info": "Main image will always be used. Mobile image will be displayed if they are set."
+      },
+      {
+        "type": "image_picker",
+        "id": "background_base",
+        "label": "Background Image - Desktop"
+      },
+      {
+        "type": "image_picker",
+        "id": "background_small",
+        "label": "Background Image - Mobile"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Banner",
+        "category": "Media",
+        "settings": {}
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,66 @@
+<div data-section-id="{{ section.id }}" data-section-type="mobile-menu">
+
+  <div class="drawer drawer--left header-mobile-menu" data-mobile-menu>
+    
+
+
+    <div class="drawer__inner">
+      <div class="drawer__header">
+        <a href="#" class="drawer__close" data-drawer-close>
+          {% include 'icon-close' %}
+        </a>   
+
+        <div class="logo-container">
+          {% include 'icon-logo-black--full-color' %}
+        </div>     
+      </div>
+      <div class="drawer__body">
+        <div class="drawer__body-contents">
+            <div class="xyz mobile-menu-block mobile-menu-block--primary">
+              {% if section.settings.primary_linklist and linklists[section.settings.primary_linklist].links.size > 0 %}
+                {% for link in linklists[section.settings.primary_linklist].links %}
+                  <div class="panel">
+                    <div class="expandable-list">
+                      <div class="expandable-list__header">
+                        <a href="{{ link.url }}" class="expandable-list__header-title h5">{{ link.title }}</a>                      
+                      </div>
+                    </div>
+                  </div>
+                {% endfor %}
+              {% endif %}
+              {% if template.name contains 'collection' or template.name contains 'product' %}
+                <div class="panel">
+                  <div class="expandable-list">
+                    <div class="expandable-list__header">
+                      <a href="/checkout" class="expandable-list__header-title h5">Checkout</a>                      
+                    </div>
+                  </div>
+              </div>
+            {% endif %}
+            </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="wave">
+      <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+        <path d="M0.00,95.22 C183.41,-174.17 297.40,229.44 500.00,49.98 L500.00,0.00 L0.00,0.00 Z" style="stroke: none; fill: #fff;"></path>
+      </svg>
+    </div>
+
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Mobile Menu",
+    "settings": [ 
+      {
+        "type": "link_list",
+        "id": "primary_linklist",
+        "label": "Mobile Menu"
+      }
+    ]
+  }
+{% endschema %}

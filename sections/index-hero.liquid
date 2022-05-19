@@ -1,0 +1,194 @@
+{% assign title = section.settings.title %}
+{% assign copy_desktop = section.settings.copy_desktop %}
+{% assign copy_mobile = section.settings.copy_mobile %}
+{% assign cta_url = section.settings.cta_url %}
+{% assign cta_text = section.settings.cta_text %}
+{% assign cover_image = section.settings.cover_image %}
+
+{% assign content_image_desktop = section.settings.content_image_desktop %}
+{% assign content_image_mobile = section.settings.content_image_mobile %}
+
+{% assign light_text = section.settings.light_text %}
+{% assign bg_video = section.settings.background %}
+
+<style>
+  @media (min-width: 768px) {
+    #video-player-{{ section.id }} iframe{
+      height: {{ section.settings.video_size | append: 'vw' }};
+    }
+  }
+</style>
+
+<div class="hero hero--index {% if light_text == true %}hero--light-text{% endif %}{% if bg_video == true %} hero--bg-video{% endif %}">
+  <div data-section-id="{{ section.id }}" data-section-type="video" class="hero-video">
+    <div id="video-player-{{ section.id }}" class="video-player" data-video-player data-video-id="{{ section.settings.video_url.id }}" data-video-type="{{ section.settings.video_url.type }}" data-background="true" data-embed-color="{{ section.settings.embed_color | remove: '#' }}">
+
+      {% if cover_image != blank and section.settings.video_url.id == blank %}
+        <div class="video-background-image">
+
+          {% include 'image_tag'
+            image: cover_image,
+            object_fit: 'cover' 
+          %}
+        </div>
+      {% else %}
+        <div class="video-player__embed" data-video-player-embed></div>
+        
+        <div class="video-background-image">
+
+          {% include 'image_tag'
+            image: cover_image,
+            object_fit: 'cover'  
+          %}
+        </div>
+      {% endif %}
+
+
+      {% comment %}Desktop Content{% endcomment %}
+      <div class="container-fluid-max hero-container d-none d-md-block">
+        <div class="row justify-content-center">
+          <div class="col-md-7">
+            {% if title != blank %}
+              <h1 class="hero-title h1">{{ title | remove: '<p>'  | remove: '</p>' }}</h1>
+            {% endif %}
+
+            {% if copy_desktop != blank %}
+              <div class="hero-copy hero-copy--desktop p1">{{ copy_desktop }}</div>
+            {% endif %}
+
+            {% if cta_url != blank and cta_text != blank %}
+              <div class="hero-cta-container text-center">
+                <a href="{{ cta_url }}" class="btn btn-primary">{{ cta_text }}</a>
+              </div>
+            {% endif %}
+            
+            <div class="hero-image-container">
+              {% if content_image_desktop != blank %}
+                <div class="hero-image hero-image--desktop frame frame--16x9">
+                  {% include 'image_tag'
+                    image: content_image_desktop,
+                    object_fit: 'contain' 
+                  %}
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-image-container col-12 d-md-none d-block">
+      {% if content_image_mobile != blank %}
+        <div class="hero-image hero-image--mobile frame frame--3x4">
+          {% include 'image_tag'
+            image: content_image_mobile,
+            object_fit: 'contain'  
+          %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+  
+  {% comment %}Mobile Content{% endcomment %}
+  <div class="container-fluid-max hero-container d-md-none d-block">
+    <div class="row justify-content-center">
+      <div class="col-md-9">
+        
+        {% if title != blank %}
+          <h1 class="hero-title h1">{{ title | remove: '<p>'  | remove: '</p>' }}</h1>
+        {% endif %}
+
+        {% if copy_mobile != blank %}
+          <div class="hero-copy hero-copy--mobile p1">{{ copy_mobile }}</div>
+        {% endif %}
+
+        {% if cta_url != blank and cta_text != blank %}
+          <div class="hero-cta-container text-center">
+            <a href="{{ cta_url }}" class="btn btn-primary">{{ cta_text }}</a>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Hero",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Hero Content"
+      },
+      {
+        "type": "richtext",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "textarea",
+        "id": "copy_desktop",
+        "label": "Text - Desktop"
+      },
+      {
+        "type": "textarea",
+        "id": "copy_mobile",
+        "label": "Text - Mobile"
+      },
+      {
+        "type": "checkbox",
+        "id": "light_text",
+        "label": "Light Text",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "cta_text",
+        "label": "CTA Text"
+      },
+      {
+        "type": "url",
+        "id": "cta_url",
+        "label": "CTA URL"
+      },
+      {
+        "type": "image_picker",
+        "id": "content_image_desktop",
+        "label": "Image - Desktop"
+      },
+      {
+        "type": "image_picker",
+        "id": "content_image_mobile",
+        "label": "Image - Mobile"
+      },
+      {
+        "type": "header",
+        "content": "Video Content"
+      },
+      {
+         "id": "video_url",
+         "type": "video_url",
+         "label": "Video URL",
+         "accept": ["vimeo"],
+         "info": "Supports vimeo."
+      },
+      {
+        "type": "range",
+        "id":   "video_size",
+        "min":  30,
+        "max":  100,
+        "step": 1,
+        "unit": "%",
+        "label": "Video Zoom",
+        "default": 50
+      }, 
+      {
+        "type": "image_picker",
+        "id": "cover_image",
+        "label": "Background Image",
+        "info": "If there's no video link, this image fits the video space."
+      }
+    ]
+  }
+{% endschema %}

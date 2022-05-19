@@ -1,0 +1,42 @@
+/** ***************************************** **/
+/** 		BLUEDGE USA - THEME EDITS 		  **/
+/** ***************************************** **/
+
+/* ZENPOSE */
+.template-page-zenpose main { background-color: #5bbfe4; }
+.template-page-zenpose .zenpose-video { padding-top: 1.5rem; padding-bottom: 1rem; }
+.template-page-zenpose .copy-wrapper { max-width: 750px; margin: 0 auto; line-height: 1.3; font-family:FranklinGothicBook,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace; }
+.template-page-zenpose .rules p { color: #fff; line-height: 1; font-family:FranklinGothicDemi,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace; }
+.template-page-zenpose .zenpose-images a, .template-page-zenpose .zenpose-bottom a { display: block; }
+.template-page-zenpose .zenpose-bottom { padding-bottom: 3rem; }
+
+@media only screen and (min-width: 992px) {
+	.template-page-zenpose .logo-wrapper { max-width: 650px; display: block; }
+	.template-page-zenpose .zenpose-bottom { padding-bottom: 6rem; }
+}
+
+/** ***************************************** **/
+/** 		HERO HOMEPAGE SLIDER    		  **/
+/** ***************************************** **/
+section.section-hero-slider { margin-top: -65px; }
+section.section-hero-slider [data-click-area] { cursor: pointer; }
+section.section-hero-slider .slider-flickity:after { content: 'flickity'; display: none; } // Enable Flickity
+section.section-hero-slider .flickity-viewport { height: 20rem; }
+section.section-hero-slider .flickity-slider, .bg-img-wrapper { width: 100%; }
+section.section-hero-slider .hero-slider-img {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    height: 375px;
+    overflow: hidden;
+}
+.flickity-button.next, .flickity-button.previous, .flickity-button:hover { background: transparent !important; }
+
+@media screen and (min-width: 768px){
+    section.section-hero-slider { margin-top: -75px; }
+}
+
+@media only screen and (min-width: 992px) {
+	section.section-hero-slider .hero-slider-img { height: 500px; }
+}

@@ -1,0 +1,177 @@
+{% assign hero_title = blog.title %}
+{% assign hero_light_text = section.settings.content_light_text %}
+{% assign hero_background_image = section.settings.hero_background_image %}
+
+{% if section.settings.title != blank %}
+  {% assign hero_title = section.settings.title %}
+{% endif %}
+
+{% for block in section.blocks %}
+  {% if block.settings.blog == blog.handle and block.settings.article != blank %}
+    {% assign article = articles[block.settings.article] %}
+    {% assign blog_handle = article.url | replace: 'blogs/', '' | replace: '/', ' ' | split: ' ' | first %}
+    {% assign hero_background_image = article.image %}
+    {% assign hero_light_text = block.settings.content_light_text %}
+    
+    {% if block.settings.title != blank %}
+      {% assign hero_title = block.settings.title %}
+    {% else %}
+      {% assign hero_title = article.title %}
+    {% endif %}
+    {% assign hero_title_link = article.url %}
+    {% assign hero_cta_url = block.settings.cta_url %}
+    {% assign hero_cta_text = block.settings.cta_text %}
+    
+    {% capture hero_toptitle %}
+      {% if article.tags.size > 0 %}
+        {% for tag in article.tags %}
+          <a href="/blogs/{{ blog_handle }}/tagged/{{ tag | handleize }}">{{ tag }}</a>
+          {% unless forloop.last %}&middot;{% endunless %}
+        {% endfor %}
+      {% endif %}
+    {% endcapture %}
+
+    {% capture hero_subtitle %}
+      <div class="text-transform-none">
+        <p class="p1">{{ article.excerpt }}</p>
+      </div>
+    {% endcapture %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+<div class="layout-content-wrapper flush-top blog" data-section-id="{{ section.id }}" data-section-type="blog">
+  {% paginate blog.articles by 12 %}
+
+    {% include 'page-hero',
+                ph_id: section.id,
+                ph_background_image: hero_background_image,
+                ph_title: hero_title,
+                ph_toptitle: hero_toptitle,
+                ph_subtitle: hero_subtitle,
+                ph_title_link: hero_title_link,
+                ph_content_alignment: 'left',
+                ph_light_text: hero_light_text,
+                ph_cta_url: hero_cta_url,
+                ph_cta_text: hero_cta_text,
+                ph_cta_small: true
+     %}
+
+    <div class="tags-navigation">
+      <span class="tag-category {% unless canonical_url contains 'tagged'%}active{% endunless %}" data-category="all">
+        <a class="btn btn-link" href="{{ blog.url }}">All</a>
+      </span>
+       
+      {% for tag in blog.all_tags %}
+        {% assign category_tag = tag | split: ':' %}
+        {% assign current_tag = current_tags | handleize %}
+        {% assign tag_handle = tag | handleize %}
+
+        <span class="tag-category {% if current_tag contains tag_handle %}active{% endif %}" data-category="{{ tag_handle }}" >
+          <a class="btn btn-link" href="{{ blog.url | append: '/tagged/' | append: tag_handle }}">{{ tag }}</a>
+        </span>
+      {% endfor %}
+    </div>
+    
+
+    <div class="container-fluid-max">
+      <div class="content-grid">
+        {% for article in blog.articles %}
+          <div class="content-grid__item">
+            {% include 'article-card', 
+                        article: article, 
+                        show_tags: true,
+                        show_author: false, 
+                        show_date: false,
+                        show_excerpt: false 
+            %}
+          </div>
+        {% endfor %}
+      </div>
+
+      {% if paginate.next.is_link %}
+        {% comment %} See _scripts/sections/blog.js {% endcomment %}
+        <div class="load-more-container text-center" data-pagination>
+          <a class="btn btn-link" href="{{ paginate.next.url }}" data-next-page>Load More</a>
+        </div>
+      {% endif %}
+    </div>
+
+  {% endpaginate %}
+</div>
+
+{% schema %}
+  {
+    "name": "Blog",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Page Hero",
+        "info": "Used as the fallback hero if a blog-specific one is not selected.  See 'Add blog hero' below."
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "info": "Title of the selected blog will be used if blank"
+      },
+      {
+        "type": "checkbox",
+        "id" : "content_light_text",
+        "label": "Light Text",
+        "default": false
+      },
+      {
+        "type": "image_picker",
+        "id": "hero_background_image",
+        "label": "Image"
+      }
+    ],
+    "blocks" : [
+      {
+        "type": "blog_hero",
+        "name": "Blog Hero",
+        "settings": [
+          {
+            "type": "header",
+            "content": "Page Hero",
+            "info": "These settings will affect the page hero for the selected blog home page."
+          },
+          {
+            "type": "blog",
+            "id": "blog",
+            "label": "Blog"
+          },
+          {
+             "type": "article",
+             "id": "article",
+             "label": "Article",
+             "info" : "The featured image for this article will be used as the background image"
+          },
+          {
+            "type": "richtext",
+            "id": "title",
+            "label": "Custom Title",
+            "info": "Bold text appears as blue."
+          },
+          {
+            "type": "checkbox",
+            "id" : "content_light_text",
+            "label": "Light Text",
+            "default": false
+          },
+          {
+            "type": "text",
+            "id": "cta_text",
+            "label": "CTA Text"
+          },
+          {
+            "type": "url",
+            "id": "cta_url",
+            "label": "CTA Link"
+          }
+        ]
+      }    
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,54 @@
+{% assign has_image = false %}
+{% if article.image %}
+  {% assign has_image = true %}
+{% endif %}
+
+<div class="layout-content-wrapper flush-top article" data-section-id="{{ section.id }}" data-section-type="article">
+
+  <div class="article-content-wrapper" data-article-content-wrapper>
+    <article role="article" itemscope itemtype="http://schema.org/Article">
+
+      {% include 'page-hero',
+                  ph_id: article.id,
+                  ph_background_image: article.image,
+      %}
+      
+      <div class="container-fluid-max">
+
+        <div class="row justify-content-center">
+          <div class="col-md-10 col-lg-6">
+
+            {% if article.tags.size > 0 %}
+              <div class="article-tags-container">
+                {% for tag in article.tags %}
+                  <div class="article-tag">
+                    <a href="{{ blog.url }}/tagged/{{ tag | handle }}">{{ tag }}{% unless forloop.last %} | {% endunless %}</a>
+                  </div>
+                {% endfor %}
+              </div>
+            {% endif %} 
+
+            <h2 class="article__title h2">{{ article.title }}</h2>
+
+            {% if settings.social_sharing_blog %}
+              {% include 'social-sharing', share_title: article.title, share_permalink: article.url, share_image: article.image %}
+            {% endif %}
+
+            <div class="rte" itemprop="articleBody" data-article-content>
+              {{ article.content }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+
+</div>
+
+{% schema %}
+  {
+    "name": "Article",
+    "settings": [ 
+    ]
+  }
+{% endschema %}

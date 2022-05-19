@@ -1,0 +1,152 @@
+{%- if section.settings.active == true and section.blocks.size > 0 -%}
+    <div class="container-fluid p-0 overflow-hidden generic-slider-flickity" data-section-id="genericSliderFlickity{{ section.id }}" data-section-type="genericSliderFlickity">
+        <div class="row g-0">
+            <div class="col-12 slider-wrapper position-relative">
+                <div class="slider-flickity" data-generic-slider data-loop="true" data-dots="false" data-arrows="true">
+                    {%- for block in section.blocks -%}
+                        {%- if block.settings.btn_vertical_placement > 50 -%}
+                            {%- assign vertical_property = "bottom" -%}
+                            {%- assign vertical_value = 100 | minus: block.settings.btn_vertical_placement -%}
+                        {%- else -%}
+                            {%- assign vertical_property = "top" -%}
+                            {%- assign vertical_value = block.settings.btn_vertical_placement -%}   
+                        {%- endif -%}
+                        {%- if block.settings.btn_center == false -%}
+                            {%- if block.settings.btn_horizontal_placement > 50 -%}
+                            {%- assign horizontal_property = "right" -%}
+                                {%- assign horizontal_value = 100 | minus: block.settings.btn_horizontal_placement -%}
+                            {%- else -%}
+                                {%- assign horizontal_property = "left" -%}
+                                {%- assign horizontal_value = block.settings.btn_horizontal_placement -%}   
+                            {%- endif -%}
+                            {%- if block.settings.mobile_image != blank -%}
+                                {%- assign mobile_image = block.settings.mobile_image -%}
+                            {%- else -%}
+                                {%- assign mobile_image = block.settings.image -%}  
+                            {%- endif -%}
+                        {%- endif -%}
+                        <div class="bg-img-wrapper"{% if block.settings.btn_link != blank %} data-click-area="{{ block.settings.btn_link }}"{% endif %} {{ block.shopify_attributes }}>
+                            <div class="clickable-wrapper position-relative">
+                                {%- if block.settings.mobile_image != blank -%}
+                                    <div class="hero-slider-img lazyload bg-img d-lg-none" data-bgset="{% render 'responsive-bg-image', image: block.settings.mobile_image %}"></div>
+                                {%- endif -%}
+                                {%- if block.settings.image != blank -%}
+                                    <div class="hero-slider-img lazyload bg-img{% if block.settings.mobile_image != blank %} d-none d-lg-block{% endif %}" data-bgset="{% render 'responsive-bg-image' image: block.settings.image %}"></div>
+                                {%- endif -%}
+                                {%- if block.settings.btn_copy != blank and block.settings.btn_link != blank -%}
+                                    <a href="{{ block.settings.btn_link }}" class="btn btn-primary position-absolute" style="{{ vertical_property }}:{{ vertical_value }}%;{% if block.settings.btn_center == false %}{{ horizontal_property }}:{{ horizontal_value }}%;{% else %}left:50%;transform:translateX(-50%);{% endif %}" title="{{ block.settings.btn_copy }}">{{ block.settings.btn_copy }}</a>
+                                {%- endif -%}
+                            </div>
+                        </div>
+                    {%- endfor -%}
+                </div>
+            </div>
+        </div>
+    </div>
+{%- endif -%}
+
+<script>
+    /**
+    * Clickable Areas - Do not block clicks on a tags inside
+    */
+    document.addEventListener("DOMContentLoaded", () => {
+        const clickableArea = () => {
+            const areas = document.querySelectorAll('.section-hero-slider [data-click-area]');
+    
+            areas.forEach((area) => {
+                area.addEventListener('click', (e) => {
+                    const target = e.target,
+                    url = area.getAttribute('data-click-area');
+                    
+                    // Skip regular A tags
+                    if (target.nodeName === 'A') return;
+    
+                    // Go to url
+                    if (url) location.href = url;
+                });
+            });
+        }
+        clickableArea();
+    });
+</script>
+
+{% schema %}
+{
+    "name": "Hero Slider",
+	"class": "section-hero-slider",
+	"tag": "section",
+	"settings": [
+	{
+        "type": "checkbox",
+        "id": "active",
+        "label": "Show Hero Slider",
+        "default": false
+    }
+	],
+    "blocks": [
+        {
+            "name": "Slider Image",
+            "type": "slider-image",
+            "settings": [
+                {
+                    "type": "header",
+                    "content": "Image"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "mobile_image",
+                    "label": "Mobile Image"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Image",
+                    "info": "Without a mobile image, this image will display on both mobile and desktop."
+                },
+                {
+                    "type": "text",
+                    "id": "btn_copy",
+                    "label": "Button Copy"
+                },
+                {
+                    "type": "url",
+                    "id": "btn_link",
+                    "label": "Button Link",
+                    "info": "The entire Hero Image is clickable and will link to this URL. You may add a link to the Hero Image without adding a button by adding a link here."
+                },
+                {
+                    "type": "header",
+                    "content": "Button Placement"
+                },
+                {
+                    "type": "range",
+                    "id": "btn_vertical_placement",
+                    "min": 0,
+                    "max":  100,
+                    "step": 1,
+                    "unit": "%",
+                    "label": "Vertical Placement From Top",
+                    "default": 45
+                },
+                {
+                    "type": "range",
+                    "id": "btn_horizontal_placement",
+                    "min": 0,
+                    "max":  100,
+                    "step": 1,
+                    "unit": "%",
+                    "label": "Horizontal Placement From Left",
+                    "default": 45
+                },
+                {
+                    "type": "checkbox",
+                    "id": "btn_center",
+                    "label": "Center the button horizontally",
+                    "default": true,
+                    "info": "This will override the horizontal placement if checked."
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

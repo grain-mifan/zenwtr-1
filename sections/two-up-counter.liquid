@@ -1,0 +1,98 @@
+{% assign counter = section.settings.counter %}
+{% assign counter_unit = section.settings.counter_unit %}
+{% assign duration = section.settings.duration %}
+{% assign text = section.settings.text %}
+{% assign subtext = section.settings.subtext %}
+{% assign image = section.settings.image %}
+{% assign wave_shape = section.settings.wave_shape %}
+{% assign vetical_align = section.settings.vetical_align %}
+
+<div class="counter-banner text-center {% if image != blank %}counter-banner--two-up{% endif %} {% if vetical_align == true %} vertical-align{% endif %}" data-section-id="{{ section.id }}" data-section-type="counter-banner" data-aos="fade-up">
+  {% if wave_shape == true  and image == blank %}
+    {% include 'wave' %}
+  {% endif %}
+
+  <div class="{% if image != blank %}container-fluid{% else %}container-fluid-max{% endif %}">
+    <div class="row justify-content-center">
+      <div class="counter-content {% if image != blank %}col-md-6{% else %}col-md-10{% endif %}">
+        <h2 class="counter-banner__number" data-counter="{{ counter }}" data-duration="{{ duration }}">
+          <span data-number-container>{{ counter }}</span>
+          <br class="d-block d-md-none">
+          <span>{{ counter_unit | prepend: ' ' }}</span>
+        </h2>
+
+        {% if text != blank%}
+          <div class="counter-banner__text p1">{{ text }}</div>
+        {% endif %}
+        
+        {% if subtext != blank %}
+          <div class="counter-banner__subtext p1">{{ subtext }}</div>
+        {% endif %}
+      </div>
+
+      {% if image != blank %}
+        <div class="image-container col-md-6 frame frame--1x1">
+          <div class="image-container__image">
+            <img src="{{ image | img_url: '1800x'}}" alt="">
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Counter Banner",
+    "settings": [
+      {
+        "id": "counter",
+        "type": "number",
+        "label": "Count to"
+      },
+      {
+        "id": "counter_unit",
+        "type": "text",
+        "label": "Counter unit"
+      },
+      {
+        "type": "range",
+        "id": "duration",
+        "label": "Count Duration",
+        "unit": "s",
+        "min": 2,
+        "max": 60,
+        "step": 1,
+        "default": 2
+      },
+      {
+        "id": "text",
+        "type": "richtext",
+        "label": "Text"
+      },
+      {
+        "id": "subtext",
+        "type": "richtext",
+        "label": "Subtext"
+      },
+      {
+        "id": "image",
+        "type": "image_picker",
+        "label": "Image"
+      },
+      {
+        "type": "checkbox",
+        "id": "wave_shape",
+        "label": "Show Wave Shape",
+        "default": false,
+        "info": "Wave shape only appears in if theres is no image."
+      },
+      {
+        "type": "checkbox",
+        "id": "vetical_align",
+        "label": "Align Content Vertically",
+        "default": false
+      }
+    ]  
+  }
+{% endschema %}

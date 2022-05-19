@@ -1,0 +1,193 @@
+{% assign MAX_FOOTER_MENUS = 3 %}
+{% assign menu_counter = 0 %}
+
+{% for i in (1..MAX_FOOTER_MENUS) %}
+  {% assign menu_setting_handle = 'footer_linklist_' | append: i %}
+  {% assign linklist_handle = section.settings[menu_setting_handle] %}
+
+  {% if linklist_handle and linklists[linklist_handle].links.size > 0 %}
+    {% assign menu_counter = menu_counter | plus: 1 %}
+  {% endif %}
+{% endfor %}
+           
+
+{% comment %} SOCIAL Capture {% endcomment %}
+{% capture social_list_items %}
+  {%- assign social_accounts = 'Facebook, Instagram, Twitter, Pinterest, Snapchat' | split: ', ' -%}
+  {% for social in social_accounts %}
+    {% assign social_handle = social | handleize %}
+    {% capture social_enabled_handle %}social_{{ social_handle }}_enabled{% endcapture %}
+    {% capture social_link %}social_{{ social_handle }}_link{% endcapture %}
+    {% capture social_icon %}icon-{{ social_handle }}{% endcapture %}
+    {% if settings[social_link] != blank and section.settings[social_enabled_handle] %}
+        <li>
+          <a href="{{ settings[social_link] }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}" target="_blank">
+            {% include social_icon %}
+            <span class="icon-fallback-text">{{ social }}</span>
+          </a>
+        </li>
+    {% endif %}
+  {% endfor %}
+{% endcapture %}
+
+<footer class="footer" data-section-id="{{ section.id }}" data-section-type="footer" data-below-process>
+
+  {% include 'wave' %}
+
+  <div class="container-fluid-max">
+    <div class="row row--footer">
+
+      <div class="col-md-2 offset-lg-1 logo-column">
+        <div class="footer-block">
+          <div class="logo-container">
+            {% include 'image_tag'
+              image: section.settings.footer_logo,
+              object_fit: 'contain'  
+            %}
+          </div>
+          
+          {% assign year = 'now' | date: "%Y" %}
+          {% if section.settings.copyright_text != blank %}
+            <div class="copyright">
+              <small class="p3">{{ section.settings.copyright_text | replace: '$year$', year | replace: '$shop$', shop.name }}</small>
+              
+            </div>
+           {% endif %}
+          {% if section.settings.disclaimer_text != blank %}
+            <div class="copyright">
+              <small class="p3">{{ section.settings.disclaimer_text | replace: '$year$', year | replace: '$shop$', shop.name }}</small>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+
+      {% for i in (1..MAX_FOOTER_MENUS) %}
+        {% assign menu_setting_handle = 'footer_linklist_' | append: i %}
+        {% assign menu_title_setting_handle = 'footer_linklist_title_' | append: i %}
+        {% assign linklist_handle = section.settings[menu_setting_handle] %}
+        {% if linklist_handle and linklists[linklist_handle].links.size > 0 %}
+
+          <div class="footer-menu col-md-2 {% if menu_counter < 3 and i == 1 %}offset-lg-1{% endif %}">
+            <h5 class="footer-menu__title">{{ section.settings[menu_title_setting_handle] }}</h5>
+            {% if linklist_handle and linklists[linklist_handle].links.size > 0 %}
+              <ul class="footer-menu__list">
+                {% for link in linklists[linklist_handle].links %}
+                  <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+        {% endif %}
+      {% endfor %}
+
+      <div class="footer-menu col-md-2">
+        {% if section.settings.social_column_title != blank %}
+          <h5 class="footer-menu__title h5">{{ section.settings.social_column_title }}</h5>
+        {% endif %}
+        
+        <div class="footer-block">
+          {% if social_list_items %}
+            <ul class="footer-social-list">
+              {{ social_list_items }}
+            </ul>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Logo"
+      },      
+      {
+        "type": "image_picker",
+        "id": "footer_logo",
+        "label": "Logo"
+      },
+      {
+        "type": "header",
+        "content": "Copyright"
+      },      
+      {
+        "type": "textarea",
+        "id": "copyright_text",
+        "label": "Text",
+        "info": "Use '$year$' to include the current year.  Use $shop$ to include the name of your shop."
+      },
+		{
+        "type": "header",
+        "content": "Disclaimer"
+      },      
+      {
+        "type": "textarea",
+        "id": "disclaimer_text",
+        "label": "Text"
+      },
+      {
+        "type": "header",
+        "content": "Menus"
+      },
+      {
+        "type": "text",
+        "id": "footer_linklist_title_1",
+        "label": "First Menu Title"
+      },
+      {
+        "type": "link_list",
+        "id": "footer_linklist_1",
+        "label": "First Menu"
+      },
+      {
+        "type": "text",
+        "id": "footer_linklist_title_2",
+        "label": "Second Menu Title"
+      },
+      {
+        "type": "link_list",
+        "id": "footer_linklist_2",
+        "label": "Second Menu"
+      },
+      {
+        "type": "text",
+        "id": "footer_linklist_title_3",
+        "label": "Third Menu Title"
+      },
+      {
+        "type": "link_list",
+        "id": "footer_linklist_3",
+        "label": "Third Menu"
+      },
+      {
+        "type": "header",
+        "content": "Social"
+      },
+      {
+        "type": "text",
+        "id": "social_column_title",
+        "label": "Social Column Title"
+      },
+      {
+        "type": "checkbox",
+        "id": "social_facebook_enabled",
+        "label": "Facebook"
+      },
+      {
+        "type": "checkbox",
+        "id": "social_instagram_enabled",
+        "label": "Instagram"
+      },
+      {
+        "type": "checkbox",
+        "id": "social_twitter_enabled",
+        "label": "Twitter"
+      }
+    ]
+  }
+
+{% endschema %}

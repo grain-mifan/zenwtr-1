@@ -1,0 +1,46 @@
+{% assign hero_title = blog.title %}
+
+<div class="layout-content-wrapper flush-top blog blog--faq" data-section-id="{{ section.id }}" data-section-type="blog">
+  <div class="container-fluid-max">
+
+    <div class="row justify-content-center">
+      <div class="col-md-10 col-lg-6">
+
+        <h1 class="faq-title text-center">{{ blog.title }}</h1>
+        <div id="faq-container">
+          {% for article in blog.articles %}
+            {% assign article_id = article.id %}
+            {% assign article_dropdown = 'article-' | append: article_id %}
+
+            <div class="faq-question card">
+              <div class="faq-header" id="article_id">
+                <h4 class="faq-question__title collapsed m-0" 
+                    data-toggle="collapse" 
+                    data-target="#{{ article_dropdown }}" 
+                    aria-expanded="true" 
+                    aria-controls="{{ article_dropdown }}">
+
+                    {{ article.title }}
+                    
+                    <div class="collapse-icon"></div>
+                </h4>
+              </div>
+
+              <div id="{{ article_dropdown }}" class="faq-body collapse" aria-labelledby="article_id" data-parent="#faq-container">
+                <div class="faq-question__content p3">{{ article.content }}</div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Blog",
+    "settings": []
+  }
+{% endschema %}

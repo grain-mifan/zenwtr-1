@@ -1,0 +1,71 @@
+{% assign title = section.settings.title %}
+{% assign text = section.settings.text %}
+{% assign content_image = section.settings.content_image %}
+{% assign wave_shape = section.settings.wave_shape %}
+
+
+<div data-section-id="{{ section.id }}"class="text-plus-image {% if wave_shape == true %}has-wave{% endif %}" data-aos="fade-up">
+
+  {% if wave_shape == true %}
+    {% include 'wave' %}
+  {% endif %}
+
+  <div class="container-fluid-max">
+    <div class="row justify-content-center">
+      <div class="col-md-6 text-center">
+        {% if title != blank %}
+          <div class="text-plus-image__title h2">{{ title }}</div>
+        {% endif %}
+        
+        {% if text != blank %}
+          <div class="text-plus-image__text p1">{{ text }}</div>
+        {% endif %}
+        
+        {% if content_image != blank %}
+          <div class="frame frame--4x3">
+            <div class="text-plus-image__image">
+              {% include 'image_tag'
+                image: content_image,
+                object_fit: 'cover' 
+              %}
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Banner",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Content"
+      },
+      {
+        "type": "richtext",
+        "id": "title",
+        "label": "Title",
+        "info": "Bold texts appears blue."
+      },
+      {
+        "type": "textarea",
+        "id": "text",
+        "label": "Text"
+      },
+      {
+        "type": "image_picker",
+        "id": "content_image",
+        "label": "Content Image"
+      },
+      {
+        "type": "checkbox",
+        "id": "wave_shape",
+        "label": "Show Wave Shape",
+        "default": false
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,34 @@
+{% assign title = section.settings.title %}
+{% assign copy_desktop = section.settings.copy_desktop %}
+{% assign copy_mobile = section.settings.copy_mobile %}
+{% assign cta_url = section.settings.cta_url %}
+{% assign cta_text = section.settings.cta_text %}
+{% assign cover_image = section.settings.video_background %}
+
+{% assign light_text = section.settings.light_text %}
+
+<div class="hero">
+  <div data-section-id="{{ section.id }}" class="hero-video--product-page">
+    <div class="video-player-wrapper" style='position:relative;'>
+      <div class="video-background-image">
+        {% include 'image_tag' image: cover_image, object_fit: 'cover' %}
+      </div>
+      <div data-section-type="video" class="product-video" data-aos="fade-up">
+        <div class="container">
+      <div id="video-player-{{ section.id }}" class="video-player" data-video-player data-video-id="{{ section.settings.video_url.id }}" data-video-type="{{ section.settings.video_url.type }}" data-background="{% if section.settings.background %}true{% else %}false{% endif %}" data-embed-color="{{ section.settings.embed_color | remove: '#' }}">
+        {% if section.settings.cover_image and section.settings.background == false %}
+          <div class="video-player__cover" data-video-player-cover>
+            <div class="video-player__cover-still" style="background-image: url({{ section.settings.cover_image | img_url: '2000x' }});"></div>
+            <span class="video-player__cover-play">
+              {% include 'icon-play' %}
+            </span>
+          </div>
+        {% endif %}
+        <div class="video-player__embed" data-video-player-embed></div>
+      </div>
+    </div>
+  </div>
+    </div>
+  </div>
+
+</div>

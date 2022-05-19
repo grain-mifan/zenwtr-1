@@ -1,0 +1,96 @@
+{% assign counter = section.settings.counter %}
+{% assign counter_unit = section.settings.counter_unit %}
+{% assign duration = section.settings.duration %}
+{% assign header_text = section.settings.header_text %}
+{% assign text_content = section.settings.text_content %}
+{% assign btn_text = section.settings.btn_text %}
+{% assign btn_url = section.settings.btn_url %}
+{% assign image = section.settings.image %}
+{% assign mobile_image = section.settings.mobile_image %}
+{% assign wave_shape = section.settings.wave_shape %}
+{% assign vetical_align = section.settings.vetical_align %}
+
+<div class="mission-header-cta counter-banner text-center text-plus-image {% if image != blank %}counter-banner--two-up{% endif %} {% if vetical_align == true %} vertical-align{% endif %}" data-section-id="{{ section.id }}" data-section-type="counter-banner">
+  {% if wave_shape == true  and image == blank %}
+    {% include 'wave' %}
+  {% endif %}
+  <div class="{% if image != blank %}container-fluid{% else %}container-fluid-max{% endif %}">
+    <div class="row justify-content-center">
+      <div class="counter-content {% if image != blank %}col-md-6{% else %}col-md-10{% endif %} align-self-center">
+        <div class="text-plus-image__title h3">{{header_text}}</div>
+        {% if text_content != blank %}
+          <div class="counter-banner__subtext p2">{{ text_content }}</div>
+        {% endif %}
+        {%- if btn_text != blank and btn_url != blank -%}
+            <div class="btn-wrap mb-5 mt-3">
+              <a href="{{ btn_url }}" class="btn btn-primary">{{ btn_text }}</a>
+            </div>
+        {%- endif -%}
+      </div>
+      {% if image != blank %}
+        <div class="image-container d-none d-md-block col-md-6 frame frame--1x1">
+          <div class="image-container__image">
+            <img src="{{ image | img_url: '1800x'}}" alt="">
+          </div>
+        </div>
+      {% endif %}
+      {% if mobile_image != blank %}
+      <div class="image-container d-md-none col-md-6 frame frame--1x1">
+        <div class="image-container__image">
+          <img src="{{ mobile_image | img_url: '1800x'}}" alt="">
+        </div>
+      </div>
+    {% endif %}
+    </div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Header + CTA",
+    "settings": [
+      {
+        "id": "header_text",
+        "type": "richtext",
+        "label": "Header Text"
+      },
+      {
+        "id": "text_content",
+        "type": "richtext",
+        "label": "Text Content"
+      },
+      {
+        "id": "btn_text",
+        "type": "text",
+        "label": "Button Text"
+      },
+      {
+        "id": "btn_url",
+        "type": "url",
+        "label": "Button URL"
+      },
+      {
+        "id": "image",
+        "type": "image_picker",
+        "label": "Image"
+      },
+      {
+        "id": "mobile_image",
+        "type": "image_picker",
+        "label": "Mobile Image (optional)"
+      },
+      {
+        "type": "checkbox",
+        "id": "wave_shape",
+        "label": "Show Wave Shape",
+        "default": false,
+        "info": "Wave shape only appears in if theres is no image."
+      },
+      {
+        "type": "checkbox",
+        "id": "vetical_align",
+        "label": "Align Content Vertically",
+        "default": false
+      }
+    ]  
+  }
+{% endschema %}

@@ -1,0 +1,142 @@
+<div data-section-id="{{ section.id }}" data-section-type="pencil-banner">
+  {% if section.settings.banner_enabled %}
+  
+  <div id="pencil-banner">
+    <div class="btn-bar">
+      <div id="buttons"><a id="prev" href="#"></a><a id="next" href="#"></a></div>
+    </div>
+    <div id="announcement-bars">
+      <ul>
+        {% for block in section.blocks %}
+        {% assign banner_content = block.settings.banner_content %}
+        {% assign banner_mobile_content = block.settings.banner_mobile_content %}
+        <li class="announcement-bar" loop="{{forloop.index}}" {% unless forloop.index ==1 %}style="display:none;"{% endunless %}>
+          <div class="announcementContainer">
+            <div class="d-none d-md-block">{{banner_content}}</div>
+            <div class="d-block d-md-none">{{banner_mobile_content}}</div>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  	<!--<div class="pencil-banner">
+      <div class="container">
+        <div class="d-none d-md-block">{{ section.settings.banner_content }}</div>
+        <div class="d-block d-md-none">{{ section.settings.banner_mobile_content | default: section.settings.banner_content }}</div>
+        {% comment %}<a href="#" class="pencil-banner__close" data-pencil-banner-close>&times;</a>{% endcomment %}
+      </div>
+    </div>-->
+  {% endif %}
+</div>
+
+<script>
+  window.addEventListener('load', (event) => {
+    var speed = 5000;
+    
+    var total_blocks = {{section.blocks | size}};
+    var run = setInterval(rotate, speed);
+    var announcement_bar = $('.announcement-bar');
+    var container = $('#announcement-bars ul');
+    var elm = container.find(':first-child').prop("tagName");
+    var item_width = container.width();
+    var previous = 'prev';
+    var next = 'next';
+    var loop = 1;
+    //announcement_bar.width(item_width);
+    //container.parent().width(item_width);
+    //container.width(announcement_bar.length * item_width);
+    //container.find(elm + ':first').before(container.find(elm + ':last'));
+    //resetSlides();
+    
+    $('#buttons a').click(function (e) {
+      loop = loop + 1;
+      if ( loop > total_blocks )
+        loop = 1;
+      announcement_bar.hide();
+      $('[loop="'+loop+'"]').show();
+      //if (container.is(':animated')) {
+      //  return false;
+      //}
+      //if (e.target.id == previous) {
+      //  container.stop().animate({
+      //    'left': 0
+      //  }, 1500, function () {
+      //    container.find(elm + ':first').before(container.find(elm + ':last'));
+      //    resetSlides();
+      //  });
+      //}
+      
+      //if (e.target.id == next) {
+      //  container.stop().animate({
+      //    'left': item_width * -2
+      //  }, 1500, function () {
+      //    container.find(elm + ':last').after(container.find(elm + ':first'));
+      //    resetSlides();
+      //  });
+      //}
+      return false;
+    });    
+
+    container.parent().mouseenter(function () {
+      clearInterval(run);
+    }).mouseleave(function () {
+      run = setInterval(rotate, speed);
+    });    
+    function resetSlides() {
+      container.css({
+        'left': -1 * item_width
+      });
+    }
+  });
+  function rotate() {
+    $('#next').click();
+  }
+</script>
+
+{% schema %}
+  {
+    "name": "Pencil Banner",
+	"max_blocks": 3,
+    "settings": [
+      {
+        "id": "banner_enabled",
+        "type": "checkbox",
+        "label": "Show Pencil Banner",
+        "default": true
+      },
+      {
+        "id": "banner_content",
+        "type": "richtext", 
+        "label": "Content",
+        "default": "<p>Default Banner Text</p>"
+      },
+      {
+        "id": "banner_mobile_content",
+        "type": "richtext", 
+        "label": "Mobile Content",
+        "info": "Alternate text for small screens, will fall back to regular content if left blank"
+      }
+    ],
+	"blocks": [
+      {
+        "type": "announcements",
+        "name": "Pencil Banner",
+        "settings": [
+          {
+            "id": "banner_content",
+			"type": "richtext", 
+			"label": "Content",
+			"default": "<p>Default Banner Text</p>"
+          },
+          {
+            "id": "banner_mobile_content",
+			"type": "richtext", 
+			"label": "Mobile Content",
+			"info": "Alternate text for small screens, will fall back to regular content if left blank"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,53 @@
+<div class="row">
+	{%- if section.settings.image != blank -%}
+		<div class="col-12 py-3 text-center">
+			{%- render 'image_tag'
+				image: section.settings.image, image_class: 'img-fluid'
+			-%}
+		</div>
+	{%- endif -%}
+	{%- for block in section.blocks -%}
+		<div class="col-12 col-lg-6 pb-3 text-center" {{ block.shopify_attributes }}>
+			{%- if block.settings.url != blank -%}<a href="{{ block.settings.url }}" target="_blank" rel="noopener" title="IG post: {{ block.settings.url }}">{%- endif -%}
+				{%- render 'image_tag'
+					image: block.settings.banner, image_class: 'img-fluid w-100'
+				-%}
+			{%- if block.settings.url != blank -%}</a>{%- endif -%}
+		</div>
+	{%- endfor -%}
+</div>
+
+{% schema %}
+{
+  "name": "ZenPose Bottom",
+  "tag": "section",
+  "class": "zenpose-bottom",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "image"
+    }
+  ],
+  "blocks": [
+  { 
+    "name": "banners",
+    "type": "image",
+    "limit": 2,
+    "settings": 
+    [
+	  {
+		"type": "image_picker",
+		"id": "banner",
+		"label": "Banner"
+	  },   
+	  {
+		"type": "url",
+		"id": "url",
+		"label": "Link"
+	  }
+	]
+  } 
+  ]
+}
+{% endschema %}

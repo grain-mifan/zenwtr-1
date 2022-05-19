@@ -1,0 +1,167 @@
+{% comment %}Left Side{% endcomment %}
+{% assign title = section.settings.title %}
+{% assign text = section.settings.text %}
+{% assign cta_url = section.settings.cta_url %}
+{% assign cta_text = section.settings.cta_text %}
+{% assign background_image = section.settings.background_base %}
+{% assign light_text = section.settings.light_text %}
+
+
+{% comment %}Right Side{% endcomment %}
+{% assign title_right = section.settings.title_right %}
+{% assign text_right = section.settings.text_right %}
+{% assign cta_url_right = section.settings.cta_url_right %}
+{% assign cta_text_right = section.settings.cta_text_right %}
+{% assign background_image_right = section.settings.background_base_right %}
+{% assign light_text_right = section.settings.light_text_right %}
+
+
+{% assign wave_shape = section.settings.wave_shape %}
+
+<div data-section-id="{{ section.id }}" data-section-type="banner" class="banner banner--two-up" data-aos="fade-up" data-below-process>
+  
+  <div class="container-fluid-max">
+    <div class="row row--two-up">
+      <div class="col-lg-6 text-center banner-content {% if light_text == true %}light{% endif %}">
+
+        {% if title != blank %}
+          <div class="banner__title h2">{{ title }}</div>
+        {% endif %}
+        
+        {% if text != blank %}
+          <div class="banner__text p1">{{ text }}</div>
+        {% endif %}
+
+        {% if cta_url != blank and cta_text != blank %}
+          <div class="banner__cta-container">
+            <a href="{{ cta_url }}" class="btn btn-primary btn-small">{{ cta_text }}</a>
+          </div>
+        {% endif %}
+
+        {% if background_image != blank %}
+          <div class="banner__background-image">
+            {% include 'image_tag'
+              image: background_image,
+              object_fit: 'cover' 
+            %}
+          </div>          
+        {% endif %}
+      </div>
+
+      <div class="col-lg-6 text-center banner-content {% if light_text_right == true %}light{% endif %}">
+        {% if title_right != blank %}
+          <div class="banner__title h2">{{ title_right }}</div>
+        {% endif %}
+        
+        {% if text_right != blank %}
+          <div class="banner__text p1">{{ text_right }}</div>
+        {% endif %}
+
+        {% if cta_url_right != blank and cta_text_right != blank %}
+          <div class="banner__cta-container">
+            <a href="{{ cta_url_right }}" class="btn btn-primary btn-small">{{ cta_text_right }}</a>
+          </div>
+        {% endif %}
+
+        {% if background_image_right != blank %}
+          <div class="banner__background-image">
+            {% include 'image_tag'
+              image: background_image_right,
+              object_fit: 'cover' 
+            %}
+          </div>          
+        {% endif %}
+      </div>
+    </div>
+
+    {% if wave_shape == true %}
+      {% include 'wave' %}
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "2 Up Banner",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "wave_shape",
+        "label": "Wave Shape",
+        "default": false
+      },
+      {
+        "type": "header",
+        "content": "Banner - Left Side"
+      },
+      {
+        "type": "richtext",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "textarea",
+        "id": "text",
+        "label": "Text",
+        "info": "Bold texts appears black."
+      },
+      {
+        "type": "checkbox",
+        "id": "light_text",
+        "label": "Light Text",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "cta_text",
+        "label": "CTA Text"
+      },
+      {
+        "type": "url",
+        "id": "cta_url",
+        "label": "CTA Link"
+      },
+      {
+        "type": "image_picker",
+        "id": "background_base",
+        "label": "Background Image - Desktop"
+      },
+      {
+        "type": "header",
+        "content": "Banner - Right Side"
+      },
+      {
+        "type": "richtext",
+        "id": "title_right",
+        "label": "Title"
+      },
+      {
+        "type": "textarea",
+        "id": "text_right",
+        "label": "Text",
+        "info": "Bold texts appears black."
+      },
+      {
+        "type": "checkbox",
+        "id": "light_text_right",
+        "label": "Light Text",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "cta_text_right",
+        "label": "CTA Text"
+      },
+      {
+        "type": "url",
+        "id": "cta_url_right",
+        "label": "CTA Link"
+      },
+      {
+        "type": "image_picker",
+        "id": "background_base_right",
+        "label": "Background Image - Desktop"
+      }
+    ]
+  }
+{% endschema %}

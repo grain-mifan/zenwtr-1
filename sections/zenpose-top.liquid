@@ -1,0 +1,52 @@
+
+	<div class="row">
+	  	{%- if section.settings.image != blank -%}
+			<div class="col-12 text-center px-3 pt-lg-2">
+				<dvi class="logo-wrapper mx-auto">
+					{%- render 'image_tag'
+						image: section.settings.image, image_class: 'img-fluid'
+					-%}
+				</dvi>
+			</div>
+		{%- endif-%}
+		{%- if section.settings.copy != blank -%}
+			<div class="col-12 px-4 text-center pt-3">
+				<div class="copy-wrapper">{{ section.settings.copy }}</div>
+			</div>
+		{%- endif-%}
+		{%- if section.settings.rules != blank -%}
+			<div class="col-12 px-4 text-center rules">
+				<div class="copy-wrapper">{{ section.settings.rules }}</div>
+			</div>
+		{%- endif-%}
+	</div>
+
+
+
+{% schema %}
+{
+	"name": "ZenPose Top",
+	"tag": "section",
+	"settings": [
+	  {
+		"type": "header",
+		"content": "Top banner"
+	  },
+	  {
+		"type": "image_picker",
+		"id": "image",
+		"label": "Image"
+	  },
+	  {
+		"type": "richtext",
+		"id": "copy",
+		"label": "Copy"
+	  },
+	  {
+		"type": "richtext",
+		"id": "rules",
+		"label": "Rules Copy"
+	  }
+]
+}
+{% endschema %}

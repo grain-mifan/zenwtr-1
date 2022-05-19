@@ -1,0 +1,132 @@
+{% assign eyebrow_icon = section.settings.eyebrow_icon %}
+{% assign title = section.settings.title %}
+{% assign text = section.settings.text %}
+{% assign cta_url = section.settings.cta_url %}
+{% assign cta_text = section.settings.cta_text %}
+{% assign light_text = section.settings.light_text %}
+{% assign vertical_align = section.settings.vertical_align %}
+{% assign text_align = section.settings.align_center %}
+
+{% assign background_image = section.settings.background_base %}
+
+{% if section.settings.background_small != blank %}
+  {% assign background_image_small = section.settings.background_small %}
+{% else %}
+  {% assign background_image_small = section.settings.background_base %}
+{% endif %}
+
+{% if background_image != blank and title != blank %}
+  <div data-section-id="{{ section.id }}" data-section-type="banner" class="banner banner--zw banner--mission {% if light_text == true %}light-text{% endif %}{% if vertical_align == true %} vertical-align{% endif %}" data-aos="fade-up" data-below-process>
+    
+    <div class="container-fluid-max">
+      <div class="row">
+        <div class="col-md-5 col-lg-4 offset-md-1 text-left banner-content {% if text_align == true %}mobile-text-center{% endif %}">
+          {% if eyebrow_icon != blank %}
+            <div class="banner-eyebrow frame frame--4x3">
+              {% include 'image_tag'
+                image: eyebrow_icon,
+                object_fit: 'contain' 
+              %}
+            </div>
+          {% endif %}
+          {% if title != blank %}
+            <div class="banner__title h2">{{ title }}</div>
+          {% endif %}
+          
+          {% if text != blank %}
+            <div class="banner__text p1">{{ text }}</div>
+          {% endif %}
+
+          {% if cta_url != blank and cta_text != blank %}
+            <div class="banner__cta-container">
+              <a href="{{ cta_url }}" class="btn btn-primary">{{ cta_text }}</a>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% if background_image != blank %}
+      <div class="banner__background-image banner__background-image--desktop position-right d-none d-md-block">
+        {% include 'image_tag'
+          image: background_image,
+          object_fit: 'cover' 
+        %}
+      </div>
+
+      <div class="banner__background-image d-block d-md-none frame frame--4x3">
+        {% include 'image_tag'
+          image: background_image_small,
+          object_fit: 'cover' 
+        %}
+      </div>
+    {% endif %}
+  </div>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Image Banner - 1",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Content"
+      },
+      {
+        "type": "image_picker",
+        "id": "eyebrow_icon",
+        "label": "Eyebrow Icon"
+      },
+      {
+        "type": "richtext",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "textarea",
+        "id": "text",
+        "label": "Text",
+        "info": "Bold texts appears black."
+      },
+      {
+        "type": "checkbox",
+        "id": "light_text",
+        "label": "Light Text",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "cta_text",
+        "label": "CTA Text"
+      },
+      {
+        "type": "url",
+        "id": "cta_url",
+        "label": "CTA Link"
+      },
+      {
+        "type": "image_picker",
+        "id": "background_base",
+        "label": "Background Image - Desktop"
+      },
+      {
+        "type": "image_picker",
+        "id": "background_small",
+        "label": "Background Image - Mobile"
+      },
+      {
+        "type": "checkbox",
+        "id": "vertical_align",
+        "label": "Align Banner Vertically",
+        "info": "Makes top and bottom spacing equal and vertically aligns the content.",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "align_center",
+        "label": "Center align text",
+        "info": "Aligns the text content on the center (only for mobile).",
+        "default": false
+      }
+    ]
+  }
+{% endschema %}

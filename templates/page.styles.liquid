@@ -1,0 +1,161 @@
+{% capture captured_page %}
+{% comment %}
+  Custom template for testing styles applied to RTE content.
+  Remove before deploying to production/publishing your theme.
+{% endcomment %}
+
+<div class="layout-content-wrapper placeholder">
+  <h1>placeholder to show transparent header</h1>
+</div>
+<div class="layout-content-wrapper">
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-md-10">
+
+        {% include 'page-header',
+                    ph_title: 'Styleguide'
+        %}  
+
+        <h2 id="docs-colors" class="docs-title">Colors</h2>
+
+        {% assign colors = '' %}
+        {% assign colors = colors | append: 'white:#FFFFFF:$white' | append: '|' %}
+        {% assign colors = colors | append: 'gray:#F2F2F2:$gray' | append: '|' %}
+        {% assign colors = colors | append: 'light-blue:#00CEF7:$light-blue' | append: '|' %}
+        {% assign colors = colors | append: 'blue:#00A7E0:$blue' | append: '|' %}
+        {% assign colors = colors | append: 'charcoal:#343433:$charcoal' | append: '|' %}
+        {% assign colors = colors | append: 'red:#F01010:$red' | append: '|' %}
+        {% assign colors = colors | split: '|' %}
+
+        <div class="docs-well">
+          <div>
+            {% for color in colors %}
+              {% assign parts = color | split: ':' %}
+              <div class="styleguide-color">
+                <div class="styleguide-color__swatch styleguide-color__swatch--{{ parts[0] }}"></div>
+                <p>{{ parts[1] }}<br />{{ parts[2] }}<br /><code>{{ parts[3] }}</code></p>
+              </div>            
+            {% endfor %}         
+          </div>  
+        </div>   
+        
+        <h2 id="docs-type" class="docs-title">Fonts</h2>
+        <div class="docs-well">
+          <div class="font-weight-bold" style="font-size: 18px;">
+            <p class="h5">Franklin Gothic URW DEMI</p>
+            <p class="h5">ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
+            <p class="h5">abcdefghijklmnopqrstuvwxyz</p>
+            <p class="h5">0123456789</p>
+          </div>
+          <br />
+
+          <div style="font-size: 18px;">
+            <p class="p2">Franklin Gothic URW Book</p>
+            <p class="p2">ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
+            <p class="p2">abcdefghijklmnopqrstuvwxyz</p>
+            <p class="p2">0123456789</p>    
+          </div>
+        </div>
+        
+        <h2 id="docs-typography" class="docs-title">Fonts</h2>
+        <div class="docs-well">
+          <div>
+            <h3>Century Gothic Regular</h3>
+            <p>ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>0123456789!@#$%^&*()_+</p>
+            <h3 class="bold">Century Gothic Bold</h3>
+            <p class="bold">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>0123456789!@#$%^&*()_+</p>
+          </div>
+        </div>
+
+        <h2 id="docs-typography" class="docs-title">Typography</h2>
+
+        <div class="docs-well">
+          <h4 class="docs-subtitle">Headings</h4>
+          <h1>H1 Franklin Gothic URW DEMI</h1>
+          <h2>H2 Franklin Gothic URW DEMI</h2>
+          <h3>H3 Franklin Gothic URW DEMI</h3>
+          <h4>H4 Franklin Gothic URW DEMI</h4>
+          <h5>H5 Franklin Gothic URW DEMI</h5>
+          <h6>H6 Franklin Gothic URW DEMI</h6>
+          <p class="p1">P1 Franklin Gothic URW Book</p>
+          <p class="p2">P2 Franklin Gothic URW Book</p>
+          <p class="p3">P3 Franklin Gothic URL Book</p>
+
+          <h4 class="docs-subtitle">Mobile Headings</h4>
+          <div class="stylguide-mobile">
+            <h1>H1 Franklin Gothic URW DEMI</h1>
+            <h2>H2 Franklin Gothic URW DEMI</h2>
+            <h3>H3 Franklin Gothic URW DEMI</h3>
+            <h4>H4 Franklin Gothic URW DEMI</h4>
+
+            <p class="p1">P1 Franklin Gothic URW Book</p>
+            <p class="p2">P2 Franklin Gothic URW Book</p>
+          </div>
+        </div>
+
+
+        <h2 id="docs-buttons" class="docs-title">Buttons</h2>
+
+        <div class="docs-well">
+          <p><a href="#" class="btn btn-primary">Primary button</a></p>
+          <p><a href="#" class="btn btn-link">Secondary button</a></p>         
+        </div>
+
+        <h2 id="docs-buttons" class="docs-title">Forms</h2>
+
+        <div class="docs-well">
+          <form>
+            <div class="form-group">
+              <label for="textDefault1">Label</label>
+              <input type="text" id="textDefault1" placeholder="Input 1" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="textDefault2">Label 2</label>
+              <input type="text" id="textDefault2" placeholder="Input 2" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="textDefault3">Text Field (Valid)</label>
+              <input type="text" id="textDefault3" class="form-control is-valid" value="Valid Entry">        
+            </div>
+            <div class="form-group">
+              <label for="textDefault4">Text Field (Error)</label>
+              <input type="text" id="textDefault4" class="form-control is-invalid" value="Invalid Entry">
+              <div class="invalid-feedback">
+                Invalid Feedback goes here
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="selectHorizontal1">Label 3</label>
+              <select id="selectHorizontal1" class="form-control choosen-select">
+                <option value="0">Option 0</option>
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+              </select>
+            </div>
+          </form>
+        </div>
+
+
+        <h2 id="docs-typography" class="docs-title">Icons/h2>
+
+        <div class="docs-well">
+          {% include 'icon-logo-black--full-color' %}
+          {% include 'icon-logo-white--full-color' %}
+          {% include 'icon-vapor--full-color' %}
+          {% include 'icon-alkaline--full-color' %}
+          {% include 'icon-electro--full-color' %}
+          {% include 'icon-facebook' %}
+          {% include 'icon-instagram' %}
+          {% include 'icon-mail' %}
+          {% include 'icon-pinterest' %}
+          {% include 'icon-twitter' %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endcapture %}
+{% include 'password-protect' %}

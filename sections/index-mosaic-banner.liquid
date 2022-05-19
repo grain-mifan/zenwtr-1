@@ -1,0 +1,232 @@
+{% assign mosaic_classes = '' %}
+{% assign circle_eyebrow = section.settings.circle_eyebrow | append: ' ' | prepend: '' %}
+{% assign title = section.settings.title %}
+{% assign text = section.settings.text %}
+{% assign cta_url = section.settings.cta_url %}
+{% assign cta_text = section.settings.cta_text %}
+
+{% assign primary_image = section.settings.primary_image %}
+{% assign secondary_image = section.settings.secondary_image %}
+{% assign background_image = section.settings.background_image %}
+{% assign wave_shape = section.settings.wave_shape %}
+
+{% assign animate_circle = section.settings.animate_circle %}
+{% assign background_color = section.settings.background_color | prepend: 'bg-' | append: '_'%}
+{% assign text_color = section.settings.text_color | prepend: 'text-' | append: '_'%}
+{% assign image_align_class = section.settings.image_align | prepend: 'image-align-' | append: '_'%}
+{% assign image_align = section.settings.image_align %}
+
+{% assign mosaic_classes = mosaic_classes | append: background_color | append: text_color | append: image_align_class %}
+
+{% if background_image != blank %}
+  {% assign mosaic_classes = mosaic_classes | append: 'has-bg-image_' %}
+{% endif %}
+
+{% if circle_eyebrow != blank %}
+  {% assign mosaic_classes = mosaic_classes | append: 'has-eyebrow_' %}
+{% endif %}
+
+{% if animate_circle == true %}
+  {% assign mosaic_classes = mosaic_classes | append: 'animate-circle_' %}
+{% endif %}
+
+{% if wave_shape == true %}
+  {% assign mosaic_classes = mosaic_classes | append: 'has-wave_' %}
+{% endif %}
+
+{% assign mosaic_classes = mosaic_classes | replace: '_', ' ' %}
+
+<div class="mosaic-banner {{ mosaic_classes }}" data-section-type="mosaic-banner" data-aos="fade-up">
+  <div class="container-fluid-max">
+    <div class="row align-items-top position-relative row--mosaic-banner">
+      
+      {% if image_align == 'left' %}
+        <div class="col-10 col-md-4 offset-md-2 primary-image-container">
+          <div class="mosaic-image mosaic-image--primary frame frame--1x1">
+            {% include 'image_tag'
+                image: primary_image,
+                object_fit: 'cover' 
+              %}
+          </div>
+        </div>
+        
+        <div class="col-md-3 offset-md-1 secondary-image-container">
+          <div class="mosaic-image mosaic-image--secondary frame frame--1x1">
+
+            {% include 'image_tag'
+              image: secondary_image,
+              object_fit: 'cover' 
+            %}
+          </div>
+        </div>
+      {% endif %}
+      
+      <div class="col-md-5 offset-md-1 mosaic-content-container">
+        {% if circle_eyebrow != blank %}
+          <div class="mosaic-eyebrow-container">
+            <div class="mosaic-eyebrow h6" data-eyebrow="{{ circle_eyebrow }}"></div>
+          </div>
+        {% endif %}
+
+        {% if title != blank %}
+          <h2 class="mosaic-title">{{ title }}</h2>
+        {% endif %}
+
+        {% if text != blank %}
+          <div class="mosaic-text p1">{{ text }}</div>
+        {% endif %}
+
+        {% if cta_url != blank and cta_text != blank %}
+          <div class="mosaic-cta-container">
+            <a href="{{ cta_url }}" class="btn btn-primary">{{ cta_text }}</a>
+          </div>
+        {% endif %}
+      </div>
+
+      {% if image_align == 'right' %}
+        <div class="col-10 col-md-4 primary-image-container">
+          <div class="mosaic-image mosaic-image--primary frame frame--1x1">
+
+            {% include 'image_tag'
+                image: primary_image,
+                object_fit: 'cover' 
+              %}
+          </div>
+        </div>
+        
+        <div class="col-md-3 offset-md-8 secondary-image-container">
+          <div class="mosaic-image mosaic-image--secondary frame frame--1x1">
+
+            {% include 'image_tag'
+                image: secondary_image,
+                object_fit: 'cover'
+              %}
+          </div>
+        </div>
+      {% endif %}
+
+    </div>
+  </div>
+
+  {% if background_image != blank %}
+    <div class="mosaic-background">
+      <img src="{{ background_image | img_url: '1400x' }}" alt="">
+    </div>
+  {% endif %}
+  
+
+  {% if wave_shape == true %}
+    {% include 'wave' %}
+  {% endif %}
+</div>
+
+{% schema %}
+  {
+    "name": "Mosaic Banner",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Banner Content"
+      },
+      {
+        "type": "text",
+        "id": "circle_eyebrow",
+        "label": "Circle Eyebrow"
+      },
+      {
+        "type": "richtext",
+        "id": "title",
+        "label": "Title",
+        "info": "Bold text appears blue."
+      },
+      {
+        "type": "textarea",
+        "id": "text",
+        "label": "Text"
+      },
+      {
+        "type": "text",
+        "id": "cta_text",
+        "label": "CTA Text"
+      },
+      {
+        "type": "url",
+        "id": "cta_url",
+        "label": "CTA URL"
+      },
+      {
+        "type": "header",
+        "content": "Banner Images"
+      },
+      {
+        "type": "image_picker",
+        "id": "primary_image",
+        "label": "Primary Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "secondary_image",
+        "label": "Secondary Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "background_image",
+        "label": "Background Image"
+      },
+      {
+        "type": "header",
+        "content": "Banner Settings"
+      },
+      {
+        "type": "checkbox",
+        "id": "wave_shape",
+        "label": "Show Wave Shape",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "animate_circle",
+        "label": "Animate Circle Eyebrow",
+        "default": false
+      },
+      {
+        "type": "select",
+        "id": "image_align",
+        "label": "Image Alignment",
+        "options": [
+          { "value": "left", "label": "Left" },
+          { "value": "right", "label": "Right" }
+        ],
+        "default": "left"
+      },
+      {
+        "type": "select",
+        "id": "text_color",
+        "label": "Text Color",
+        "options": [
+          { "value": "light", "label": "Light" },
+          { "value": "dark", "label": "Dark" }
+        ],
+        "default": "light"
+      },
+      {
+        "type": "select",
+        "id": "background_color",
+        "label": "Background Color",
+        "info": "The background color for the module if the background image is empty.",
+        "options": [
+          { "value": "white", "label": "White" },
+          { "value": "baby-blue", "label": "Blue" }
+        ],
+        "default": "white"
+      }
+    ], 
+    "presets": [
+      {
+        "name": "Mosaic Banner",
+        "category": "Media",
+        "settings": {}
+      }
+    ]
+  }
+{% endschema %}
