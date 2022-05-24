@@ -37,14 +37,6 @@
   </div>
 </div>
 
-<script>
-  window.addEventListener('load', (event) => {
-    $('#SingleOptionSelector').change(function(e){
-      product_url = $(this).val();
-      window.location.href = product_url;
-    });
-  });
-</script>
 {% schema %}
   {
     "name": "Product Page",
@@ -54,62 +46,6 @@
         "id": "size_guide_page",
         "label": "Size Guide Page",
         "info": "Contents of this page will be displayed"
-      },
-	  {
-        "type": "header",
-        "content": "3 Up Icons + Text"
-      },
-      {
-        "type": "richtext",
-        "id": "title1",
-        "label": "Title1",
-        "info": "Bold text appears blue."
-      },
-	  {
-        "type": "richtext",
-        "id": "title2",
-        "label": "Title2",
-        "info": "Bold text appears blue."
-      },
-      {
-        "type": "richtext",
-        "id": "text",
-        "label": "Text"
-      },
-	  {
-        "type": "header",
-        "content": "Video"
-      },
-	  {
-		"type": "image_picker",
-		"id": "video_background",
-		"label": "Background Image"
-	  },
-	  {
-        "id": "video_url",
-        "type": "video_url",
-        "label": "Video URL",
-        "accept": ["vimeo"],
-        "info": "Supports vimeo."
-      }
-    ],
-	"max_blocks": 4,
-	"blocks": [
-      {
-        "type": "icon_card",
-        "name": "Icon + Text",
-        "settings": [
-          {
-            "type": "image_picker",
-            "id": "icon",
-            "label": "Icon"
-          },
-          {
-            "type": "text",
-            "id": "icon_text",
-            "label": "Icon Text"
-          }
-        ]
       }
     ]
   }

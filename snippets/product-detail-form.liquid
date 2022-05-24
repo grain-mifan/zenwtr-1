@@ -20,68 +20,11 @@
   {% assign current_variant = product.selected_or_first_available_variant %}
 {% endif %}
 
-<div data-product-detail-form class="data-product-detail-form">
+<div data-product-detail-form>
   <h1>{{ product.title }}</h1>
-  <!--<p>{{ product.vendor }}</p>-->
-  <!--<p class="img-product-review"><img src="{{"5-star.png" | asset_url }}"> <span>Rated by 138 Customers</span></p>-->
-  <p class="img-product-review">
-    <span class="stamped-product-reviews-badge stamped-main-badge" data-id="{{ product.id }}" data-product-sku="{{ product.handle }}" data-product-type="{{product.type}}" data-product-title="{{product.title}}"  style="display: inline-block;">{{ product.metafields.stamped.badge }}</span>
-  </p>
+  <p>{{ product.vendor }}</p>
 
-  
-  <div class="rte product-page-description">
-    {% comment %}
-    {{ product.description }}
-    {% endcomment %}
-    <!--<p>Vapor distilled, ultra-purified alkaline water, ionized to reach a pH of 9.5.</p>
-    <p>ZenWTR is the perfect choice for crisp, pure water, delivered in a sustainable package that helps to prevent future ocean pollution.</p>-->
-    <p><b>Refresh Yourself, Restore Our Oceans.</b></p>
-    <ul>
-      <li class="product_desc_bullets">
-        <span class="arrow arrow--right" tabindex="0" role="button" aria-label="Next slide" style="height: 20px;width: 40px;background-color: transparent;">
-          <!--<svg style="width:16px;height: 16px;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="check" class="svg-inline--fa fa-check fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#00cef7" d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"></path></svg>-->
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.028 13.29V7.942H0.68V5.884H6.028V0.549999H8.086V5.884H13.42V7.942H8.086V13.29H6.028Z" fill="#00CEF7"/></svg>
-        </span>First and only beverage in the world in a bottle made from 100% recycled, certified ocean-bound plastic 
-      </li>
-      <li class="product_desc_bullets">
-        <span class="arrow arrow--right" tabindex="0" role="button" aria-label="Next slide" style="height: 20px;width: 40px;background-color: transparent;">
-          <!--<svg style="width:16px;height: 16px;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="check" class="svg-inline--fa fa-check fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#00cef7" d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"></path></svg>-->
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.028 13.29V7.942H0.68V5.884H6.028V0.549999H8.086V5.884H13.42V7.942H8.086V13.29H6.028Z" fill="#00CEF7"/></svg>
-        </span>Alkaline 9.5pH
-      </li>
-      <li class="product_desc_bullets">
-        <span class="arrow arrow--right" tabindex="0" role="button" aria-label="Next slide" style="height: 20px;width: 40px;background-color: transparent;">
-          <!--<svg style="width:16px;height: 16px;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="check" class="svg-inline--fa fa-check fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#00cef7" d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"></path></svg>-->
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.028 13.29V7.942H0.68V5.884H6.028V0.549999H8.086V5.884H13.42V7.942H8.086V13.29H6.028Z" fill="#00CEF7"/></svg>
-        </span>Ultra-Pure, Vapor Distilled
-      </li>
-      <li class="product_desc_bullets">
-        <span class="arrow arrow--right" tabindex="0" role="button" aria-label="Next slide" style="height: 20px;width: 40px;background-color: transparent;">
-          <!--<svg style="width:16px;height: 16px;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="check" class="svg-inline--fa fa-check fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#00cef7" d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"></path></svg>-->
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.028 13.29V7.942H0.68V5.884H6.028V0.549999H8.086V5.884H13.42V7.942H8.086V13.29H6.028Z" fill="#00CEF7"/></svg>
-        </span>Custom wide-mouth bottle shape 
-      </li>
-      <li class="product_desc_bullets">
-        <span class="arrow arrow--right" tabindex="0" role="button" aria-label="Next slide" style="height: 20px;width: 40px;background-color: transparent;">
-          <!--<svg style="width:16px;height: 16px;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="check" class="svg-inline--fa fa-check fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#00cef7" d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"></path></svg>-->
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.028 13.29V7.942H0.68V5.884H6.028V0.549999H8.086V5.884H13.42V7.942H8.086V13.29H6.028Z" fill="#00CEF7"/></svg>
-        </span>Each bottle is made from up to 5 bottles, rescued from at-risk coastlines and waterways, preventing them from reaching and polluting the ocean
-      </li>
-      <li class="product_desc_bullets">
-        <span class="arrow arrow--right" tabindex="0" role="button" aria-label="Next slide" style="height: 20px;width: 40px;background-color: transparent;">
-          <!--<svg style="width:16px;height: 16px;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="check" class="svg-inline--fa fa-check fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#00cef7" d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"></path></svg>-->
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.028 13.29V7.942H0.68V5.884H6.028V0.549999H8.086V5.884H13.42V7.942H8.086V13.29H6.028Z" fill="#00CEF7"/></svg>
-        </span>100% Recyclable, including the label and cap
-      </li>
-      <li class="product_desc_bullets">
-        <span class="arrow arrow--right" tabindex="0" role="button" aria-label="Next slide" style="height: 20px;width: 40px;background-color: transparent;">
-          <!--<svg style="width:16px;height: 16px;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="check" class="svg-inline--fa fa-check fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#00cef7" d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"></path></svg>-->
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.028 13.29V7.942H0.68V5.884H6.028V0.549999H8.086V5.884H13.42V7.942H8.086V13.29H6.028Z" fill="#00CEF7"/></svg>
-        </span>1% of sales donated to ocean conservation and  recycling advocacy
-      </li>
-
-    </ul>
-  </div>
+  {% include 'product-detail-price', product: product, current_variant: current_variant %}
 
   <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
     <meta itemprop="priceCurrency" content="{{ shop.currency }}">
@@ -89,25 +32,7 @@
     <link itemprop="availability" href="http://schema.org/{% if current_variant.available %}InStock{% else %}OutOfStock{% endif %}">
 
     <div data-add-to-cart-form-wrapper>
-      <form action="/cart/add" data-productid="{{ product.id }}" method="post" enctype="multipart/form-data" data-add-to-cart-form data-productid="{{product.id}}">
-        <div class="selector-wrapper form-group js">
-              <label for="SingleOptionSelector-1">Size:</label>
-              <select
-                id="SingleOptionSelector"
-                      class="form-control"
-                      data-single-option-selector>
-                <option value="" readonly selected>{{product.title}}</option>
-                {% for l_product in collections["all-products"].products %}
-                {% if product.handle != l_product.handle %}
-                <option value="{{l_product.url | within: collection}}">{{l_product.title}}</option>
-                {% endif %}
-                {% endfor %}
-              </select>
-
-              {% comment %} Output alternative option UI here {% endcomment %}
-              {{ option_alt_ui }}
-
-            </div>
+      <form action="/cart/add" method="post" enctype="multipart/form-data" data-add-to-cart-form>
         {% unless product.has_only_default_variant %}
           {% for option in product.options_with_values %}
             
@@ -175,7 +100,7 @@
           {% endfor %}
         {% endunless %}
 
-        <select name="id" data-productid="{{ product.id }}" class="no-js" data-product-select data-productid="{{product.id}}">
+        <select name="id" class="no-js" data-product-select>
           {% for variant in product.variants %}
             <option
               {% if variant == current_variant %}selected="selected"{% endif %}
@@ -186,7 +111,7 @@
           {% endfor %}
         </select>
 
-        <!--<div class="selector-wrapper form-group" style="min-width: 0;">
+        <div class="selector-wrapper form-group" style="min-width: 0;">
           <label for="Quantity">{{ 'products.product.quantity' | t }}:</label>
           <div style="max-width: 80px;">
             <select id="Quantity" name="quantity" class="form-control" {% if current_variant.available == false %}disabled="true"{% endif %} data-product-quantity-select>
@@ -195,27 +120,7 @@
               {% endfor %}
             </select>
           </div>
-        </div>-->
-        <div class="selector-wrapper form-group" style="min-width: 0;">
-          <label for="Quantity">{{ 'products.product.quantity' | t }}:</label>
-          <div class="ProductForm__QuantitySelector">
-            <div class="QuantitySelector QuantitySelector--large">
-              <span class="QuantitySelector__Button Link Link--secondary" data-action="decrease-quantity">{% render 'icon-minus' %}</span>
-              <input type="text" class="QuantitySelector__CurrentQuantity" pattern="[0-9]*" name="quantity" value="1">
-              <span class="QuantitySelector__Button Link Link--secondary" data-action="increase-quantity">{% render 'icon-plus' %}</span>
-            </div>
-          </div>
         </div>
-        
-        {% comment %}
-        {% include 'product-detail-price', product: product, current_variant: current_variant %}
-        {% endcomment %}
-        
-        {% if product.available %}{% include 'subscription-product' %}{% endif %}
-        
-        <p style="margin-bottom:0px;">FREE SHIPPING</p>
-        <p style="font-size: 12px;color: grey;">*Free US Shipping excludes Hawaii and Alaska.</p>
-        
 
         <button
           type="submit"
@@ -232,22 +137,13 @@
             </span>
         </button>
       </form>
-      <!--<a href="/collections/all" style="margin-top:20px;" class="btn btn-outline-primary">
-        <span data-add-to-cart-text>{{ 'products.product.continue_shopping' | t }}</span>
-      </a>-->
-      {% if product.metafields.custom_fields["bottles_rescued"] %}
-      <div class="bottles_rescued_wrapper">
-        <img src="https://cdn.shopify.com/s/files/1/0332/1236/6981/files/Recycle_414x_f78c7123-14b6-4198-8d12-ed2fc69f2bd5_414x.png?v=1602704099">
-        By ordering this item you rescue up to <span class="bottles_rescued_text"><span class="bottles_rescued">{{product.metafields.custom_fields["bottles_rescued"]}}</span> ocean-bound bottles</span><span class="bottle_rescured_text_subscr"></span>
-      </div>
-      {% endif %}
     </div>
 
   </div>
 
-  <!--<div class="rte">
+  <div class="rte">
     {{ product.description }}
-  </div>-->
+  </div>
 
   {% if is_quick_view %}
     {% comment %} This link will get updated on variant change.  See productDetailForm.js {% endcomment %}
