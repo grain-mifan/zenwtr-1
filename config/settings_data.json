@@ -378,7 +378,6 @@
           "cta_text": "",
           "cta_url": "",
           "video_url": "https:\/\/vimeo.com\/441441808",
-          "video_size": 66,
           "cover_image": "shopify:\/\/shop_images\/Underwater.jpg"
         }
       },
@@ -386,12 +385,10 @@
         "type": "two-up-counter",
         "settings": {
           "counter": 1430150,
-          "counter_unit": "Pounds",
           "duration": 3,
           "text": "<p>BOTTLES RESCUED TO DATE<\/p>",
           "subtext": "<p>In 2020, we will rescue 70 Million Plastic  Water Bottles from&nbsp;Coastal Environments<br><br><\/p>",
-          "image": "shopify:\/\/shop_images\/woman-running-on-beach_079a2933-9562-4b4c-8556-fb2b7d01c0c6.jpg",
-          "wave_shape": false
+          "image": "shopify:\/\/shop_images\/woman-running-on-beach_079a2933-9562-4b4c-8556-fb2b7d01c0c6.jpg"
         }
       },
       "mission-banner": {

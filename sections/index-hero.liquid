@@ -13,7 +13,7 @@
 
 <style>
   @media (min-width: 768px) {
-    #video-player-{{ section.id }} iframe{
+    #video-player-{{ section.settings.video_url.id }} iframe{
       height: {{ section.settings.video_size | append: 'vw' }};
     }
   }
@@ -21,7 +21,7 @@
 
 <div class="hero hero--index {% if light_text == true %}hero--light-text{% endif %}{% if bg_video == true %} hero--bg-video{% endif %}">
   <div data-section-id="{{ section.id }}" data-section-type="video" class="hero-video">
-    <div id="video-player-{{ section.id }}" class="video-player" data-video-player data-video-id="{{ section.settings.video_url.id }}" data-video-type="{{ section.settings.video_url.type }}" data-background="true" data-embed-color="{{ section.settings.embed_color | remove: '#' }}">
+    <div id="video-player-{{ section.settings.video_url.id }}" class="video-player" data-video-player data-video-id="{{ section.settings.video_url.id }}" data-video-type="{{ section.settings.video_url.type }}" data-background="true" data-embed-color="{{ section.settings.embed_color | remove: '#' }}">
 
       {% if cover_image != blank and section.settings.video_url.id == blank %}
         <div class="video-background-image">
