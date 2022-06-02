@@ -248,7 +248,7 @@
         "settings": {
           "counter": 50000000,
           "counter_unit": "POUNDS",
-          "duration": 3,
+          "duration": 2,
           "text": "<p>HELP ZENWTR REACH OUR RECYCLING GOAL OF 50 MILLION&nbsp;POUNDS OF OCEAN-BOUND PLASTIC&nbsp;BY 2025<\/p>",
           "subtext": "",
           "image": "",
@@ -378,17 +378,20 @@
           "cta_text": "",
           "cta_url": "",
           "video_url": "https:\/\/vimeo.com\/441441808",
+          "video_size": 60,
           "cover_image": "shopify:\/\/shop_images\/Underwater.jpg"
         }
       },
       "two-up-counter": {
         "type": "two-up-counter",
         "settings": {
-          "counter": 1430150,
-          "duration": 3,
-          "text": "<p>BOTTLES RESCUED TO DATE<\/p>",
-          "subtext": "<p>In 2020, we will rescue 70 Million Plastic  Water Bottles from&nbsp;Coastal Environments<br><br><\/p>",
-          "image": "shopify:\/\/shop_images\/woman-running-on-beach_079a2933-9562-4b4c-8556-fb2b7d01c0c6.jpg"
+          "counter": 50000000,
+          "counter_unit": "pounds",
+          "duration": 2,
+          "text": "",
+          "subtext": "<p>HELP ZENWTR REACH OUR RECYCLING GOAL OF 50 MILLION&nbsp;POUNDS OF OCEAN-BOUND PLASTIC&nbsp;BY 2025<\/p>",
+          "image": "shopify:\/\/shop_images\/woman-running-on-beach_079a2933-9562-4b4c-8556-fb2b7d01c0c6.jpg",
+          "wave_shape": false
         }
       },
       "mission-banner": {
@@ -397,7 +400,7 @@
           "title": "<p>Together We Can <br><strong>Reduce Ocean Plastic<\/strong><\/p>",
           "text": "No new plastic is required to produce our bottle. In fact, up to 5 Certified Ocean-Bound plastic bottles are used to produce every 1 bottle of ZenWTR.",
           "content_image": "shopify:\/\/shop_images\/turtle.png",
-          "wave_shape": true
+          "wave_shape": false
         }
       },
       "mission-mosaic-banner": {
@@ -407,7 +410,7 @@
           "title": "<p>Giving <strong>Back<\/strong><\/p>",
           "text": "1% of ZenWTR sales goes to charities dedicated to cleaning up coastal environments.",
           "cta_text": "Dive Deeper",
-          "cta_url": "http:\/\/instagram.com",
+          "cta_url": "shopify:\/\/blogs\/news\/1-for-the-oceans",
           "primary_image": "shopify:\/\/shop_images\/dolphin.png",
           "secondary_image": "shopify:\/\/shop_images\/underwater2.png",
           "background_image": "",
@@ -426,7 +429,7 @@
           "text": "Our Ocean Cycle Certification certifies that the plastic that is recycled into ZenWTR bottles was sourced from at-risk coastal communities and the standards under which it was sourced.",
           "light_text": false,
           "cta_text": "Dive Deeper",
-          "cta_url": "http:\/\/youtube.com",
+          "cta_url": "shopify:\/\/blogs\/news\/ocean-cycle-certification-ocean-bound-plastic",
           "background_base": "shopify:\/\/shop_images\/surfer.png",
           "background_small": "shopify:\/\/shop_images\/surfer-mobile.png",
           "vertical_align": false,
@@ -440,7 +443,7 @@
           "title": "<p>Building Strong<br><strong>Partnerships<\/strong><\/p>",
           "text": "Creating a plastic water bottle from 100% recycled content uses 75% less energy than using virgin (new) plastic. Our partner, carbonLITE produces the 100% recycled resin used to create the ZenWTR bottle. Recycling 7 billion plastic bottles per year, they are the largest producer of post-consumer rPET (recycled polyethylene terephthalate, the most common type of plastic resin which is, luckily, easily recyclable)\n in the world.",
           "cta_text": "Dive Deeper",
-          "cta_url": "http:\/\/youtube.com",
+          "cta_url": "shopify:\/\/blogs\/news\/our-partners-carbonlite",
           "primary_image": "shopify:\/\/shop_images\/carbonlite.png",
           "secondary_image": "shopify:\/\/shop_images\/bottles-top.png",
           "background_image": "",
@@ -459,7 +462,7 @@
           "text": "Help us keep the loop closed. Learn more\nabout how easy it is to recycle ZenWTR.",
           "light_text": false,
           "cta_text": "Dive Deeper",
-          "cta_url": "http:\/\/instagram.com",
+          "cta_url": "shopify:\/\/blogs\/news\/recycling-information-resources",
           "background_base": "shopify:\/\/shop_images\/recycle-bin_38d07d30-0339-4c82-8ae6-0139e76c7849.png",
           "background_small": "shopify:\/\/shop_images\/recycling_bin_mobile.png",
           "vertical_align": true,
@@ -475,8 +478,8 @@
           "light_text": false,
           "cta_text": "Find A Store",
           "cta_url": "shopify:\/\/pages\/stores",
-          "content_image_desktop": "shopify:\/\/shop_images\/3-up-bottle.png",
-          "content_image_mobile": "shopify:\/\/shop_images\/ow-hero-mobile_db029992-8cd1-4302-9402-9832ecdcda27.png",
+          "content_image_desktop": "shopify:\/\/shop_images\/BottleTrio.png",
+          "content_image_mobile": "shopify:\/\/shop_images\/BottleTrio.png",
           "cover_image": "shopify:\/\/shop_images\/ow-bg.png"
         }
       },
@@ -570,7 +573,7 @@
           "text_right": "Explore our how are partners share our values",
           "light_text_right": true,
           "cta_text_right": "OUR PARTNERS",
-          "cta_url_right": "http:\/\/youtube.com",
+          "cta_url_right": "shopify:\/\/blogs\/news\/ocean-cycle-certification-ocean-bound-plastic",
           "background_base_right": "shopify:\/\/shop_images\/warehouse.png"
         }
       },
@@ -582,8 +585,8 @@
           "light_text": false,
           "cta_text": "",
           "cta_url": "",
-          "background_base": "shopify:\/\/shop_images\/recycle_hero.jpg",
-          "background_small": "shopify:\/\/shop_images\/recycle_mobile_hero_2.jpg",
+          "background_base": "shopify:\/\/shop_images\/recycling-desktop.jpg",
+          "background_small": "shopify:\/\/shop_images\/recycling-mobile.png",
           "align_center": false
         }
       },
@@ -594,7 +597,7 @@
           "title": "<p>You Can <strong>Help<\/strong><\/p>",
           "text": "Help us reduce plastic pollution by staying informed.",
           "cta_text": "Dive Deeper",
-          "cta_url": "http:\/\/youtbe.com",
+          "cta_url": "shopify:\/\/blogs\/news\/recycling-information-resources",
           "primary_image": "shopify:\/\/shop_images\/guys-beach.png",
           "secondary_image": "shopify:\/\/shop_images\/wave.png",
           "background_image": "",
@@ -612,7 +615,7 @@
           "title": "<p>Recycle <strong>Locally<\/strong><\/p>",
           "text": "Recycling practices vary by state.",
           "cta_text": "Dive Deeper",
-          "cta_url": "http:\/\/instagram.com",
+          "cta_url": "shopify:\/\/blogs\/news\/recycling-resources-by-state",
           "primary_image": "shopify:\/\/shop_images\/guy-swim.png",
           "secondary_image": "shopify:\/\/shop_images\/girl-float.png",
           "background_image": "",
@@ -630,7 +633,7 @@
           "text": "See what sets us apart from the rest.",
           "light_text": false,
           "cta_text": "Dive Deeper",
-          "cta_url": "http:\/\/instagram.com",
+          "cta_url": "shopify:\/\/blogs\/news\/our-delicious-water",
           "background_base": "shopify:\/\/shop_images\/pushup-guy.png",
           "background_small": "shopify:\/\/shop_images\/pushup-guy-mobile.png",
           "align_center": false
@@ -701,8 +704,8 @@
         "settings": {
           "title": "<p>Closed Loop <strong>PROCESS<\/strong> <\/p>",
           "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.",
-          "cta_text": "LEarn More",
-          "cta_url": "shopify:\/\/blogs\/news\/the-distillation-process",
+          "cta_text": "Learn More",
+          "cta_url": "shopify:\/\/blogs\/news\/bottle-to-bottle-process-1",
           "white_background": false
         }
       },
@@ -727,6 +730,14 @@
       "related-articles": {
         "type": "related-articles",
         "settings": {}
+      },
+      "mission-video": {
+        "type": "mission-video",
+        "settings": {
+          "video_url": "https:\/\/vimeo.com\/440072988",
+          "cover_image": "shopify:\/\/shop_images\/ZenWTR_Share_aeeeedc4-61df-4f1c-bffc-2f52cdf85d99.jpg",
+          "background": false
+        }
       }
     },
     "content_for_index": [

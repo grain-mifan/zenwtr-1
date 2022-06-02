@@ -7,7 +7,7 @@
 {% assign wave_shape = section.settings.wave_shape %}
 
 <div class="counter-banner text-center {% if image != blank %}counter-banner--two-up{% endif %}" data-section-id="{{ section.id }}" data-section-type="counter-banner" data-aos="fade-up">
-  {% if wave_shape == true %}
+  {% if wave_shape == true  and image == blank %}
     {% include 'wave' %}
   {% endif %}
   
@@ -83,7 +83,8 @@
         "type": "checkbox",
         "id": "wave_shape",
         "label": "Show Wave Shape",
-        "default": false
+        "default": false,
+        "info": "Wave shape only appears in if theres is no image."
       }
     ],
     "presets": [

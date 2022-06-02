@@ -4,7 +4,7 @@
 {% assign wave_shape = section.settings.wave_shape %}
 
 
-<div data-section-id="{{ section.id }}"class="text-plus-image" data-aos="fade-up">
+<div data-section-id="{{ section.id }}"class="text-plus-image {% if wave_shape == true %}has-wave{% endif %}" data-aos="fade-up">
 
   {% if wave_shape == true %}
     {% include 'wave' %}
