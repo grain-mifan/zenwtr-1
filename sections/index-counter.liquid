@@ -5,15 +5,16 @@
 {% assign subtext = section.settings.subtext %}
 {% assign image = section.settings.image %}
 {% assign wave_shape = section.settings.wave_shape %}
+{% assign vetical_align = section.settings.vetical_align %}
 
-<div class="counter-banner text-center {% if image != blank %}counter-banner--two-up{% endif %}" data-section-id="{{ section.id }}" data-section-type="counter-banner" data-aos="fade-up">
+<div class="counter-banner text-center {% if image != blank %}counter-banner--two-up{% endif %} {% if vetical_align == true %} vertical-align{% endif %}" data-section-id="{{ section.id }}" data-section-type="counter-banner" data-aos="fade-up">
   {% if wave_shape == true  and image == blank %}
     {% include 'wave' %}
   {% endif %}
   
   <div class="{% if image != blank %}container-fluid{% else %}container-fluid-max{% endif %}">
     <div class="row justify-content-center">
-      <div class="{% if image != blank %}col-md-6{% else %}col-md-10{% endif %}">
+      <div class="counter-content {% if image != blank %}col-md-6{% else %}col-md-10{% endif %}">
         <h2 class="counter-banner__number" data-counter="{{ counter }}" data-duration="{{ duration }}">
           <span data-number-container>{{ counter }}</span> 
           <br class="d-block d-md-none">
@@ -85,6 +86,12 @@
         "label": "Show Wave Shape",
         "default": false,
         "info": "Wave shape only appears in if theres is no image."
+      },
+      {
+        "type": "checkbox",
+        "id": "vetical_align",
+        "label": "Align Content Vertically",
+        "default": false
       }
     ],
     "presets": [

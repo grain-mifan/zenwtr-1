@@ -14,8 +14,14 @@
           </div>
           <div class="ajax-cart__footer-bottom">
             <div class="ajax-cart__footer-row">
+              <p style="text-align:center;cursor: pointer;" onclick="$('.ajax-cart-backdrop.is-visible').click();">Continue Shopping</p>
               <button type="submit" name="checkout" class="btn btn-block btn-primary">{{ 'cart.general.checkout' | t }}</button>
             </div>
+            <!--
+			<a href="/collections/all" class="btn btn-block btn-outline-primary">
+              <span data-add-to-cart-text>{{ 'products.product.continue_shopping' | t }}</span>
+            </a>
+			-->
             {% comment %} Hide additional checkout buttons in theme editor {% endcomment %}
             {% if additional_checkout_buttons %}
               {% unless content_for_header contains 'designMode' or content_for_header contains 'preview_host' or content_for_header contains 'designModeScript' %}
@@ -43,7 +49,7 @@
           <img src="{{ image }}" class="ajax-cart__item-image">
           <div class="ajax-cart__item-info">
             <a href="{{ url }}" class="ajax-cart__item-header">
-              <div class="ajax-cart__item-title">{{ product_title }}</div>
+              <div class="ajax-cart__item-title">{{{ product_title }}}</div>
             </a>    
             <ul class="ajax-cart__item-options">
               {{#unless has_only_default_variant}}
@@ -117,7 +123,7 @@
         "id": "footer_text",
         "type": "richtext",
         "label": "Footer Text",
-        "default": "<p>Promotional Message Here</p>"
+        "default": "<p>test</p>"
       }
     ]
   }

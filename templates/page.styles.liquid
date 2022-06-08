@@ -1,3 +1,4 @@
+{% capture captured_page %}
 {% comment %}
   Custom template for testing styles applied to RTE content.
   Remove before deploying to production/publishing your theme.
@@ -155,3 +156,6 @@
     </div>
   </div>
 </div>
+
+{% endcapture %}
+{% include 'password-protect' %}

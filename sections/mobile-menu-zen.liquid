@@ -16,7 +16,7 @@
       </div>
       <div class="drawer__body">
         <div class="drawer__body-contents">
-            <div class="mobile-menu-block mobile-menu-block--primary">
+            <div class="xyz mobile-menu-block mobile-menu-block--primary">
               {% if section.settings.primary_linklist and linklists[section.settings.primary_linklist].links.size > 0 %}
                 {% for link in linklists[section.settings.primary_linklist].links %}
                   <div class="panel">
@@ -28,6 +28,15 @@
                   </div>
                 {% endfor %}
               {% endif %}
+              {% if template.name contains 'collection' or template.name contains 'product' %}
+                <div class="panel">
+                  <div class="expandable-list">
+                    <div class="expandable-list__header">
+                      <a href="/checkout" class="expandable-list__header-title h5">Checkout</a>                      
+                    </div>
+                  </div>
+              </div>
+            {% endif %}
             </div>
         </div>
       </div>

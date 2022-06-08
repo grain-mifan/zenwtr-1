@@ -3,8 +3,10 @@
 {% assign list = section.settings.list %}
 {% assign cta_url = section.settings.cta_url %}
 {% assign cta_text = section.settings.cta_text %}
-{% assign cover_image = section.settings.cover_image %}
+{% assign shop_now_url = section.settings.shop_now_url %}
+{% assign shop_now_text = section.settings.shop_now_text %}
 
+{% assign cover_image = section.settings.cover_image %}
 
 {% assign content_image_desktop = section.settings.content_image_desktop %}
 
@@ -52,11 +54,14 @@
           <div class="hero-list">{{ list }}</div>
         {% endif %}
 
+        <div class="hero-cta-container">
         {% if cta_url != blank and cta_text != blank %}
-          <div class="hero-cta-container">
-            <a href="{{ cta_url }}" class="btn btn-primary">{{ cta_text }}</a>
-          </div>
+          <a href="{{ cta_url }}" class="btn btn-primary">{{ cta_text }}</a>
         {% endif %}
+        {% if shop_now_url != blank and shop_now_text != blank %}
+          <a href="{{ shop_now_url }}" class="btn btn-primary" style="margin-left: 15px;">{{ shop_now_text }}</a>
+        {% endif %}
+        </div>
       </div>
     </div>
 
@@ -111,6 +116,16 @@
         "type": "url",
         "id": "cta_url",
         "label": "CTA URL"
+      },
+	  {
+        "type": "text",
+        "id": "shop_now_text",
+        "label": "SHOP Now Text"
+      },
+      {
+        "type": "url",
+        "id": "shop_now_url",
+        "label": "Show Now URL"
       },
       {
         "type": "image_picker",
