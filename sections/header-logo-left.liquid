@@ -2,16 +2,6 @@
   {% assign invert_header = article.metafields.custom_fields["invert_header_color"] %}
 {% elsif template.name contains 'blog' %}
   {% assign invert_header = blog.metafields.custom_fields["invert_header_color"]%}
-{% elsif template.name contains 'collection' %}
-  {% assign invert_header = 1 %}
-{% elsif template contains 'customers' %}
-  {% assign invert_header = 1 %}
-{% elsif template.name contains 'product' %}
-  {% assign invert_header = 1 %}
-{% elsif template.name contains 'cart' %}
-  {% assign invert_header = 1 %}
-{% elsif template == blank %}
-  {% assign invert_header = 1 %}
 {% else %}
   {% assign invert_header = page.metafields.custom_fields['invert_header_color'] %}
 {% endif %}
@@ -42,20 +32,6 @@
                 </li>
               {% endif %}
             {% endfor %}
-            {% if template.name contains 'collection' or template.name contains 'product' %}
-            	<li class="header-nav__menu-item h5">
-                  <a href="/checkout">
-                    Checkout          
-                  </a>
-                </li>
-            {% endif %}
-            <li class="header-nav__menu-item h5 {% if template contains "customers" %}is-active{%endif %}">
-              {% if customer %}
-              <a href="/account">Account</a>
-              {% else %}
-              <a href="/account/login">Login</a>
-              {% endif %}
-            </li>
           </ul>
         </div>
 

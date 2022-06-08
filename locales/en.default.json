@@ -292,7 +292,6 @@
       "from_text_html": "From {{ price }}",
       "quantity": "Quantity",
       "add_to_cart": "Add to Cart",
-      "continue_shopping": "Return to Shopping",
       "adding": "Adding..."
     }
   },
