@@ -120,7 +120,7 @@
         "type": "index-hero",
         "settings": {
           "title": "<p>THIRSTY FOR <strong>Change<\/strong><\/p>",
-          "copy_desktop": "Vapor Distilled, Ultra Purified, Alkaline Water In 100% Recycled Certified Ocean-Bound Plastic",
+          "copy_desktop": "Vapor Distilled, Ultra Purified, Alkaline Water In 100% Recycled, Certified Ocean-Bound Plastic",
           "copy_mobile": "Vapor Distilled, Ultra Purified, Alkaline Water In 100% Recycled Certified Ocean-Bound Plastic",
           "light_text": true,
           "cta_text": "",
@@ -282,7 +282,7 @@
         "settings": {
           "circle_eyebrow": "• Help us close the ocean plastic loop today",
           "title": "<p>Every Bottle<\/p>\n<p><strong>Counts<\/strong><\/p>",
-          "text": "Each ZenWTR bottle is made up of five plastic\nbottles rescued from coastal environments.",
+          "text": "Each ZenWTR bottle is made from up to five plastic\nbottles rescued from coastal environments.",
           "cta_text": "Our Mission",
           "cta_url": "shopify:\/\/pages\/our-mission",
           "video_url": "https:\/\/vimeo.com\/436973116",
@@ -450,7 +450,7 @@
         "settings": {
           "circle_eyebrow": "• Drink ZENWTR and be part of the change",
           "title": "<p>Building Strong<br><strong>Partnerships<\/strong><\/p>",
-          "text": "Creating our bottle from 100% recycled plastic uses about 75% less energy than producing with new, \"virgin\", plastic. We are proud to partner with CarbonLITE, the largest producer of post-consumer rPET (recycled polyethylene terephthalate, the most common type of plastic resin) in the world.",
+          "text": "Creating our bottle from 100% recycled plastic uses about 75% less energy than producing with new \"virgin\" plastic. We are proud to partner with CarbonLITE, the largest producer of post-consumer rPET (recycled polyethylene terephthalate, the most common type of plastic resin) in the world.",
           "cta_text": "Dive Deeper",
           "cta_url": "shopify:\/\/blogs\/news\/our-partners-carbonlite",
           "primary_image": "shopify:\/\/shop_images\/carbonlite.png",
@@ -482,7 +482,7 @@
         "type": "water-hero",
         "settings": {
           "title": "<p>ZEnWTR<\/p>",
-          "copy_desktop": "Vapor distilled, ultra-purified and ionized to reach a pH of 9.5,  ZenWTR is the perfect choice for crisp, pure water, delivered in a 100% recyclable package",
+          "copy_desktop": "Vapor distilled, ultra-purified and ionized to reach a pH of 9.5,  ZenWTR is the perfect choice for crisp, pure water, delivered in a 100% recyclable package (including the label and cap.)",
           "list": "<p>Vapor Distilled<\/p>\n<p>Alkaline 9.5pH<\/p>\n<p>Electrolytes for superior hydration<\/p>\n<p>Available in 16.9oz, 23.7oz, and 1L<\/p>",
           "light_text": false,
           "cta_text": "Find A Store",
@@ -720,7 +720,7 @@
         ],
         "settings": {
           "title": "<p>Closed Loop <strong>PROCESS<\/strong> <\/p>",
-          "text": "Our bottles are made from recycled bottles in a true bottle-to-bottle closed loop.  They're also 100% recyclable, able to be used to make new products.",
+          "text": "Our bottles are made from recycled bottles in a true bottle-to-bottle closed loop.  They're also 100% recyclable (including the labels and caps,) able to be born anew to make new products.",
           "cta_text": "DIVE DEEPER",
           "cta_url": "shopify:\/\/blogs\/news\/bottle-to-bottle-process-1",
           "white_background": false
@@ -788,13 +788,22 @@
         "type": "mission-video",
         "settings": {
           "video_url": "https:\/\/vimeo.com\/440072988",
-          "cover_image": "shopify:\/\/shop_images\/ZenWTR_Share_aeeeedc4-61df-4f1c-bffc-2f52cdf85d99.jpg",
+          "cover_image": "shopify:\/\/shop_images\/Bantam_Video_Thumbnail.png",
           "background": false
         }
       },
       "cart": {
         "type": "cart",
         "settings": {}
+      },
+      "page-contact": {
+        "type": "page-contact",
+        "settings": {
+          "title": "Contact Us",
+          "sub_title": "",
+          "content": "",
+          "success_message": ""
+        }
       }
     },
     "content_for_index": [
