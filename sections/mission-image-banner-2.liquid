@@ -6,9 +6,7 @@
 {% assign light_text = section.settings.light_text %}
 {% assign vertical_align = section.settings.vertical_align %}
 {% assign text_align = section.settings.align_center %}
-
 {% assign background_image = section.settings.background_base %}
-
 {% if section.settings.background_small != blank %}
   {% assign background_image_small = section.settings.background_small %}
 {% else %}
@@ -17,7 +15,6 @@
 
 {% if background_image != blank and title != blank %}
   <div data-section-id="{{ section.id }}" data-section-type="banner" class="banner banner--zw banner--mission {% if light_text == true %}light-text{% endif %}{% if vertical_align == true %} vertical-align{% endif %}" data-aos="fade-up" data-below-process>
-    
     <div class="container-fluid-max">
       <div class="row">
         <div class="col-md-5 col-lg-4 offset-md-1 text-left banner-content {% if text_align == true %}mobile-text-center{% endif %}">
@@ -32,11 +29,9 @@
           {% if title != blank %}
             <div class="banner__title h2">{{ title }}</div>
           {% endif %}
-          
           {% if text != blank %}
-            <div class="banner__text p1">{{ text }}</div>
+            <div class="banner__text p2">{{ text }}</div>
           {% endif %}
-
           {% if cta_url != blank and cta_text != blank %}
             <div class="banner__cta-container">
               <a href="{{ cta_url }}" class="btn btn-primary">{{ cta_text }}</a>
@@ -52,7 +47,6 @@
           object_fit: 'cover' 
         %}
       </div>
-
       <div class="banner__background-image d-block d-md-none frame frame--4x3">
         {% include 'image_tag'
           image: background_image_small,
@@ -62,7 +56,6 @@
     {% endif %}
   </div>
 {% endif %}
-
 {% schema %}
   {
     "name": "Image Banner - 2",

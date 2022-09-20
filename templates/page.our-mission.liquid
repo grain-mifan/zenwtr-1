@@ -1,9 +1,12 @@
-{% section 'mission-hero' %}
-{% section 'two-up-counter' %}
+{% capture captured_page %}
 {% section 'mission-video' %}
+{% section 'mission-header-cta' %}
+{% comment %}{% section 'mission-hero' %}{% endcomment %}
 {% section 'mission-banner' %}
 {% section 'mission-mosaic-banner' %}
 {% section 'mission-process-banner' %}
+{% comment %}{% section 'mission-mosaic-banner-2' %}{% endcomment %}
 {% section 'mission-image-banner' %}
-{% section 'mission-mosaic-banner-2' %}
 {% section 'mission-image-banner-2' %}
+{% endcapture %}
+{% include 'password-protect' %}

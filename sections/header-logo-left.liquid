@@ -2,6 +2,16 @@
   {% assign invert_header = article.metafields.custom_fields["invert_header_color"] %}
 {% elsif template.name contains 'blog' %}
   {% assign invert_header = blog.metafields.custom_fields["invert_header_color"]%}
+{% elsif template.name contains 'collection' %}
+  {% assign invert_header = 1 %}
+{% elsif template contains 'customers' %}
+  {% assign invert_header = 1 %}
+{% elsif template.name contains 'product' %}
+  {% assign invert_header = 1 %}
+{% elsif template.name contains 'cart' %}
+  {% assign invert_header = 1 %}
+{% elsif template == blank %}
+  {% assign invert_header = 1 %}
 {% else %}
   {% assign invert_header = page.metafields.custom_fields['invert_header_color'] %}
 {% endif %}
@@ -11,17 +21,27 @@
   <header class="header {% if invert_header == 1 %}header--dark{% endif %}" role="banner" data-header>
     <div class="header-container">
       <div class="row">
+        <div class="header-nav header-nav--right header-nav--hide-on-desktop">
+          <ul class="header-nav__menu">
+            <li class="header-nav__menu-item">
+              <a href="#" class="hamburger-menu"title="Toggle menu" data-mobile-menu-toggle>
+                {% include 'icon-hamburger' %}
+              </a>
+            </li>
+          </ul>
+        </div>
+        
         {% comment %} Logo {% endcomment %}
         <div class="header-nav header-nav--left header-nav--logo col-md-2">
           <div class="logo-container">
             <a href="/">
-              {% include 'icon-logo-white--full-color' %}
+              {% include 'icon-logo-black--full-color' %}
             </a>
           </div>
         </div>
 
         {% comment %} Main Menu {% endcomment %}
-        <div class="header-nav header-nav--center header-nav--hide-on-mobile col-lg-10 col-xl-8 offset-xl-2">
+        <div class="header-nav header-nav--center header-nav--hide-on-mobile col-lg-10 col-xl-8 offset-xl-4">
           <ul class="header-nav__menu ">
             {% for block in section.blocks %}
               {% if block.settings.url != blank and block.settings.title != blank %}
@@ -32,9 +52,31 @@
                 </li>
               {% endif %}
             {% endfor %}
+            {% comment %}
+            {% if template.name contains 'collection' or template.name contains 'product' %}
+            	<li class="header-nav__menu-item h5">
+                  <a href="/checkout">
+                    Checkout          
+                  </a>
+                </li>
+            {% endif %}
+            {% endcomment %}
+            <!--<li class="header-nav__menu-item h5 {% if template contains "customers" %}is-active{%endif %}">
+              {% if customer %}
+              <a href="/account">Account</a>
+              {% else %}
+              <a href="/account/login">Login</a>
+              {% endif %}
+            </li>-->
           </ul>
         </div>
+		
+        <div class="header-nav header-nav--right header-nav--hide-on-mobile">
+        
+        {% include 'header-menu-user' %}
 
+      </div>
+        
         {% comment %} Header nav on mobile size screens - search, account, hamburger {% endcomment %}
         <div class="header-nav header-nav--right header-nav--hide-on-desktop">
           

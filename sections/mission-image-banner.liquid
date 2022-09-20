@@ -6,9 +6,7 @@
 {% assign light_text = section.settings.light_text %}
 {% assign vertical_align = section.settings.vertical_align %}
 {% assign text_align = section.settings.align_center %}
-
 {% assign background_image = section.settings.background_base %}
-
 {% if section.settings.background_small != blank %}
   {% assign background_image_small = section.settings.background_small %}
 {% else %}
@@ -16,11 +14,10 @@
 {% endif %}
 
 {% if background_image != blank and title != blank %}
-  <div data-section-id="{{ section.id }}" data-section-type="banner" class="banner banner--zw banner--mission {% if light_text == true %}light-text{% endif %}{% if vertical_align == true %} vertical-align{% endif %}" data-aos="fade-up" data-below-process>
-    
+  <div data-section-id="{{ section.id }}" data-section-type="banner" class="banner banner--zw banner--mission v2-design {% if light_text == true %}light-text{% endif %}{% if vertical_align == true %} vertical-align{% endif %}" data-aos="fade-up" data-below-process>
     <div class="container-fluid-max">
       <div class="row">
-        <div class="col-md-5 col-lg-4 offset-md-1 text-left banner-content {% if text_align == true %}mobile-text-center{% endif %}">
+        <div class="col-md-4 offset-md-1 text-left banner-content {% if text_align == true %}mobile-text-center{% endif %}">
           {% if eyebrow_icon != blank %}
             <div class="banner-eyebrow frame frame--4x3">
               {% include 'image_tag'
@@ -30,39 +27,42 @@
             </div>
           {% endif %}
           {% if title != blank %}
-            <div class="banner__title h2">{{ title }}</div>
+            <div class="banner__title h3 mission mt-4 mt-md-0 pt-md-5 pb-md-2 mt-lg-4">{{ title }}</div>
           {% endif %}
-          
           {% if text != blank %}
-            <div class="banner__text p1">{{ text }}</div>
+            <div class="banner__text p2 mt-3 mb-4">{{ text }}</div>
           {% endif %}
-
           {% if cta_url != blank and cta_text != blank %}
-            <div class="banner__cta-container">
+            <div class="banner__cta-container mb-4">
               <a href="{{ cta_url }}" class="btn btn-primary">{{ cta_text }}</a>
             </div>
           {% endif %}
         </div>
+        <div class="col-md-6 offset-md-1 d-none d-md-block px-md-0">
+          {% if background_image != blank %}
+            <div class="d-none d-md-block">
+              <div class="img-wrap w-100">
+                {% include 'image_tag'
+                  image: background_image,
+                  object_fit: 'cover',
+                  image_class: 'w-100'
+                %}
+              </div>
+            </div>
+          {% endif %}
+        </div>
+        <div class="col-12 d-md-none px-0">
+          <div class="banner__background-image d-block d-md-none frame frame--4x3">
+            {% include 'image_tag'
+              image: background_image_small,
+              object_fit: 'cover' 
+            %}
+          </div>
+        </div>
       </div>
     </div>
-    {% if background_image != blank %}
-      <div class="banner__background-image banner__background-image--desktop position-right d-none d-md-block">
-        {% include 'image_tag'
-          image: background_image,
-          object_fit: 'cover' 
-        %}
-      </div>
-
-      <div class="banner__background-image d-block d-md-none frame frame--4x3">
-        {% include 'image_tag'
-          image: background_image_small,
-          object_fit: 'cover' 
-        %}
-      </div>
-    {% endif %}
   </div>
 {% endif %}
-
 {% schema %}
   {
     "name": "Image Banner - 1",
@@ -106,7 +106,7 @@
       {
         "type": "image_picker",
         "id": "background_base",
-        "label": "Background Image - Desktop"
+        "label": "Image - Desktop"
       },
       {
         "type": "image_picker",

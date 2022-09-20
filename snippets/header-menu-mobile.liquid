@@ -1,19 +1,9 @@
-<ul class="header-nav__menu">
-  <li class="header-nav__menu-item">
+<ul class="header-nav__menu right_icons">
+  <!--<li class="header-nav__menu-item">
     <a href="#" class="hamburger-menu"title="Toggle menu" data-mobile-menu-toggle>
       {% include 'icon-hamburger' %}
     </a>
-  </li>
-  {% if section.settings.cart == true %}
-    <li class="header-nav__menu-item">
-      <a href="/cart" data-ajax-cart-trigger>
-        <div class="header-cart__badge{% if cart.item_count > 0 %} has-items{% endif %}" data-cart-badge>
-          {% include 'icon-cart' %}
-          <span class="header-cart__badge-count" data-cart-badge-count>{{ cart.item_count }}</span>
-        </div>
-      </a>
-    </li>
-  {% endif %}
+  </li>-->
   {% if shop.customer_accounts_enabled %}
     <li class="header-nav__menu-item">
       {% if customer %}
@@ -29,4 +19,13 @@
       {% endif %}
     </li>
   {% endif %}
+    <li class="header-nav__menu-item">
+      <a href="/cart" data-ajax-cart-trigger>
+        <div class="header-cart__badge{% if cart.item_count > 0 %} has-items{% endif %}" data-cart-badge>
+          {% include 'icon-cart' %}
+          <span class="header-cart__badge-count" data-cart-badge-count>{{ cart.item_count }}</span>
+        </div>
+      </a>
+    </li>
+  
 </ul>

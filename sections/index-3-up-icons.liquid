@@ -5,12 +5,13 @@
   <div class="container-fluid-max">
     <div class="row justify-content-center">
       <div class="col-md-10 col-lg-8">
+        <!-- <a href="/products/zen-wtr-9-5ph-12-1l" class="btn btn-primary shop_now_button" style="margin-bottom: 25px;">Shop Now</a> ASKED TO REMOVE BY CLIENT -->
         {% if title != blank %}
           <h3 class="three-up__title">{{ title }}</h3>
         {% endif %}
 
         {% if text != blank %}
-          <div class="three-up__text p1">{{ text }}</div>
+          <div class="three-up__text p1 px-2">{{ text }}</div>
         {% endif %}
 
         <div class="three-up-icons">
@@ -20,14 +21,19 @@
             
             {% if icon != blank and icon_text != blank %}
               <div class="icon-block">
+                {%- if block.settings.icon_url != blank -%}
+                <a class="d-block" href="{{ block.settings.icon_url }}">
+                {%- endif -%}
                 <div class="icon__image frame frame--1x1">
                   {% include 'image_tag'
                     image: icon,
                     object_fit: 'contain'  
                   %}
                 </div>
-
                 <h6 class="icon__text">{{ icon_text }}</h6>
+                {%- if block.settings.icon_url != blank -%}
+                </a>
+                {%- endif -%}
               </div>
             {% endif %}
           {% endfor %}
@@ -40,7 +46,7 @@
 {% schema %}
   {
     "name": "3 Up Icons + Text",
-    "max_blocks": 3,
+    "max_blocks": 4,
     "settings": [
       {
         "type": "header",
@@ -72,6 +78,11 @@
             "type": "text",
             "id": "icon_text",
             "label": "Icon Text"
+          },
+          {
+            "type": "url",
+            "id": "icon_url",
+            "label": "Icon Link (optional)"
           }
         ]
       }

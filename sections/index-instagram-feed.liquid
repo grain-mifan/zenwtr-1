@@ -40,7 +40,13 @@
       <div class="col-md-10">
         
         {% if title != blank %}
+          {%- if settings.social_instagram_link != blank -%}
+          <a href="{{settings.social_instagram_link}}" title="Follow us on Instagram" target="_blank" rel="noopener noreferrer">
+          {%- endif -%}
           <h2 class="instagram-feed__title">{{ title }}</h2>
+          {%- if settings.social_instagram_link != blank -%}
+          </a>
+          {%- endif -%}
         {% endif %}
 
         {% if text != blank%}

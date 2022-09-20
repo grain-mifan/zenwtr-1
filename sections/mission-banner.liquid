@@ -3,39 +3,47 @@
 {% assign content_image = section.settings.content_image %}
 {% assign wave_shape = section.settings.wave_shape %}
 
-
 <div data-section-id="{{ section.id }}"class="text-plus-image {% if wave_shape == true %}has-wave{% endif %}" data-aos="fade-up">
-
   {% if wave_shape == true %}
     {% include 'wave' %}
   {% endif %}
-
-  <div class="container-fluid-max">
-    <div class="row justify-content-center">
-      <div class="col-md-6 text-center">
-        {% if title != blank %}
-          <div class="text-plus-image__title h2">{{ title }}</div>
+  <div class="container-fluid">
+    <div class="mission-banner-wrap">
+      <div class="row justify-content-center">
+        <div class="col-md-5 text-center">
+          {% if title != blank %}
+            <div class="text-plus-image__title h3">{{ title }}</div>
+          {% endif %}
+          {% if text != blank %}
+            <div class="text-plus-image__text p2">{{ text }}</div>
+          {% endif %}
+          {% if section.settings.cta_url != blank and section.settings.cta_text != blank %}
+          <div class="cta-wrap d-none d-md-block mt-4">
+            <a href="{{ section.settings.cta_url }}" class="btn btn-primary">{{ section.settings.cta_text }}</a>
+          </div>
         {% endif %}
-        
-        {% if text != blank %}
-          <div class="text-plus-image__text p1">{{ text }}</div>
-        {% endif %}
-        
-        {% if content_image != blank %}
-          <div class="frame frame--4x3">
-            <div class="text-plus-image__image">
-              {% include 'image_tag'
-                image: content_image,
-                object_fit: 'cover' 
-              %}
+        </div>
+      {% if content_image != blank %}
+          <div class="col-md-5 px-md-0 mx-md-5 px-lg-5 align-self-center">
+            <div class="frame frame--4x3">
+              <div class="text-plus-image__image">
+                {% include 'image_tag'
+                  image: content_image,
+                  object_fit: 'cover' 
+                %}
+              </div>
             </div>
           </div>
         {% endif %}
-      </div>
     </div>
+    {% if section.settings.cta_url != blank and section.settings.cta_text != blank %}
+      <div class="cta-wrap d-md-none mt-4 mb-5">
+        <a href="{{ section.settings.cta_url }}" class="btn btn-primary">{{ section.settings.cta_text }}</a>
+      </div>
+    {% endif %}
   </div>
 </div>
-
+</div>
 {% schema %}
   {
     "name": "Banner",
@@ -59,6 +67,16 @@
         "type": "image_picker",
         "id": "content_image",
         "label": "Content Image"
+      },
+      {
+        "type": "text",
+        "id": "cta_text",
+        "label": "Button Text"
+      },
+      {
+        "type": "url",
+        "id": "cta_url",
+        "label": "Button URL"
       },
       {
         "type": "checkbox",

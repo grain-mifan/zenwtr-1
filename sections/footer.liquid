@@ -50,8 +50,14 @@
           {% if section.settings.copyright_text != blank %}
             <div class="copyright">
               <small class="p3">{{ section.settings.copyright_text | replace: '$year$', year | replace: '$shop$', shop.name }}</small>
+              
             </div>
            {% endif %}
+          {% if section.settings.disclaimer_text != blank %}
+            <div class="copyright">
+              <small class="p3">{{ section.settings.disclaimer_text | replace: '$year$', year | replace: '$shop$', shop.name }}</small>
+            </div>
+          {% endif %}
         </div>
       </div>
 
@@ -113,6 +119,15 @@
         "id": "copyright_text",
         "label": "Text",
         "info": "Use '$year$' to include the current year.  Use $shop$ to include the name of your shop."
+      },
+		{
+        "type": "header",
+        "content": "Disclaimer"
+      },      
+      {
+        "type": "textarea",
+        "id": "disclaimer_text",
+        "label": "Text"
       },
       {
         "type": "header",

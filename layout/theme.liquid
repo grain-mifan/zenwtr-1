@@ -37,6 +37,7 @@
   {% include 'social-meta-tags' %}
 
   {{ 'theme.css' | asset_url | stylesheet_tag }}
+  {{ 'custom.scss' | asset_url | stylesheet_tag }}
 
   <script>
     document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
@@ -57,15 +58,18 @@
     };
   {% endif %}
   </script>
-
   <!--[if (gt IE 9)|!(IE)]><!--><script src="{{ 'vendor.js' | asset_url }}"></script><!--<![endif]-->
   <!--[if lt IE 9]><script src="{{ 'vendor.js' | asset_url }}"></script><![endif]-->
-
   <!--[if (gt IE 9)|!(IE)]><!--><script src="{{ 'theme.js' | asset_url }}" defer="defer"></script><!--<![endif]-->
   <!--[if lt IE 9]><script src="{{ 'theme.js' | asset_url }}"></script><![endif]-->
-
+  {%- comment -%} Load JS for Hero Slider if Homepage {%- endcomment -%}
+  {%- if template.name == 'index' -%}
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+	<script src="{{ 'lazysizes.min.js' | asset_url }}" defer="defer"></script>
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js" defer="defer"></script>
+    <script src="{{ 'genericSliderFlickity.js' | asset_url }}" defer="defer"></script>
+  {%- endif -%}
   {{ content_for_header }}
-
   {% include 'third-party-scripts-head' %}
 </head>
 
@@ -107,6 +111,9 @@
   {% include 'slideup-template' %}
   {% include 'search-overlay' %}
   {% include 'third-party-scripts-foot' %}
+
+  {% include 'subscription-theme-footer' %}
+  <script async type="text/javascript" data-api-key="" id="stamped-script-widget" src="https://cdn-stamped-io.azureedge.net/files/widget.min.js"></script>
 
 </body>
 </html>

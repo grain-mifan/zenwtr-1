@@ -30,8 +30,8 @@
 {% endcomment -%}
 
 {% assign photo_thumb_dimension = '200x200' %}
-{% assign photo_main_dimension  = '900x900' %}
-{% assign photo_zoom_dimension  = '1400x1400' %}
+{% assign photo_main_dimension  = '1400x1400' %}
+{% assign photo_zoom_dimension  = '2100x2100' %}
 {% assign alt_swatch_identifier = 'swatch' %} {% comment %} Used to find swatch images attached at the product level.  We don't want to display them in the gallery. {% endcomment %}
 
 {% comment %} Defaults {% endcomment %}
@@ -86,8 +86,8 @@
                   {% if image_alt_downcase contains color_downcase %}
                     {% unless image_alt_downcase contains alt_swatch_identifier %}
                       <div class="swiper-slide" data-image="{{ image.id }}" {% if image.id == current_variant.featured_image.id %} data-initial-slide{% endif %}>
-                        <a href="{{ image | img_url: photo_zoom_dimension }}">
-                          <img src="{{ image | img_url: photo_main_dimension }}" alt="{{ image.alt | escape }}">
+                        <a class="xyz1" href="{{ image | img_url: photo_zoom_dimension }}">
+                          <img class="xyz2" src="{{ image | img_url: photo_main_dimension }}" alt="{{ image.alt | escape }}">
                         </a>
                       </div>
                     {% endunless %}
@@ -108,7 +108,7 @@
                 {% if image_alt_downcase contains color_downcase %}
                   {% unless image_alt_downcase contains alt_swatch_identifier %}
                     <div class="product-gallery__thumbnails-slide" data-product-gallery-thumbnails-slide>
-                      <img src="{{ image.src | img_url: photo_thumb_dimension }}" alt="{{ image.alt | escape }}">
+                      <img class="xyz6" src="{{ image.src | img_url: photo_thumb_dimension }}" alt="{{ image.alt | escape }}">
                     </div>
                   {% endunless %}
                 {% endif %}
@@ -129,8 +129,8 @@
             {% assign image_alt_downcase = image.alt | downcase %}
             {% unless image_alt_downcase contains alt_swatch_identifier %}
               <div class="swiper-slide" data-image="{{ image.id }}" {% if image.id == current_variant.featured_image.id %} data-initial-slide{% endif %}>
-                <a href="{{ image | img_url: photo_zoom_dimension }}">
-                  <img src="{{ image | img_url: photo_main_dimension }}" alt="{{ image.alt | escape }}" class="img-fluid">
+                <a class="xyz3" href="{{ image | img_url: photo_zoom_dimension }}">
+                  <img src="{{ image | img_url: photo_main_dimension }}" alt="{{ image.alt | escape }}" class="img-fluid xyz4">
                 </a>
               </div>
             {% endunless %}
@@ -149,7 +149,7 @@
           {% assign image_alt_downcase = image.alt | downcase %}
           {% unless image_alt_downcase contains alt_swatch_identifier %}
             <div class="product-gallery__thumbnails-slide" data-product-gallery-thumbnails-slide>
-              <img src="{{ image.src | img_url: photo_thumb_dimension }}" alt="{{ image.alt | escape }}" class="img-fluid">
+              <img src="{{ image.src | img_url: photo_thumb_dimension }}" alt="{{ image.alt | escape }}" class="img-fluid xyz5">
             </div>
           {% endunless %}
         {% endfor %}

@@ -15,6 +15,7 @@
 {% assign text_color = section.settings.text_color | prepend: 'text-' | append: '_'%}
 {% assign image_align_class = section.settings.image_align | prepend: 'image-align-' | append: '_'%}
 {% assign image_align = section.settings.image_align %}
+{% assign activate_section = section.settings.activate_section %}
 
 {% assign mosaic_classes = mosaic_classes | append: background_color | append: text_color | append: image_align_class %}
 
@@ -36,91 +37,102 @@
 
 {% assign mosaic_classes = mosaic_classes | replace: '_', ' ' %}
 
-<div class="mosaic-banner {{ mosaic_classes }}" data-section-type="mosaic-banner" data-aos="fade-up" data-below-process>
-  <div class="container-fluid-max">
-    <div class="row align-items-top position-relative row--mosaic-banner">
-      
-      {% if image_align == 'left' %}
-        <div class="col-10 col-md-4 offset-md-2 primary-image-container">
-          <div class="mosaic-image mosaic-image--primary frame frame--1x1">
-            {% include 'image_tag'
-              image: primary_image,
-              object_fit: 'cover' 
-            %}
-          </div>
-        </div>
+{%- if activate_section == true -%}
+  <div class="mosaic-banner {{ mosaic_classes }} pt-0 pb-5" data-section-type="mosaic-banner" data-aos="fade-up" data-below-process>
+    <div class="container-fluid-max">
+      <div class="row align-items-top position-relative row--mosaic-banner">
         
-        <div class="col-md-3 offset-md-1 secondary-image-container">
-          <div class="mosaic-image mosaic-image--secondary frame frame--1x1">
-            {% include 'image_tag'
-              image: secondary_image,
-              object_fit: 'cover' 
-            %}
+        {%- if primary_image != blank -%}
+        {% if image_align == 'left' %}
+          <div class="col-10 col-md-4 offset-md-2 primary-image-container">
+            <div class="mosaic-image mosaic-image--primary frame frame--1x1">
+              {% include 'image_tag'
+                image: primary_image,
+                object_fit: 'cover' 
+              %}
+            </div>
           </div>
+          
+          <div class="col-md-3 offset-md-1 secondary-image-container">
+            <div class="mosaic-image mosaic-image--secondary frame frame--1x1">
+              {% include 'image_tag'
+                image: secondary_image,
+                object_fit: 'cover' 
+              %}
+            </div>
+          </div>
+        {% endif %}
+        {%- endif -%}
+        
+        {%- if title != blank -%}
+        <div class="col-md-3 offset-md-0 mosaic-content-container">
+          {% if circle_eyebrow != blank %}
+            <div class="mosaic-eyebrow-container">
+              <div class="mosaic-eyebrow h6" data-eyebrow="{{ circle_eyebrow }}"></div>
+            </div>
+          {% endif %}
+
+          {% if title != blank %}
+            <h2 class="mosaic-title">{{ title }}</h2>
+          {% endif %}
+
+          {% if text != blank %}
+            <div class="mosaic-text p2">{{ text }}</div>
+          {% endif %}
+
+          {% if cta_url != blank and cta_text != blank %}
+            <div class="mosaic-cta-container">
+              <a href="{{ cta_url }}" class="btn btn-primary">{{ cta_text }}</a>
+            </div>
+          {% endif %}
         </div>
-      {% endif %}
-      
-      <div class="col-md-5 offset-md-1 mosaic-content-container">
-        {% if circle_eyebrow != blank %}
-          <div class="mosaic-eyebrow-container">
-            <div class="mosaic-eyebrow h6" data-eyebrow="{{ circle_eyebrow }}"></div>
+        {%- endif -%}
+
+        {% if image_align == 'right' %}
+          <div class="col-10 col-md-4 primary-image-container">
+            <div class="mosaic-image mosaic-image--primary frame frame--1x1">
+              {% include 'image_tag'
+                image: primary_image,
+                object_fit: 'cover' 
+              %}
+            </div>
+          </div>
+          
+          <div class="col-md-3 offset-md-8 secondary-image-container">
+            <div class="mosaic-image mosaic-image--secondary frame frame--1x1">
+              {% include 'image_tag'
+                image: secondary_image,
+                object_fit: 'cover' 
+              %}
+            </div>
           </div>
         {% endif %}
 
-        {% if title != blank %}
-          <h2 class="mosaic-title">{{ title }}</h2>
-        {% endif %}
-
-        {% if text != blank %}
-          <div class="mosaic-text p1">{{ text }}</div>
-        {% endif %}
-
-        {% if cta_url != blank and cta_text != blank %}
-          <div class="mosaic-cta-container">
-            <a href="{{ cta_url }}" class="btn btn-primary">{{ cta_text }}</a>
-          </div>
-        {% endif %}
       </div>
-
-      {% if image_align == 'right' %}
-        <div class="col-10 col-md-4 primary-image-container">
-          <div class="mosaic-image mosaic-image--primary frame frame--1x1">
-            {% include 'image_tag'
-              image: primary_image,
-              object_fit: 'cover' 
-            %}
-          </div>
-        </div>
-        
-        <div class="col-md-3 offset-md-8 secondary-image-container">
-          <div class="mosaic-image mosaic-image--secondary frame frame--1x1">
-            {% include 'image_tag'
-              image: secondary_image,
-              object_fit: 'cover' 
-            %}
-          </div>
-        </div>
-      {% endif %}
-
     </div>
+
+    {% if background_image != blank %}
+      <div class="mosaic-background">
+        <img src="{{ background_image | img_url: '1400x' }}" alt="">
+      </div>
+    {% endif %}
+    
+
+    {% if wave_shape == true %}
+      {% include 'wave' %}
+    {% endif %}
   </div>
-
-  {% if background_image != blank %}
-    <div class="mosaic-background">
-      <img src="{{ background_image | img_url: '1400x' }}" alt="">
-    </div>
-  {% endif %}
-  
-
-  {% if wave_shape == true %}
-    {% include 'wave' %}
-  {% endif %}
-</div>
+{%- endif -%}
 
 {% schema %}
   {
     "name": "Mosaic Banner - 2",
     "settings": [
+      {
+        "type": "checkbox",
+        "id": "activate_section",
+        "label": "Activate Section"
+      },
       {
         "type": "header",
         "content": "Banner Content"

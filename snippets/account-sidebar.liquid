@@ -21,6 +21,11 @@
           <li {% if template.name == 'account' and template.suffix == 'orders' %}class="is-active"{% endif %}>
             <a href="/account?view=orders">{{ 'customer.orders.title' | t }}</a>
           </li>
+          <li {% if template.name == 'account' and template.suffix == 'orders' %}class="is-active"{% endif %}>
+            <a href="/tools/recurring/login/">Manage Subscriptions</a>
+          </li>
+
+        
           <li {% if template.name == 'addresses' %}class="is-active"{% endif %}>
             <a href="/account/addresses">{{ 'customer.account.addresses' | t }}</a>
           </li>

@@ -36,7 +36,7 @@
 
 {% assign mosaic_classes = mosaic_classes | replace: '_', ' ' %}
 
-<div class="mosaic-banner {{ mosaic_classes }}" data-section-type="mosaic-banner" data-aos="fade-up">
+<div class="mosaic-banner v2-design {{ mosaic_classes }}" data-section-type="mosaic-banner" data-aos="fade-up">
   <div class="container-fluid-max">
     <div class="row align-items-top position-relative row--mosaic-banner">
       
@@ -61,7 +61,7 @@
         </div>
       {% endif %}
       
-      <div class="col-md-5 offset-md-1 mosaic-content-container">
+      <div class="col-8 col-md-3 offset-md-0 pl-4 mosaic-content-container">
         {% if circle_eyebrow != blank %}
           <div class="mosaic-eyebrow-container">
             <div class="mosaic-eyebrow h6" data-eyebrow="{{ circle_eyebrow }}"></div>

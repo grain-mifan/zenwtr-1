@@ -13,14 +13,13 @@
 
 {% paginate collection.products by 6 %}
 
-<div class="layout-content-wrapper" data-section-id="{{ section.id }}" data-section-type="collection">
+<div class="layout-content-wrapper" data-section-id="{{ section.id }}" data-section-type="collection" style="background-image: url('//cdn.shopify.com/s/files/1/0332/1236/6981/files/ow-bg_1024x.png');">
   <div class="container">
 
     {% include 'page-header',
                 ph_title: collection.title,
                 ph_subtitle: collection.description
     %}
-
     {% if collection.products.size > 0 %}
       <div class="collection-filter-bar">
         {% comment %}
@@ -55,9 +54,11 @@
         </div>
       </div>
 
+    {% comment %}
       <p class="d-none d-md-block">
         <small>Showing {{ collection.products.size }} {{ collection.products.size | pluralize: 'Item', 'Items' }}</small>
-      </p>      
+      </p>  
+    {% endcomment %}
 
       <div class="content-grid">
         {% for product in collection.products %}
@@ -102,6 +103,42 @@
   </script>
 </div>
 
+<div class="product-page three-up-icons-text" data-aos="fade-up">
+  <div class="container-fluid-max">
+    <div class="row justify-content-center">
+      <div class="col-md-10 col-lg-8">
+        <div class="three-up-icons">
+          {% for block in section.blocks %}
+          {% assign icon = block.settings.icon %}
+          {% assign icon_text = block.settings.icon_text %}
+
+          {% if icon != blank and icon_text != blank %}
+          <div class="icon-block">
+            <div class="icon__image frame frame--1x1">
+              {% include 'image_tag' image: icon, object_fit: 'contain' %}
+            </div>
+            <h6 class="icon__text">{{ icon_text }}</h6>
+          </div>
+          {% endif %}
+          {% endfor %}
+        </div>
+        {% if section.settings.title1 != blank %}
+        <h3 class="three-up__title">{{ section.settings.title1 }}</h3>
+        {% endif %}
+        {% if section.settings.title2 != blank %}
+        <h3 class="three-up__title">{{ section.settings.title2 }}</h3>
+        {% endif %}
+
+        {% if section.settings.text != blank %}
+        <div class="three-up__text p1">{{ section.settings.text }}</div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% include 'product-video' %}
+
 {% endpaginate %}
 
 {% schema %}
@@ -120,6 +157,62 @@
         "type": "checkbox",
         "label": "Enable Sort",
         "default": true
+      },
+	  {
+        "type": "header",
+        "content": "3 Up Icons + Text"
+      },
+      {
+        "type": "richtext",
+        "id": "title1",
+        "label": "Title1",
+        "info": "Bold text appears blue."
+      },
+	  {
+        "type": "richtext",
+        "id": "title2",
+        "label": "Title2",
+        "info": "Bold text appears blue."
+      },
+      {
+        "type": "richtext",
+        "id": "text",
+        "label": "Text"
+      },
+	  {
+        "type": "header",
+        "content": "Video"
+      },
+	  {
+		"type": "image_picker",
+		"id": "video_background",
+		"label": "Background Image"
+	  },
+	  {
+        "id": "video_url",
+        "type": "video_url",
+        "label": "Video URL",
+        "accept": ["vimeo"],
+        "info": "Supports vimeo."
+      }
+    ],
+	"max_blocks": 4,
+	"blocks": [
+      {
+        "type": "icon_card",
+        "name": "Icon + Text",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "icon",
+            "label": "Icon"
+          },
+          {
+            "type": "text",
+            "id": "icon_text",
+            "label": "Icon Text"
+          }
+        ]
       }
     ]
   }

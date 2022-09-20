@@ -1,3 +1,4 @@
+{% capture captured_page %}
 <div class="layout-content-wrapper">
   <div class="container">
     <div class="row justify-content-center">
@@ -1070,3 +1071,6 @@ The color is "{{ color }}"
     </div>
   </div>
 </div>
+
+{% endcapture %}
+{% include 'password-protect' %}

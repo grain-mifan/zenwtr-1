@@ -12,7 +12,7 @@
     "sharing_image_2": "",
     "sharing_image_3": "",
     "yotpo_client_id": "",
-    "favicon": "",
+    "favicon": "shopify:\/\/shop_images\/android-chrome-512x512_c0680ba3-0aaf-4169-9d3a-4cc77543ef8b.png",
     "klaviyo_id": "UCfXva",
     "klaviyo_form": "klaviyo-form-RSfFJc",
     "checkout_header_image": "",
@@ -51,10 +51,39 @@
       },
       "pencil-banner": {
         "type": "pencil-banner",
+        "blocks": {
+          "9fc080ab-4409-438e-a3dd-17c905eb8762": {
+            "type": "announcements",
+            "settings": {
+              "banner_content": "<p>FREE US SHIPPING ON ALL ORDERS!*<\/p>",
+              "banner_mobile_content": "<p>FREE US SHIPPING ON ALL ORDERS!*<\/p>"
+            }
+          },
+          "cf4a9ef7-1678-46f6-9e92-47a4fb7bde33": {
+            "type": "announcements",
+            "settings": {
+              "banner_content": "<p><strong>15% OFF ALL SUBSCRIPTIONS<\/strong><\/p>",
+              "banner_mobile_content": "<p><strong>15% OFF ALL SUBSCRIPTIONS<\/strong><\/p>"
+            }
+          },
+          "e673080a-856c-44fd-b251-fca0f9ee96a8": {
+            "type": "announcements",
+            "disabled": true,
+            "settings": {
+              "banner_content": "<p>NOW AVAILABLE AT WHOLE FOODS MARKET<\/p>",
+              "banner_mobile_content": "<p>NOW AVAILABLE AT WHOLE FOODS MARKET<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "9fc080ab-4409-438e-a3dd-17c905eb8762",
+          "cf4a9ef7-1678-46f6-9e92-47a4fb7bde33",
+          "e673080a-856c-44fd-b251-fca0f9ee96a8"
+        ],
         "settings": {
           "banner_enabled": true,
-          "banner_content": "<p>NOW AVAILABLE AT WHOLE FOODS<\/p>",
-          "banner_mobile_content": "<p>NOW AVAILABLE AT WHOLE FOODS<\/p>"
+          "banner_content": "<p>FREE US SHIPPING ON ALL ORDERS!*<\/p>",
+          "banner_mobile_content": "<p>FREE US SHIPPING ON ALL ORDERS!*<\/p>"
         }
       },
       "mobile-menu": {
@@ -80,8 +109,9 @@
       "footer": {
         "type": "footer",
         "settings": {
-          "footer_logo": "shopify:\/\/shop_images\/logo_e4858b2a-c895-4e36-a982-7be8470fc9a2.png",
-          "copyright_text": "© 2020 ZenWTR",
+          "footer_logo": "shopify:\/\/shop_images\/ZW_Logos_2c_darkBG.png",
+          "copyright_text": "© 2021 ZenWTR",
+          "disclaimer_text": "*Free US Shipping excludes Hawaii and Alaska.        \n\nPress Inquiries: email press@zenwtr.com",
           "footer_linklist_title_1": "Company",
           "footer_linklist_1": "footer-menu-1",
           "footer_linklist_title_2": "Explore",
@@ -113,23 +143,23 @@
         "type": "ajax-cart",
         "settings": {
           "empty_text": "<p>Your bag is empty<\/p>",
-          "footer_text": "<p>Promotional Message Here<\/p>"
+          "footer_text": ""
         }
       },
       "index-hero": {
         "type": "index-hero",
         "settings": {
-          "title": "<p>THIRSTY FOR <strong>Change<\/strong><\/p>",
-          "copy_desktop": "Vapor Distilled, Ultra Purified, Alkaline Water In 100% Recycled, Certified Ocean-Bound Plastic",
-          "copy_mobile": "Vapor Distilled, Ultra Purified, Alkaline Water In 100% Recycled Certified Ocean-Bound Plastic",
+          "active": false,
+          "title": "",
+          "copy_desktop": "",
+          "copy_mobile": "DANNY MCBRIDE LOVES THE F+*CKING OCEAN\nCheck out about how Danny and ZenWTR are raising money and awareness for ocean conservation",
           "light_text": true,
           "cta_text": "",
-          "cta_url": "",
-          "content_image_desktop": "shopify:\/\/shop_images\/bottle-desktop_281edbe0-9634-4368-ab35-6ad711f55521.png",
-          "content_image_mobile": "shopify:\/\/shop_images\/Bottle_Reflection_4.png",
-          "video_url": "https:\/\/vimeo.com\/436955144",
+          "cta_url": "shopify:\/\/pages\/zenpose",
+          "video_url": "",
           "video_size": 60,
-          "cover_image": "shopify:\/\/shop_images\/hero-background.png"
+          "cover_image": "shopify:\/\/shop_images\/thumbnail_Dannyhomeslide.jpg",
+          "cover_image_mobile": "shopify:\/\/shop_images\/Titlecardforvideo_ff7d5079-e69e-462b-8a26-d39523b7e75d.jpg"
         }
       },
       "mobile-menu-zen": {
@@ -141,6 +171,13 @@
       "header-logo-left": {
         "type": "header-logo-left",
         "blocks": {
+          "cb703a94-7e29-4c93-a9b8-7f7276acaee2": {
+            "type": "nav_item",
+            "settings": {
+              "title": "Shop Now",
+              "url": "shopify:\/\/products\/zen-wtr-9-5ph-12-1l"
+            }
+          },
           "1594939113061": {
             "type": "nav_item",
             "settings": {
@@ -178,6 +215,7 @@
           }
         },
         "block_order": [
+          "cb703a94-7e29-4c93-a9b8-7f7276acaee2",
           "1594939113061",
           "1594939128481",
           "1594939136111",
@@ -191,7 +229,7 @@
       "sign-up-footer": {
         "type": "sign-up-footer",
         "settings": {
-          "title": "<p>Alone We Are a Drop, <br><strong>Together We Are An Ocean<\/strong><\/p>",
+          "title": "<p>Alone We Are a Drop, <br\/><strong>Together We Are An Ocean<\/strong><\/p>",
           "text": "Join the vast community who are striving for change",
           "background": "shopify:\/\/shop_images\/signup-desktop.png",
           "background_mobile": "shopify:\/\/shop_images\/mobile-signup.png"
@@ -203,48 +241,60 @@
           "1593531384433": {
             "type": "icon_card",
             "settings": {
-              "icon": "shopify:\/\/shop_images\/vapor.png",
-              "icon_text": "VAPOR DISTILLED"
+              "icon": "shopify:\/\/shop_images\/ZW_Icon_Recycled.png",
+              "icon_text": "100% RECYCLED BOTTLE",
+              "icon_url": "https:\/\/zenwtr.com\/blogs\/news\/bottle-to-bottle-process-1"
             }
           },
           "1593531396144": {
             "type": "icon_card",
             "settings": {
-              "icon": "shopify:\/\/shop_images\/Screen_Shot_2020-06-26_at_5.19.20_PM.png",
-              "icon_text": "Alkaline 9.5 pH"
+              "icon": "shopify:\/\/shop_images\/ZW_Icon_OceanPlastic.png",
+              "icon_text": "CERTIFIED OCEAN-BOUND PLASTIC",
+              "icon_url": "https:\/\/zenwtr.com\/blogs\/news\/ocean-cycle-certification-ocean-bound-plastic"
+            }
+          },
+          "237990dd-ac61-496f-b60f-ef51d376ef1f": {
+            "type": "icon_card",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/ZW_Icon_PlasticNeg.png",
+              "icon_text": "CERTIFIED PLASTIC NEGATIVE",
+              "icon_url": "https:\/\/zenwtr.com\/blogs\/news\/zenwtr-is-the-first-beverage-in-the-world-to-be-officially-certified-plastic-negative"
             }
           },
           "1593531404615": {
             "type": "icon_card",
             "settings": {
-              "icon": "shopify:\/\/shop_images\/Screen_Shot_2020-06-26_at_5.19.55_PM.png",
-              "icon_text": "Electrolytes"
+              "icon": "shopify:\/\/shop_images\/ZW_Icon_9.5.png",
+              "icon_text": "ALKALINE 9.5pH",
+              "icon_url": "https:\/\/zenwtr.com\/blogs\/news\/alkaline-water-101"
             }
           }
         },
         "block_order": [
           "1593531384433",
           "1593531396144",
+          "237990dd-ac61-496f-b60f-ef51d376ef1f",
           "1593531404615"
         ],
         "settings": {
-          "title": "<p>Refresh Yourself,<strong> Help Restore our Oceans<\/strong><\/p>",
-          "text": "<p>ZenWTR is on a mission to help reduce the amount of plastic polluting the world&rsquo;s&nbsp;coastal environments.<\/p>"
+          "title": "",
+          "text": "<p><strong>Ionized Alkaline Water in a 100% Recycled Ocean-Bound Plastic Bottle<\/strong><\/p>"
         }
       },
       "1593531434334": {
         "type": "index-mosaic-banner",
         "settings": {
-          "circle_eyebrow": "• OUR ALKALINE WATER IS VAPOR DISTILLED",
-          "title": "<p>Let's Reduce<\/p>\n<p><strong>Plastic Pollution<\/strong><\/p>",
-          "text": "Join us as we rescue up to 50 million pounds of ocean-bound plastic from global coastal environments by 2025.",
-          "cta_text": "",
-          "cta_url": "",
-          "primary_image": "shopify:\/\/shop_images\/woman-with-surfboard_be0cd393-7a60-4a80-85e6-1762b6fee529.jpg",
+          "circle_eyebrow": "",
+          "title": "<p>WE DONATE <br\/>1% OF OUR SALES<\/p>",
+          "text": "to ocean conservation, recycling education and advocacy.",
+          "cta_text": "LEARN MORE",
+          "cta_url": "shopify:\/\/blogs\/news\/1-for-the-oceans",
+          "primary_image": "shopify:\/\/shop_images\/Girl_Holding_Bottle_1.jpg",
           "secondary_image": "shopify:\/\/shop_images\/star.png",
-          "background_image": "shopify:\/\/shop_images\/ocean-close-up_d842163f-e960-48e6-bdd6-3b5503028e36.png",
-          "wave_shape": true,
-          "animate_circle": true,
+          "background_image": "shopify:\/\/shop_images\/Asset_4_3x-80.jpg",
+          "wave_shape": false,
+          "animate_circle": false,
           "image_align": "left",
           "text_color": "light",
           "background_color": "white"
@@ -257,8 +307,7 @@
           "counter_unit": "POUNDS",
           "duration": 2,
           "text": "<p><strong>OF OCEAN-BOUND PLASTIC<\/strong><\/p>",
-          "subtext": "<p>HELP&nbsp;US&nbsp;REACH&nbsp;OUR&nbsp;2025&nbsp;RECYCLING&nbsp;GOAL<\/p>",
-          "image": "",
+          "subtext": "<p>HELP US REACH OUR 2025 RECYCLING GOAL<\/p>",
           "wave_shape": false,
           "vetical_align": false
         }
@@ -266,24 +315,24 @@
       "1593639717951": {
         "type": "index-banner",
         "settings": {
-          "title": "<p>Vapor Distilled<\/p>\n<p><strong>Alkaline Water<\/strong><\/p>",
-          "text": "ZenWTR is the perfect choice for crisp, pure water, delivered in a 100% recyclable package.",
+          "title": "<p>Vapor Distilled<\/p><p><strong>Alkaline Water<\/strong><\/p>",
+          "text": "ZenWTR is the perfect choice for crisp, pure water, delivered in a\n100% recycled package.",
           "cta_text": "Our Water",
           "cta_url": "shopify:\/\/pages\/our-water",
-          "content_image": "shopify:\/\/shop_images\/bottle_2.png",
-          "content_image_mobile": "shopify:\/\/shop_images\/bottle-desktop.png",
-          "overlap_image": true,
-          "background_base": "shopify:\/\/shop_images\/woman-running-on-beach_6bf55ff3-2bd4-45e9-b5a0-3eda6e88e7d1.jpg",
-          "background_small": "shopify:\/\/shop_images\/woman-running-on-beach_079a2933-9562-4b4c-8556-fb2b7d01c0c6.jpg"
+          "content_image": "shopify:\/\/shop_images\/ZW_1L_VIS4_extraclean2VertShadow.png",
+          "content_image_mobile": "shopify:\/\/shop_images\/ZW_1L_VIS4_extraclean2HoriShadow.png",
+          "overlap_image": false,
+          "background_base": "shopify:\/\/shop_images\/Alkaline_Beach.jpg",
+          "background_small": "shopify:\/\/shop_images\/Asset_5_3x-80.jpg"
         }
       },
       "1594229799994": {
         "type": "index-mosaic-banner-video",
         "settings": {
           "circle_eyebrow": "• Help us close the ocean plastic loop today",
-          "title": "<p>Every Bottle<\/p>\n<p><strong>Counts<\/strong><\/p>",
-          "text": "Each ZenWTR bottle is made from up to five plastic\nbottles rescued from coastal environments.",
-          "cta_text": "Our Mission",
+          "title": "<p>JOIN US TO <strong>REDUCE PLASTIC POLLUTION<\/strong><\/p>",
+          "text": "Every ZenWTR prevents up to 5 bottles from reaching and polluting the ocean.",
+          "cta_text": "Learn How",
           "cta_url": "shopify:\/\/pages\/our-mission",
           "video_url": "https:\/\/vimeo.com\/436973116",
           "wave_shape": false,
@@ -316,7 +365,7 @@
           "1594230079179": {
             "type": "store_logo",
             "settings": {
-              "logo": "shopify:\/\/shop_images\/wallmart_30837be4-45d0-4214-abe4-b4deb4409a40.png"
+              "logo": "shopify:\/\/shop_images\/target-logo-black-and-white.png"
             }
           },
           "1594355712528": {
@@ -342,6 +391,12 @@
             "settings": {
               "logo": "shopify:\/\/shop_images\/albertsons-logo.png"
             }
+          },
+          "72a37130-8277-4bf1-a390-b01f163ac59c": {
+            "type": "store_logo",
+            "settings": {
+              "logo": "shopify:\/\/shop_images\/cvs-logo.png"
+            }
           }
         },
         "block_order": [
@@ -352,7 +407,8 @@
           "1594355712528",
           "1594355728057",
           "1594355747488",
-          "1594355763248"
+          "1594355763248",
+          "72a37130-8277-4bf1-a390-b01f163ac59c"
         ],
         "settings": {
           "title": "<p>Now <strong>Available At<\/strong><\/p>",
@@ -366,8 +422,8 @@
           "title": "JOIN US @DRINKZENWTR",
           "text": "BE PART OF THE CHANGE",
           "wave_shape": true,
-          "image_left": "shopify:\/\/shop_images\/guysrunningbeach.png",
-          "image_right": "shopify:\/\/shop_images\/surferfromtop.png"
+          "image_left": "shopify:\/\/shop_images\/Asset_6_3x-80.jpg",
+          "image_right": "shopify:\/\/shop_images\/Track.jpg"
         }
       },
       "store-locator": {
@@ -379,13 +435,12 @@
       "mission-hero": {
         "type": "mission-hero",
         "settings": {
-          "title": "<p>Our <strong>Mission<\/strong><\/p>",
-          "copy_desktop": "ZenWTR vapor distilled alkaline water is working to help reduce pollution in the world’s oceans and marine environments. Our unique bottle is made from 100% recycled, Certified Ocean-Bound plastic, sourced from coastal environments.",
-          "copy_mobile": "ZenWTR vapor distilled alkaline water is working to help reduce pollution in the world’s oceans and marine environments. Our unique bottle is made from 100% recycled, Certified Ocean-Bound plastic, sourced from coastal environments.",
+          "title": "",
+          "copy_desktop": "",
+          "copy_mobile": "",
           "light_text": true,
           "cta_text": "",
-          "cta_url": "",
-          "video_url": "https:\/\/vimeo.com\/441441808",
+          "video_url": "https:\/\/vimeo.com\/440072988",
           "video_size": 60,
           "cover_image": "shopify:\/\/shop_images\/Underwater.jpg"
         }
@@ -406,24 +461,25 @@
       "mission-banner": {
         "type": "mission-banner",
         "settings": {
-          "title": "<p>Together We Can <br><strong>Reduce Ocean Plastic<\/strong><\/p>",
-          "text": "There's already plenty of plastic in the world we can reuse. In fact, up to 5 Certified Ocean-Bound plastic bottles are recycled to produce every 1 bottle of ZenWTR.",
-          "content_image": "shopify:\/\/shop_images\/turtle.png",
+          "title": "<p><strong>Rescue and Restore:<\/strong><br\/>PREVENTING OCEAN POLLUTION AND SUPPORTING NEW RECYCLING ECONOMIES<\/p>",
+          "text": "Our bottles are made from Certified Ocean-Bound Plastic which is plastic that was rescued from at-risk coastlines and waterways in countries that don’t have formal recycling programs. Our amazing partners are building new recycling programs all over the world that incentivize communities to rescue plastic before it reaches the ocean. By creating a demand for Ocean-Bound Plastic, we’re helping to provide reliable income and finance programs that benefit everyone from our bottle collectors to recycling processors.",
+          "content_image": "shopify:\/\/shop_images\/Asset_1_3x-80.jpg",
+          "cta_text": "Dive Deeper",
+          "cta_url": "https:\/\/zenwtr.com\/blogs\/news\/ocean-cycle-certification-ocean-bound-plastic",
           "wave_shape": false
         }
       },
       "mission-mosaic-banner": {
         "type": "mission-mosaic-banner",
         "settings": {
-          "circle_eyebrow": "• Drink ZENWTR and be part of the change",
-          "title": "<p>Giving <strong>Back<\/strong><\/p>",
-          "text": "1% of ZenWTR sales goes to charities dedicated to ocean conservation and coastal clean-up.",
+          "circle_eyebrow": "",
+          "title": "<p><strong>Renew & Reduce:<\/strong><br\/>Treating Plastic as a <br\/>Renewable Resource<\/p>",
+          "text": "There’s more than enough plastic in the world already. By using recycled plastic to produce our bottles (each of our bottles reuses up to 5 ocean-bound bottles and) instead of new “virgin” plastic, we’re able to reduce the amount of energy used by 84% and greenhouse gases created by 71%, per pound of plastic. Sure, virgin plastic is cheaper, but we choose to put progress over profits. Also, ZenWTR bottles, caps and labels are 100% recyclable, so our plastic is able to be reused to make new products.",
           "cta_text": "Dive Deeper",
-          "cta_url": "shopify:\/\/blogs\/news\/1-for-the-oceans",
-          "primary_image": "shopify:\/\/shop_images\/dolphin.png",
+          "cta_url": "https:\/\/zenwtr.com\/blogs\/news\/bottle-to-bottle-process-1",
+          "primary_image": "shopify:\/\/shop_images\/5_1GIF_Files.gif",
           "secondary_image": "shopify:\/\/shop_images\/underwater2.png",
-          "background_image": "",
-          "wave_shape": true,
+          "wave_shape": false,
           "animate_circle": true,
           "image_align": "left",
           "text_color": "dark",
@@ -433,14 +489,13 @@
       "mission-image-banner": {
         "type": "mission-image-banner",
         "settings": {
-          "eyebrow_icon": "shopify:\/\/shop_images\/Ocean_Cycle-Logo-Main-Final.png",
-          "title": "<p>OceanCycle<br><strong>Certified<\/strong><\/p>",
-          "text": "Our OceanCycle Certification confirms that the plastic recycled into ZenWTR bottles was sourced from at-risk coastal communities and certifies the standards under which it was sourced.",
+          "title": "<p>OceanCycle<br\/><strong>Certified<\/strong><\/p>",
+          "text": "Our OceanCycle certification confirms that the plastic recycled into our bottles was truly sourced from at-risk coastal environments, ensures adherence to safe material recycling standards and that fair and equitable working conditions are maintained throughout the process.",
           "light_text": false,
           "cta_text": "Dive Deeper",
           "cta_url": "shopify:\/\/blogs\/news\/ocean-cycle-certification-ocean-bound-plastic",
-          "background_base": "shopify:\/\/shop_images\/surfer.png",
-          "background_small": "shopify:\/\/shop_images\/surfer-mobile.png",
+          "background_base": "shopify:\/\/shop_images\/Asset_3_3x-80_95dd6d15-0afe-4a4e-9eed-cdca2b6382a6.jpg",
+          "background_small": "shopify:\/\/shop_images\/Asset_3_3x-80_95dd6d15-0afe-4a4e-9eed-cdca2b6382a6.jpg",
           "vertical_align": false,
           "align_center": false
         }
@@ -448,14 +503,13 @@
       "mission-mosaic-banner-2": {
         "type": "mission-mosaic-banner-2",
         "settings": {
-          "circle_eyebrow": "• Drink ZENWTR and be part of the change",
-          "title": "<p>Building Strong<br><strong>Partnerships<\/strong><\/p>",
-          "text": "Creating our bottle from 100% recycled plastic uses about 75% less energy than producing with new \"virgin\" plastic. We are proud to partner with CarbonLITE, the largest producer of post-consumer rPET (recycled polyethylene terephthalate, the most common type of plastic resin) in the world.",
+          "activate_section": true,
+          "circle_eyebrow": "",
+          "title": "<p><strong>REINVEST:<\/strong> protecting our<br\/>oceans, promoting <br\/>recycling and supporting <br\/>eco-friendly legislation<\/p>",
+          "text": "While our bottles use 100% recycled Ocean-Bound plastic and are 100% recyclable, we know there’s still work to be done to improve recycling rates and clean up our oceans. To extend our efforts, we created 1% for the Oceans, our  give-back program that donates 1% of all ZenWTR sales to credible organizations committed to ocean \nconservation, recycling education, advocacy and legislation like Surfrider Foundation and SeaLegacy.",
           "cta_text": "Dive Deeper",
           "cta_url": "shopify:\/\/blogs\/news\/our-partners-carbonlite",
-          "primary_image": "shopify:\/\/shop_images\/carbonlite.png",
           "secondary_image": "shopify:\/\/shop_images\/bottles-top.png",
-          "background_image": "",
           "wave_shape": true,
           "animate_circle": true,
           "image_align": "left",
@@ -466,14 +520,13 @@
       "mission-image-banner-2": {
         "type": "mission-image-banner-2",
         "settings": {
-          "eyebrow_icon": "",
-          "title": "<p>Please Recycle<br><strong>ZenWTR<\/strong><\/p>",
+          "title": "<p>Please Recycle<br\/><strong>ZenWTR<\/strong><\/p>",
           "text": "Help us keep the loop closed. Learn more\nabout how easy it is to recycle ZenWTR.",
           "light_text": false,
           "cta_text": "Dive Deeper",
           "cta_url": "shopify:\/\/blogs\/news\/recycling-resources-by-state",
-          "background_base": "shopify:\/\/shop_images\/mission-recycle-desktop.png",
-          "background_small": "shopify:\/\/shop_images\/mission-recycle-mobile.png",
+          "background_base": "shopify:\/\/shop_images\/recycling-desktop_1920.png",
+          "background_small": "shopify:\/\/shop_images\/recycling-desktop_1024.png",
           "vertical_align": true,
           "align_center": false
         }
@@ -481,32 +534,33 @@
       "water-hero": {
         "type": "water-hero",
         "settings": {
-          "title": "<p>ZEnWTR<\/p>",
-          "copy_desktop": "Vapor distilled, ultra-purified and ionized to reach a pH of 9.5,  ZenWTR is the perfect choice for crisp, pure water, delivered in a 100% recyclable package (including the label and cap.)",
-          "list": "<p>Vapor Distilled<\/p>\n<p>Alkaline 9.5pH<\/p>\n<p>Electrolytes for superior hydration<\/p>\n<p>Available in 16.9oz, 23.7oz, and 1L<\/p>",
+          "title": "<p><strong>Ionized Alkaline Water<br\/><\/strong>In a 100% recycled, certified ocean-bound plastic bottle.<\/p>",
+          "copy_desktop": "Ultra-pure, refreshing water you can feel good about.",
+          "list": "",
           "light_text": false,
           "cta_text": "Find A Store",
           "cta_url": "shopify:\/\/pages\/stores",
-          "content_image_desktop": "shopify:\/\/shop_images\/BottleTrio2.png",
-          "content_image_mobile": "shopify:\/\/shop_images\/BottleTrio.png",
+          "shop_now_text": "Shop Online",
+          "shop_now_url": "shopify:\/\/products\/zen-wtr-9-5ph-12-1l",
+          "content_image_desktop": "shopify:\/\/shop_images\/BottleTrio2_1024x_c4a4c932-928f-406c-8bf3-84cde79d2c08.png",
+          "content_image_mobile": "shopify:\/\/shop_images\/BottleTrio2_1024_with_blue.png",
           "cover_image": "shopify:\/\/shop_images\/ow-bg.png"
         }
       },
       "water-text-banner": {
         "type": "water-text-banner",
         "settings": {
-          "title": "<p>Ensuring <strong>Water<\/strong> Purity<\/p>",
-          "text": "<p>ZenWTR is one of very few bottled waters using Vapor Distillation,&nbsp;widely considered the benchmark standard for removing impurities from water.<\/p>"
+          "title": "<p>Ultimate In <strong>Purity<\/strong><\/p>",
+          "text": "<p>ZenWTR undergoes an 8-step process that results in our ultra-pure, delicious water, including advanced micron and carbon filtration, reverse osmosis, UV treatments and, most importantly, vapor distillation.<\/p>"
         }
       },
       "water-mosaic-video": {
         "type": "water-mosaic-video",
         "settings": {
           "circle_eyebrow": "",
-          "title": "<p>Reusing what<\/p>\n<p><strong>we have<\/strong><\/p>",
-          "text": "There’s plenty of plastic out there to recycle. In fact, every bottle of ZenWTR is made from up to 5 plastic bottles rescued from coastal environments.",
+          "title": "<p><strong>In A Bottle That You Can Feel Good About<\/strong><\/p>",
+          "text": "ZenWTR is the only beverage in the world using 100% Recycled, Certified Ocean-Bound Plastic. Every ZenWTR prevents up to 5 bottles from reaching and polluting the ocean. So just by choosing ZenWTR you are helping to restore our oceans.",
           "cta_text": "",
-          "cta_url": "",
           "video_url": "https:\/\/vimeo.com\/436973116",
           "wave_shape": false,
           "animate_circle": false,
@@ -550,7 +604,31 @@
           "1595033277287": {
             "type": "store_logo",
             "settings": {
-              "logo": ""
+              "logo": "shopify:\/\/shop_images\/pavillions_c7a99b7d-9c46-4bb3-81c3-25f453abc08d.png"
+            }
+          },
+          "184ae59e-623f-4033-9580-8b0616891d7a": {
+            "type": "store_logo",
+            "settings": {
+              "logo": "shopify:\/\/shop_images\/target-logo-black-and-white.png"
+            }
+          },
+          "7ca6cfd6-b181-4f83-98c7-aab6b4cf7130": {
+            "type": "store_logo",
+            "settings": {
+              "logo": "shopify:\/\/shop_images\/cvs-logo.png"
+            }
+          },
+          "5baa7f10-5e89-4969-8aec-1156342f7ad8": {
+            "type": "store_logo",
+            "settings": {
+              "logo": "shopify:\/\/shop_images\/safeway-logo_da271965-cf50-469f-b1b3-eae0e66742cf.png"
+            }
+          },
+          "2725c177-d3d8-4f6f-bae4-e2118a219626": {
+            "type": "store_logo",
+            "settings": {
+              "logo": "shopify:\/\/shop_images\/vons-logo.png"
             }
           }
         },
@@ -560,7 +638,11 @@
           "1594921804765",
           "1594921810038",
           "1594921818142",
-          "1595033277287"
+          "1595033277287",
+          "184ae59e-623f-4033-9580-8b0616891d7a",
+          "7ca6cfd6-b181-4f83-98c7-aab6b4cf7130",
+          "5baa7f10-5e89-4969-8aec-1156342f7ad8",
+          "2725c177-d3d8-4f6f-bae4-e2118a219626"
         ],
         "settings": {
           "title": "<p>NOW <strong>AVAILABLE AT<\/strong><\/p>",
@@ -578,10 +660,10 @@
           "cta_text": "Recycling Guide",
           "cta_url": "shopify:\/\/pages\/recycling-guide",
           "background_base": "shopify:\/\/shop_images\/whale.png",
-          "title_right": "<p>Our <strong>Partners<\/strong><\/p>",
+          "title_right": "<p>Our <strong>OCEAN-BOUND PLASTIC<\/strong><\/p>",
           "text_right": "Explore our partners' shared values",
           "light_text_right": true,
-          "cta_text_right": "OUR PARTNERS",
+          "cta_text_right": "LEARN MORE",
           "cta_url_right": "shopify:\/\/blogs\/news\/ocean-cycle-certification-ocean-bound-plastic",
           "background_base_right": "shopify:\/\/shop_images\/Ocean_Cycle_CertifictionHERO.png"
         }
@@ -593,9 +675,8 @@
           "text": "The entire ZenWTR bottle is 100% recyclable, including the label and cap. Simply recycle our bottles anywhere you recycle plastic.",
           "light_text": false,
           "cta_text": "",
-          "cta_url": "",
-          "background_base": "shopify:\/\/shop_images\/recycling-desktop.jpg",
-          "background_small": "shopify:\/\/shop_images\/recycling-mobile.png",
+          "background_base": "shopify:\/\/shop_images\/recycling-desktop_1920x_7303572f-3ee9-4eca-974b-b93e54e663a9.png",
+          "background_small": "shopify:\/\/shop_images\/recycling-desktop_1024x_1efc010b-6e3c-43b8-99cf-49751c40a6d2.png",
           "align_center": false
         }
       },
@@ -609,7 +690,6 @@
           "cta_url": "shopify:\/\/blogs\/news\/recycling-information-resources",
           "primary_image": "shopify:\/\/shop_images\/guys-beach.png",
           "secondary_image": "shopify:\/\/shop_images\/wave.png",
-          "background_image": "",
           "wave_shape": false,
           "animate_circle": true,
           "image_align": "left",
@@ -627,7 +707,6 @@
           "cta_url": "shopify:\/\/blogs\/news\/recycling-resources-by-state",
           "primary_image": "shopify:\/\/shop_images\/guy-swim.png",
           "secondary_image": "shopify:\/\/shop_images\/girl-float.png",
-          "background_image": "",
           "wave_shape": false,
           "animate_circle": false,
           "image_align": "right",
@@ -675,54 +754,54 @@
       "mission-process-banner": {
         "type": "mission-process-banner",
         "blocks": {
-          "1595613069982": {
+          "3a1027ae-503e-4ced-ac85-425e593cb217": {
             "type": "process_step",
             "settings": {
-              "icon": "shopify:\/\/shop_images\/garbage-can_5ad805b3-c5da-489c-ad32-dd1d1fe1950c.png",
-              "icon_text": "<p>01 <strong>Bottles Harvested<\/strong><\/p>"
+              "icon": "shopify:\/\/shop_images\/Asset_4_3x-80_86140b21-30af-4eac-b237-3354ff9b0883.jpg",
+              "icon_text": "<p>01: <strong>Bottles Collected<\/strong><\/p>"
             }
           },
           "1595613217203": {
             "type": "process_step",
             "settings": {
-              "icon": "shopify:\/\/shop_images\/bottle-shred.png",
-              "icon_text": "<p>02 <strong>Cleaned &amp; Processed<\/strong><\/p>"
+              "icon": "shopify:\/\/shop_images\/02-_CLEANED_AND_SORTED.jpg",
+              "icon_text": "<p>02 <strong>Cleaned &amp; Sorted<\/strong><\/p>"
             }
           },
           "1595613294129": {
             "type": "process_step",
             "settings": {
-              "icon": "shopify:\/\/shop_images\/process.png",
-              "icon_text": "<p>03 <strong>Reformed<\/strong><\/p>"
+              "icon": "shopify:\/\/shop_images\/03-_PREPARED_FOR_REUSE.jpg",
+              "icon_text": "<p>03 <strong>Prepared for Reuse<\/strong><\/p>"
             }
           },
           "1596130671550": {
             "type": "process_step",
             "settings": {
-              "icon": "shopify:\/\/shop_images\/bottle4.png",
+              "icon": "shopify:\/\/shop_images\/04-_ENJOY.jpg",
               "icon_text": "<p>04 <strong>ENJOY<\/strong><\/p>"
             }
           },
           "1595613537049": {
             "type": "process_step",
             "settings": {
-              "icon": "shopify:\/\/shop_images\/bottle-bin.png",
-              "icon_text": "<p>05 <strong>RECYCLE<\/strong><\/p>"
+              "icon": "shopify:\/\/shop_images\/05-_GIVING_BACK.jpg",
+              "icon_text": "<p>05 <strong>REINVEST<\/strong><\/p>"
             }
           }
         },
         "block_order": [
-          "1595613069982",
+          "3a1027ae-503e-4ced-ac85-425e593cb217",
           "1595613217203",
           "1595613294129",
           "1596130671550",
           "1595613537049"
         ],
         "settings": {
-          "title": "<p>Closed Loop <strong>PROCESS<\/strong> <\/p>",
-          "text": "Our bottles are made from recycled bottles in a true bottle-to-bottle closed loop.  They're also 100% recyclable (including the labels and caps,) able to be born anew to make new products.",
-          "cta_text": "DIVE DEEPER",
-          "cta_url": "shopify:\/\/blogs\/news\/bottle-to-bottle-process-1",
+          "title": "<p><strong>REINVEST:<\/strong> protecting our<br\/>oceans, promoting <br\/>recycling and supporting <br\/>eco-friendly legislation<\/p>",
+          "text": "While our bottles use 100% recycled Ocean-Bound plastic and are 100% recyclable, we know there’s still work to be done to improve recycling rates and clean up our oceans. To extend our efforts, we created 1% for the Oceans, our  give-back program that donates 1% of all ZenWTR sales to credible organizations committed to ocean \nconservation, recycling education, advocacy and legislation.",
+          "cta_text": "Dive Deeper",
+          "cta_url": "https:\/\/zenwtr.com\/blogs\/news\/1-for-the-oceans",
           "white_background": false
         }
       },
@@ -766,7 +845,7 @@
         ],
         "settings": {
           "title": "<p>VAPOR DISTILLATION <strong>PROCESS<\/strong><\/p>",
-          "text": "ZenWTR is triple-filtered and UV treated before undergoing Vapor Distillation, the gold standard in water purification… and we don’t stop there. Click below to learn more about our multi-step purification & ionization process.",
+          "text": "The gold standard for removing impurities from water.",
           "cta_text": "DIVE DEEPER",
           "cta_url": "shopify:\/\/blogs\/news\/our-delicious-water",
           "white_background": true
@@ -788,7 +867,7 @@
         "type": "mission-video",
         "settings": {
           "video_url": "https:\/\/vimeo.com\/440072988",
-          "cover_image": "shopify:\/\/shop_images\/Bantam_Video_Thumbnail.png",
+          "cover_image": "shopify:\/\/shop_images\/thumbnail_FRONTCARD.png",
           "background": false
         }
       },
@@ -800,9 +879,322 @@
         "type": "page-contact",
         "settings": {
           "title": "Contact Us",
-          "sub_title": "",
-          "content": "",
+          "sub_title": "We would Love to hear from you!",
+          "content": "<p>Email us:<strong> <\/strong>hello@zenwtr.com      <br\/> Call us: 1 (833) 332-3936       <br\/> Write Us: 300 Spectrum Center Dr Ste 400 Irvine, CA 92618              <br\/> Or use the form below<\/p>",
           "success_message": ""
+        }
+      },
+      "collection": {
+        "type": "collection",
+        "blocks": {
+          "e9665358-6251-4bee-961f-a7426d2f97d7": {
+            "type": "icon_card",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/vapor-distilled.png",
+              "icon_text": "VAPOR DISTILLED"
+            }
+          },
+          "dbe2eec5-8c09-456f-9d8a-00ee92cf4119": {
+            "type": "icon_card",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/Screen_Shot_2020-06-26_at_5.19.20_PM.png",
+              "icon_text": "ALKALINE 9.5 PH"
+            }
+          },
+          "1d0679b1-6554-40a7-9594-2638a0d3d8ba": {
+            "type": "icon_card",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/Screen_Shot_2020-06-26_at_5.19.55_PM.png",
+              "icon_text": "ELECTROLYTES"
+            }
+          },
+          "d4dd1b20-7f1e-4be2-a852-a5b78710a29d": {
+            "type": "icon_card",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/Recycle_414x_f78c7123-14b6-4198-8d12-ed2fc69f2bd5.png",
+              "icon_text": "100% recycled bottle"
+            }
+          }
+        },
+        "block_order": [
+          "e9665358-6251-4bee-961f-a7426d2f97d7",
+          "dbe2eec5-8c09-456f-9d8a-00ee92cf4119",
+          "1d0679b1-6554-40a7-9594-2638a0d3d8ba",
+          "d4dd1b20-7f1e-4be2-a852-a5b78710a29d"
+        ],
+        "settings": {
+          "enable_filters": false,
+          "enable_sort": false,
+          "title1": "<p>TOGETHER WE CAN<\/p>",
+          "title2": "<p><strong>Reduce Future Ocean Pollution<\/strong><\/p>",
+          "text": "<p>There is already a plenty of plastic in the world we can reuse. In fact, every ZenWTR is made from up to 5 bottles, rescued and recycled from at-risk coastlines and waterways, preventing them from reaching and polluting our oceans.<\/p>",
+          "video_background": "shopify:\/\/shop_images\/Underwater.jpg",
+          "video_url": "https:\/\/vimeo.com\/440072988"
+        }
+      },
+      "product": {
+        "type": "product",
+        "blocks": {
+          "12e81731-0584-4308-8532-c56b17b14718": {
+            "type": "icon_card",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/9.5alkaline.png",
+              "icon_text": "ALKALINE 9.5 PH"
+            }
+          },
+          "f8a9ce5b-1997-4c31-99aa-134c1fda1e72": {
+            "type": "icon_card",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/vapordistilled.png",
+              "icon_text": "VAPOR DISTILLED"
+            }
+          },
+          "1602704088726": {
+            "type": "icon_card",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/100_recycled.png",
+              "icon_text": "100% Recycled Bottle"
+            }
+          },
+          "410e607b-7e79-4231-aeba-87b61b5ada6e": {
+            "type": "icon_card",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/thumbnail_Recycle.png",
+              "icon_text": "CERTIFIED OCEAN-BOUND PLASTIC"
+            }
+          }
+        },
+        "block_order": [
+          "12e81731-0584-4308-8532-c56b17b14718",
+          "f8a9ce5b-1997-4c31-99aa-134c1fda1e72",
+          "1602704088726",
+          "410e607b-7e79-4231-aeba-87b61b5ada6e"
+        ],
+        "settings": {
+          "size_guide_page": "",
+          "title1": "<p>TOGETHER WE CAN<\/p>",
+          "title2": "<p><strong>REDUCE OCEAN PLASTIC<\/strong><\/p>",
+          "text": "<p>There is already a plenty of plastic in the world we can reuse. In fact, up to 5 Certified Ocean-Bound plastic bottles are recycled to produce every 1 bottle of ZenWTR.<\/p>",
+          "video_background": "shopify:\/\/shop_images\/Underwater.jpg",
+          "video_url": "https:\/\/vimeo.com\/440072988"
+        }
+      },
+      "index-instagram-feed": {
+        "type": "index-instagram-feed",
+        "settings": {
+          "title": "JOIN US @DRINKZENWTR",
+          "text": "BE PART OF THE CHANGE",
+          "wave_shape": true
+        }
+      },
+      "mission-header-cta": {
+        "type": "mission-header-cta",
+        "settings": {
+          "header_text": "<p><strong>We&#x27;re An Alkaline<br\/>Water<\/strong> In A Bottle That<br\/>You Can Feel Good About!<\/p>",
+          "text_content": "<p>Our unique bottle is made from 100% recycled, certified ocean-bound plastic that was rescued from at-risk coastal environments, preventing future pollution in the world’s oceans. <br\/><\/p>",
+          "btn_text": "Shop Now",
+          "btn_url": "shopify:\/\/collections\/all-products",
+          "image": "shopify:\/\/shop_images\/Asset_4_3x-80_d4f9b842-a197-4a6b-9d3d-c4723e256a6a.jpg",
+          "mobile_image": "shopify:\/\/shop_images\/Asset_4_3x-80_d4f9b842-a197-4a6b-9d3d-c4723e256a6a.jpg",
+          "wave_shape": false,
+          "vetical_align": false
+        }
+      },
+      "our-water-img-text": {
+        "type": "our-water-img-text",
+        "settings": {
+          "header_text": "<p>Ionized Alkaline Water<\/p>",
+          "text_content": "<p>After vapor distillation, our water is ionized through electrolysis removing bitter tasting acid components while reaching an alkaline 9.5 pH. After that, a proprietary blend of minerals and electrolytes including calcium, potassium and magnesium enhance the water resulting in a great tasting and high-performance water for any occasion.<\/p>",
+          "img_dt": "shopify:\/\/shop_images\/04-_ENJOY_2d7b0407-0f45-48c8-ace5-c90d6a1db4b2.jpg",
+          "img_mobile": "shopify:\/\/shop_images\/04-_ENJOY_2d7b0407-0f45-48c8-ace5-c90d6a1db4b2.jpg"
+        }
+      },
+      "zenpose-top": {
+        "type": "zenpose-top",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/INSPIRATION-FUNDATION_4x_e0a1b824-de23-4c2b-853b-f8dd49c642a2.png",
+          "copy": "<p>ZenPose Challenge wireframe: Ocean conservation is complicated. But with ZenWTR, you can easily be a part of the solution. This campaign is meant to spread awareness about ZenWTR‘s mission by inviting the world to take part in a fun, quirky challenge to align their inner chakra with the ocean.<\/p><p>We want you to show us how you live in harmony with the ocean by striking your own unique yoga pose, aka your #ZenPose and we will donate cold hard cash (or clams)to ocean conservation. Everyone wins.<\/p>",
+          "rules": "<p>Here are the rules: <br\/>Grab a ZenWTR bottle create a shareable pose hashtag with #zenPose - then challenge a friend to do the same.<br\/><strong>LETS DO THIS<\/strong><\/p>"
+        }
+      },
+      "zenpose-bottom": {
+        "type": "zenpose-bottom",
+        "blocks": {
+          "5b5967ab-14e6-4a92-ab97-427c225d0c0b": {
+            "type": "image",
+            "settings": {
+              "banner": "shopify:\/\/shop_images\/img-01.jpg",
+              "url": "https:\/\/google.com"
+            }
+          },
+          "0160d601-5eeb-49c7-b2d2-bb64647c94d1": {
+            "type": "image",
+            "settings": {
+              "banner": "shopify:\/\/shop_images\/banner-bottom_ce439edf-af6a-4a76-bb1a-92fad3c1e04e.jpg",
+              "url": "https:\/\/yahoo.com"
+            }
+          }
+        },
+        "block_order": [
+          "5b5967ab-14e6-4a92-ab97-427c225d0c0b",
+          "0160d601-5eeb-49c7-b2d2-bb64647c94d1"
+        ],
+        "settings": {
+          "image": "shopify:\/\/shop_images\/every-pose_2x_c25d0c2f-9547-470c-8fe4-0762c011a6fc.png"
+        }
+      },
+      "zenpose-ig": {
+        "type": "zenpose-ig",
+        "blocks": {
+          "73fa77f3-fc80-4827-8daa-6e0c2d54017a": {
+            "type": "instagram",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/ig-square-2400.jpg",
+              "url": "https:\/\/google.com"
+            }
+          },
+          "8cd8b2c6-e38d-4d08-a075-0920642e8d9d": {
+            "type": "instagram",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/ig-square-2400.jpg",
+              "url": "https:\/\/cnn.com"
+            }
+          },
+          "dd9222d3-ab5a-47ee-abcb-93131b16838e": {
+            "type": "instagram",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/ig-square-2400.jpg",
+              "url": "https:\/\/yahoo.com"
+            }
+          },
+          "2e554235-92db-4175-af9d-f5023a928ab8": {
+            "type": "instagram",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/ig-square-2400.jpg",
+              "url": "https:\/\/yahoo.com"
+            }
+          },
+          "2adb1ec8-bd14-459b-856e-d6840f7010b5": {
+            "type": "instagram",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/ig-square-2400.jpg",
+              "url": "https:\/\/cnn.com"
+            }
+          }
+        },
+        "block_order": [
+          "73fa77f3-fc80-4827-8daa-6e0c2d54017a",
+          "8cd8b2c6-e38d-4d08-a075-0920642e8d9d",
+          "dd9222d3-ab5a-47ee-abcb-93131b16838e",
+          "2e554235-92db-4175-af9d-f5023a928ab8",
+          "2adb1ec8-bd14-459b-856e-d6840f7010b5"
+        ],
+        "settings": {}
+      },
+      "zenpose-video": {
+        "type": "zenpose-video",
+        "settings": {
+          "video_url": "https:\/\/vimeo.com\/440072988"
+        }
+      },
+      "hero-slider": {
+        "type": "hero-slider",
+        "blocks": {
+          "0b6b7846-e45e-4887-ab58-c8a3231609ae": {
+            "type": "slider-image",
+            "settings": {
+              "mobile_image": "shopify:\/\/shop_images\/Artboard_20.png",
+              "image": "shopify:\/\/shop_images\/ZW_Header_Hunter.png",
+              "btn_copy": "",
+              "btn_link": "https:\/\/zenwtr.com\/blogs\/news\/zenwtr-is-the-first-beverage-in-the-world-to-be-officially-certified-plastic-negative",
+              "btn_vertical_placement": 45,
+              "btn_horizontal_placement": 45,
+              "btn_center": true
+            }
+          },
+          "3ae455e2-6dfa-49ec-97a8-0cf2a2c3ad15": {
+            "type": "slider-image",
+            "disabled": true,
+            "settings": {
+              "mobile_image": "shopify:\/\/shop_images\/Zen_Mobile_ALT_a4f71800-35a3-4aed-84b8-8301b1e4b9e3.png",
+              "image": "shopify:\/\/shop_images\/Zen_Header_G_1920px_5a47f9e6-894d-4e54-ac05-4f756d50b4fc.png",
+              "btn_copy": "",
+              "btn_link": "https:\/\/zenwtr.com\/products\/zen-wtr-9-5ph-12-1l",
+              "btn_vertical_placement": 84,
+              "btn_horizontal_placement": 5,
+              "btn_center": false
+            }
+          },
+          "026d5eef-2030-441c-b5d9-cd3735bb0fad": {
+            "type": "slider-image",
+            "settings": {
+              "mobile_image": "shopify:\/\/shop_images\/Zen_Mobile_6PK_550fd841-0cf4-4f7d-bb59-c0d48a32a90e.png",
+              "image": "shopify:\/\/shop_images\/Zen_Header_6PK_1920px_2d7df943-ad6b-4712-bb22-d065ff1bbed2.png",
+              "btn_copy": "",
+              "btn_link": "https:\/\/zenwtr.com\/products\/zenwtr-1-liter-6-pack",
+              "btn_vertical_placement": 45,
+              "btn_horizontal_placement": 45,
+              "btn_center": true
+            }
+          },
+          "967a0720-1445-451b-b668-12d69c7dcabd": {
+            "type": "slider-image",
+            "disabled": true,
+            "settings": {
+              "image": "shopify:\/\/shop_images\/fosters.jpg",
+              "btn_copy": "",
+              "btn_link": "shopify:\/\/collections\/all-products",
+              "btn_vertical_placement": 20,
+              "btn_horizontal_placement": 20,
+              "btn_center": true
+            }
+          },
+          "832e844a-479e-4f02-a0ca-6c6e434cbfe2": {
+            "type": "slider-image",
+            "disabled": true,
+            "settings": {
+              "image": "shopify:\/\/shop_images\/ZOE.jpg",
+              "btn_copy": "",
+              "btn_link": "",
+              "btn_vertical_placement": 20,
+              "btn_horizontal_placement": 20,
+              "btn_center": true
+            }
+          },
+          "e5940b5e-284a-460c-b349-7079d77e8251": {
+            "type": "slider-image",
+            "disabled": true,
+            "settings": {
+              "btn_copy": "",
+              "btn_link": "",
+              "btn_vertical_placement": 45,
+              "btn_horizontal_placement": 45,
+              "btn_center": true
+            }
+          },
+          "41c6726c-d772-4746-ad9e-f69054a8d262": {
+            "type": "slider-image",
+            "disabled": true,
+            "settings": {
+              "btn_copy": "",
+              "btn_link": "",
+              "btn_vertical_placement": 45,
+              "btn_horizontal_placement": 45,
+              "btn_center": true
+            }
+          }
+        },
+        "block_order": [
+          "0b6b7846-e45e-4887-ab58-c8a3231609ae",
+          "3ae455e2-6dfa-49ec-97a8-0cf2a2c3ad15",
+          "026d5eef-2030-441c-b5d9-cd3735bb0fad",
+          "967a0720-1445-451b-b668-12d69c7dcabd",
+          "832e844a-479e-4f02-a0ca-6c6e434cbfe2",
+          "e5940b5e-284a-460c-b349-7079d77e8251",
+          "41c6726c-d772-4746-ad9e-f69054a8d262"
+        ],
+        "settings": {
+          "active": true
         }
       }
     },

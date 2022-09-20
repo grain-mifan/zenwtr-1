@@ -3,22 +3,18 @@
 {% assign list = section.settings.list %}
 {% assign cta_url = section.settings.cta_url %}
 {% assign cta_text = section.settings.cta_text %}
+{% assign shop_now_url = section.settings.shop_now_url %}
+{% assign shop_now_text = section.settings.shop_now_text %}
 {% assign cover_image = section.settings.cover_image %}
-
-
 {% assign content_image_desktop = section.settings.content_image_desktop %}
-
 {% if section.settings.content_image_mobile != blank %}
   {% assign content_image_mobile = section.settings.content_image_mobile %}
 {% else %}
   {% assign content_image_mobile = section.settings.content_image_desktop %}
 {% endif %}
-
-
 {% assign light_text = section.settings.light_text %}
 
 <div class="hero hero--our-water {% if light_text == true %}hero--light-text{% endif %}{% if bg_video == true %} hero--bg-video{% endif %}">
-
   <div class="container-fluid-max hero-container">
     <div class="row row--our-water">
       <div class="col-md-6">
@@ -28,39 +24,33 @@
             object_fit: 'contain',
             image_class: 'd-md-block d-none'
           %}
-
           {% include 'image_tag'
             image: content_image_mobile,
             object_fit: 'contain',
             image_class: 'd-md-none d-block'
           %}
-
         </div>
       </div>
-
       <div class="col-md-6 text-left">
         {% if title != blank %}
           <h1 class="hero-title h2">{{ title | remove: '<p>'  | remove: '</p>' }}</h1>
         {% endif %}
-
         {% if copy_desktop != blank %}
-          <div class="hero-copy hero-copy--desktop p1">{{ copy_desktop }}</div>
+          <div class="hero-copy hero-copy--desktop p2">{{ copy_desktop }}</div>
         {% endif %}
-
-
         {% if list != blank %}
           <div class="hero-list">{{ list }}</div>
         {% endif %}
-
+        <div class="hero-cta-container">
         {% if cta_url != blank and cta_text != blank %}
-          <div class="hero-cta-container">
-            <a href="{{ cta_url }}" class="btn btn-primary">{{ cta_text }}</a>
-          </div>
+          <a href="{{ cta_url }}" class="btn btn-primary">{{ cta_text }}</a>
         {% endif %}
+        {% if shop_now_url != blank and shop_now_text != blank %}
+          <a href="{{ shop_now_url }}" class="btn btn-primary" style="margin-left: 15px;">{{ shop_now_text }}</a>
+        {% endif %}
+        </div>
       </div>
     </div>
-
-    
     {% if cover_image != blank %}
       <div class="hero-background d-none d-md-block">
         {% include 'image_tag'
@@ -71,8 +61,6 @@
     {% endif %}
   </div>
 </div>
-
-
 {% schema %}
   {
     "name": "Hero",
@@ -111,6 +99,16 @@
         "type": "url",
         "id": "cta_url",
         "label": "CTA URL"
+      },
+	  {
+        "type": "text",
+        "id": "shop_now_text",
+        "label": "SHOP Now Text"
+      },
+      {
+        "type": "url",
+        "id": "shop_now_url",
+        "label": "Show Now URL"
       },
       {
         "type": "image_picker",

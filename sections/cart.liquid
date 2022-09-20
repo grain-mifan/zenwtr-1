@@ -58,7 +58,7 @@
 
                             {% unless item.properties == empty %}
                               {% for p in item.properties %}
-                                {% unless p.last == blank %}
+                                {% unless p.last == blank or p.first == "subscription_id" or p.first == "shipping_interval_frequency" or p.first == "shipping_interval_unit_type" %}
                                 <li>
                                   {{ p.first }}:
                                   {% if p.last contains '/uploads/' %}
@@ -139,16 +139,10 @@
                       {% endif %}
                       <p class="d-lg-none">{{ 'cart.general.shipping_at_checkout' | t }}<br /><br/></p>
                     </div>
-                    <div class="cart-list__footer-width-container">
-                      <p>
-                        <input type="submit" name="checkout" class="btn btn-primary btn-block" value="{{ 'cart.general.checkout' | t }}">
-                      </p>
-                      {% if additional_checkout_buttons %}
-                        <div class="additional-checkout-buttons">
-                          {{ content_for_additional_checkout_buttons }}
-                        </div>
-                      {% endif %}
-                    </div>
+                  </div>
+                  <div class="cart-list__footer-checkout">
+                    <input type="submit" name="checkout" class="btn btn-primary btn-block" value="{{ 'cart.general.checkout' | t }}">
+                    <!--<a href="/collections/all" class="btn btn-outline-primary btn-block">{{ 'products.product.continue_shopping' | t }}</a>-->
                   </div>
                 </div>
               </div>

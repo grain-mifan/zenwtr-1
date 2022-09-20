@@ -35,7 +35,7 @@
     <div class="row justify-content-center align-items-center d-none d-md-flex">
       <div class="col-md-6 text-left banner-content">
         {% if title != blank %}
-          <div class="banner__title h2">{{ title }}</div>
+          <div class="banner__title h3">{{ title }}</div>
         {% endif %}
         
         {% if text != blank %}
@@ -48,7 +48,7 @@
       </div>
       
       {% if content_image != blank %}
-        <div class="banner-image-content {% if overlap_image == true %}col-md-7 col-lg-6{% else %}col-md-6{% endif %}">
+        <div class="banner-image-content {% if overlap_image == true %}col-md-7 col-lg-6{% else %}col-md-5{% endif %}">
           {% include 'image_tag'
             image: content_image,
             object_fit: 'contain'
@@ -84,7 +84,7 @@
         {% endif %}
         
         {% if text != blank %}
-          <div class="banner__text p1">{{ text }}</div>
+          <div class="banner__text no-max-width p1">{{ text }}</div>
         {% endif %}
 
         {% if cta_url != blank and cta_text != blank %}
