@@ -35,7 +35,11 @@
         <div class="header-nav header-nav--left header-nav--logo col-md-2">
           <div class="logo-container">
             <a href="/">
+              {% comment %}
+              <img class="zw-logo" src="{{ 'ZW_Logos_2c.png' | file_img_url: '2048 x 2048' }}" />
+              {% endcomment %}
               {% include 'icon-logo-black--full-color' %}
+			  
             </a>
           </div>
         </div>
@@ -127,3 +131,10 @@
     ]
   }
 {% endschema %}
+
+<style>
+  .zw-logo {
+    width: 145%;
+    height: auto;
+  }
+</style>
